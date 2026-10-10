@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda | Aurora Femme</title>
+  <meta name="description" content="Hilos de encaje con tirantes graduables y panties invisibles sin costuras. Envíos a toda Colombia.">
+  <meta name="theme-color" content="#FDF7F5">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-pagina="tienda">
+  <a class="sr-only" href="#contenido">Saltar al contenido</a>
+  <div id="cabecera"></div>
+  <main id="contenido" class="wrap">
+    <header class="cabeza-pagina">
+      <h1 id="tituloTienda" style="font-size:clamp(2.2rem,5vw,3.6rem)">Toda la tienda</h1>
+      <p id="bajadaTienda"></p>
+    </header>
+    <div class="filtros">
+      <div class="chips" role="group" aria-label="Filtrar por línea">
+        <button class="chip" data-filtro="todo" aria-pressed="true">Todo</button>
+        <button class="chip" data-filtro="hilos-graduables" aria-pressed="false">Hilos graduables</button>
+        <button class="chip" data-filtro="panties-invisibles" aria-pressed="false">Panties invisibles</button>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center">
+        <span class="conteo" id="conteo" aria-live="polite"></span>
+        <label class="sr-only" for="orden">Ordenar</label>
+        <select id="orden">
+          <option value="recomendado">Recomendado</option>
+          <option value="menor">Precio: menor a mayor</option>
+          <option value="mayor">Precio: mayor a menor</option>
+        </select>
+      </div>
+    </div>
+    <div class="grilla" id="grilla" style="padding-bottom:clamp(64px,8vw,110px)"></div>
+  </main>
+  <div id="pie"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
