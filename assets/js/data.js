@@ -109,3 +109,74 @@ const LOGO = {
   img: "assets/img/logo-aurora-femme.png",
   cdn: "https://aurorafemme.co/cdn/shop/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?v=1778723989&width=560",
 };
+
+/* =========================================================
+   Reseñas de clientas
+   Solo reseñas reales, con permiso de la clienta.
+   Mientras esta lista esté vacía, la sección no se muestra.
+   Ejemplo:
+   { nombre: "Nombre A.", ciudad: "Ibagué", estrellas: 5,
+     producto: "tanga-encaje-floral-negro", texto: "..." },
+   ========================================================= */
+const RESENAS = [];
+
+/* =========================================================
+   Diario Aurora (blog)
+   Para publicar una entrada: agrega un bloque al inicio de la lista.
+   cuerpo: párrafos en HTML sencillo (<p>, <h2>, <ul><li>).
+   ========================================================= */
+const DIARIO = [
+  {
+    slug: "como-cuidar-tu-lenceria",
+    titulo: "Cómo cuidar tu lencería para que te dure",
+    resumen: "El encaje es delicado, pero no complicado. Cinco hábitos que hacen la diferencia.",
+    fecha: "2026-10-01",
+    lectura: "3 min",
+    imagen: "hg006",
+    cuerpo: `
+      <p>Una pieza de encaje bien cuidada dura años. La mayoría se dañan por tres cosas: agua caliente, la lavadora y la secadora. Con estos hábitos, tus favoritas siguen como el primer día.</p>
+      <h2>1. Lava a mano, con agua fría</h2>
+      <p>Llena un recipiente con agua fría y unas gotas de jabón suave o champú de bebé. Deja la prenda cinco minutos y muévela con la mano, sin frotar el encaje contra sí mismo.</p>
+      <h2>2. Nunca la retuerzas</h2>
+      <p>Retorcer deforma los elásticos y abre el tejido del encaje. Mejor presiónala entre dos toallas para sacar el agua.</p>
+      <h2>3. Sécala a la sombra, extendida</h2>
+      <p>El sol directo apaga los colores y el calor de la secadora vence los elásticos. Extiéndela sobre una toalla o cuélgala de la costura central.</p>
+      <h2>4. Si usas lavadora, usa una bolsa de malla</h2>
+      <p>Ciclo delicado, agua fría y una bolsa de lavado. Así los tirantes no se enredan con otras prendas.</p>
+      <h2>5. Guárdala sin doblar el encaje</h2>
+      <p>Un cajón solo para lencería, con las piezas extendidas o enrolladas, evita marcas y enganches.</p>`,
+  },
+  {
+    slug: "como-tomar-tus-medidas",
+    titulo: "Cómo tomar tus medidas en dos minutos",
+    resumen: "Solo necesitas una cinta métrica y un espejo. Así encuentras tu talla sin adivinar.",
+    fecha: "2026-09-20",
+    lectura: "2 min",
+    imagen: "hg002",
+    cuerpo: `
+      <p>Medirte en casa es más fácil de lo que parece. Hazlo con ropa interior delgada o sin ropa, de pie y relajada.</p>
+      <h2>Busto</h2>
+      <p>Pasa la cinta por la parte más llena del pecho, paralela al piso. Que quede pegada, sin apretar.</p>
+      <h2>Cintura</h2>
+      <p>Mide en la parte más estrecha del torso, normalmente un poco arriba del ombligo.</p>
+      <h2>Cadera</h2>
+      <p>Junta los pies y pasa la cinta por la parte más ancha de la cadera y los glúteos.</p>
+      <p>Con esas tres medidas, usa la <a class="enlace" href="index.html#tallas">calculadora de tallas</a>. Si quedas entre dos tallas, elige la más grande. Y si tienes dudas, escríbenos por WhatsApp: te asesoramos con gusto.</p>`,
+  },
+  {
+    slug: "hilo-o-panty-invisible",
+    titulo: "¿Hilo de encaje o panty invisible? Cuándo usar cada uno",
+    resumen: "Una guía rápida según lo que te vas a poner hoy.",
+    fecha: "2026-09-05",
+    lectura: "3 min",
+    imagen: "pi003",
+    cuerpo: `
+      <p>No hay una pieza para todo. Lo que llevas encima decide qué te queda mejor por debajo.</p>
+      <h2>Panty invisible: para ropa ajustada o clara</h2>
+      <p>Leggings, vestidos de punto, pantalones blancos o de lino. Al no tener costuras y tener corte láser, no marca líneas. Elige el tono más cercano a tu piel (Champagne, Duna, Avellana o Chocolate) para que tampoco se transparente.</p>
+      <h2>Hilo de encaje: para cuando quieres sentirte linda</h2>
+      <p>Jeans, faldas con caída, el día a día. Los tirantes graduables te dejan subirlos o bajarlos en la cadera según el pantalón.</p>
+      <h2>¿Y para hacer ejercicio?</h2>
+      <p>El panty invisible: es elástico, no se mueve y no roza.</p>`,
+  },
+];

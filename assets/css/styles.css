@@ -194,6 +194,7 @@ p { margin: 0; }
 /* ---------- Productos ---------- */
 .grilla { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 28px) clamp(12px, 1.6vw, 22px); }
 .tarjeta { position: relative; display: flex; flex-direction: column; }
+.tarjeta-media { position: relative; z-index: 1; }
 .tarjeta-foto {
   position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden;
   border-radius: 14px; background: var(--nube);
@@ -389,9 +390,85 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .texto-largo ul { padding-left: 20px; }
 .politicas-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 
+
+/* ---------- Cabecera: extras ---------- */
+.nav-extra { align-self: center; text-decoration: none; font-size: .95rem; color: var(--gris-seda); padding: 6px 10px; border-bottom: 1px solid transparent; margin-right: 6px; }
+.nav-extra:hover, .nav-extra[aria-current="page"] { color: var(--negro); border-bottom-color: var(--negro); }
+
+/* ---------- Buscador ---------- */
+.buscador {
+  position: fixed; inset: 0; z-index: 75; background: rgba(23,18,20,.4);
+  opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s;
+}
+.buscador.abierto { opacity: 1; visibility: visible; }
+.buscador > .wrap {
+  background: var(--blanco); max-width: none; padding-top: 18px; padding-bottom: 32px;
+  max-height: 88vh; overflow-y: auto;
+  transform: translateY(-16px); transition: transform .35s var(--ease);
+  border-radius: 0 0 var(--r-l) var(--r-l);
+}
+.buscador.abierto > .wrap { transform: none; }
+.buscador-barra { display: flex; align-items: center; gap: 12px; max-width: var(--wrap); margin: 0 auto; border-bottom: 1px solid var(--negro); padding: 6px 0; }
+.buscador-barra > svg { width: 22px; height: 22px; flex: none; color: var(--gris-seda); }
+.buscador-barra input { flex: 1; min-width: 0; border: 0; background: none; font-family: var(--f-titular); font-size: clamp(1.3rem, 3vw, 2rem); padding: 10px 0; color: var(--negro); outline: none; }
+.buscador-barra input::-webkit-search-cancel-button { display: none; }
+.buscador-sugerencias { display: flex; gap: 8px; flex-wrap: wrap; max-width: var(--wrap); margin: 18px auto 0; }
+.buscador-resultados { max-width: var(--wrap); margin: 0 auto; }
+.buscador-resultados .conteo { margin: 24px 0 16px; }
+.buscador-vacio { margin-top: 28px; color: var(--gris-seda); }
+
+/* ---------- Franja de confianza ---------- */
+.confianza { background: var(--negro); color: var(--blanco); }
+.confianza .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+.confianza-item { display: flex; gap: 18px; align-items: flex-start; padding: clamp(28px, 4vw, 48px) clamp(16px, 2.5vw, 36px); }
+.confianza-item + .confianza-item { border-left: 1px solid rgba(253,247,245,.14); }
+.confianza-item svg { width: 30px; height: 30px; flex: none; color: var(--rosa); margin-top: 2px; }
+.confianza-item h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.confianza-item p { color: rgba(253,247,245,.7); font-size: .93rem; max-width: 32ch; }
+
+/* ---------- Filtro por color ---------- */
+.filtro-colores { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex-basis: 100%; order: 3; }
+.filtro-colores:empty { display: none; }
+.tela--chica { width: 30px; height: 30px; }
+.filtro-colores .quitar { margin-left: 6px; }
+
+/* ---------- Reseñas ---------- */
+.resenas { background: var(--nube); }
+.resenas-lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 24px); }
+.resena { margin: 0; background: var(--blanco); border-radius: var(--r-l); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.estrellas { display: flex; gap: 3px; color: var(--dorado); }
+.estrellas svg { width: 17px; height: 17px; }
+.estrellas .apagada { color: rgba(23,18,20,.15); }
+.resena blockquote { margin: 0; font-family: var(--f-claim); font-style: italic; font-weight: 400; font-size: 1.3rem; line-height: 1.4; flex: 1; }
+.resena figcaption { font-size: .9rem; color: var(--gris-seda); }
+.resena figcaption b { color: var(--negro); font-weight: 500; }
+.resena figcaption a { display: block; margin-top: 2px; color: var(--terracota-p); text-underline-offset: 3px; }
+
+/* ---------- Diario ---------- */
+.notas { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 36px); }
+.nota { display: flex; flex-direction: column; }
+.nota-foto { display: block; aspect-ratio: 3 / 2; border-radius: 14px; overflow: hidden; background: var(--nube); margin-bottom: 18px; }
+.nota-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+.nota:hover .nota-foto img { transform: scale(1.035); }
+.nota-meta { font-size: .85rem; color: var(--topo); margin-bottom: 8px; }
+.nota h3 { font-size: 1.35rem; margin-bottom: 8px; }
+.nota h3 a { text-decoration: none; }
+.nota h3 a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.nota > p:last-child { color: var(--gris-seda); font-size: .95rem; }
+.articulo { max-width: 780px; padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(48px, 6vw, 80px); }
+.articulo h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 14px; }
+.articulo-foto { aspect-ratio: 16 / 10; border-radius: var(--r-l); overflow: hidden; background: var(--nube); margin: 28px 0 8px; }
+.articulo-foto img { width: 100%; height: 100%; object-fit: cover; }
+.articulo-cuerpo { padding-bottom: 0; }
+.articulo-cuerpo h2 { font-size: 1.45rem; margin: 36px 0 10px; }
+.articulo-cuerpo p { font-size: 1.05rem; line-height: 1.75; }
+.articulo-cierre { margin-top: 48px; padding: 32px; background: var(--nube); border-radius: var(--r-l); }
+.articulo-cierre .claim { font-size: 1.5rem; color: var(--ciruela); margin-bottom: 18px; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
+  .resenas-lista, .notas { grid-template-columns: repeat(2, 1fr); }
   .pie-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {
@@ -405,11 +482,15 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
   .historia-foto { max-width: 360px; width: 100%; margin: 0 auto; }
   .producto-foto { position: relative; top: 0; }
   .pasos { grid-template-columns: 1fr; }
+  .nav-extra { display: none; }
+  .confianza .wrap { grid-template-columns: 1fr; padding: 0; }
+  .confianza-item + .confianza-item { border-left: 0; border-top: 1px solid rgba(253,247,245,.14); }
   .grilla { grid-template-columns: repeat(2, 1fr); }
   .tarjeta-agregar { opacity: 1; transform: none; min-height: 40px; font-size: .82rem; }
 }
 @media (max-width: 560px) {
   .colecciones { grid-template-columns: 1fr; }
+  .resenas-lista, .notas { grid-template-columns: 1fr; }
   .coleccion { aspect-ratio: 4 / 3; }
   .calc-campos { grid-template-columns: 1fr; }
   .pie-grid { grid-template-columns: 1fr; }

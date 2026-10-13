@@ -14,6 +14,8 @@ index.html        Inicio
 tienda.html       Catálogo con filtros (?c=hilos-graduables | panties-invisibles)
 producto.html     Ficha de producto (?p=<handle>)
 nosotras.html     Historia de la marca
+diario.html       Diario Aurora (blog)
+articulo.html     Nota del diario (?a=<slug>)
 politicas.html    Envíos, cambios, privacidad y términos
 assets/js/data.js Catálogo: productos, precios, colores y datos de contacto  ← aquí editas
 assets/js/app.js  Carrito, pedido por WhatsApp, calculadora de tallas
@@ -23,6 +25,8 @@ scripts/descargar-imagenes.sh  Baja las fotos de Shopify a assets/img
 
 ## Tareas frecuentes
 - **Cambiar un precio o agregar un producto:** edita `assets/js/data.js`. Pon la foto en `assets/img/productos/`.
+- **Publicar una nota en el diario:** agrega un bloque al inicio de `DIARIO` en `assets/js/data.js`.
+- **Agregar reseñas:** solo reales y con permiso de la clienta, en `RESENAS` dentro de `assets/js/data.js`. La sección aparece sola cuando hay al menos una.
 - **Costo de envío:** `costoEnvio` en `assets/js/data.js`.
 - **Ver el sitio en tu Mac:** `python3 -m http.server 8000` dentro de la carpeta y abre http://localhost:8000
 
