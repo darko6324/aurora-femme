@@ -22,8 +22,8 @@ bajar "$CDN/pi002-duna-01.jpg"               assets/img/productos/pi002-duna.jpg
 bajar "$CDN/pi003-avellana-01.jpg"           assets/img/productos/pi003-avellana.jpg
 bajar "$CDN/pi004-chocolate-01.jpg"          assets/img/productos/pi004-chocolate.jpg
 bajar "$CDN/pi005-negro-01.jpg"              assets/img/productos/pi005-negro.jpg
-bajar "https://aurorafemme.co/cdn/shop/collections/Hilos_Graduables.jpg?width=1500"   assets/img/colecciones/hilos-graduables.jpg
-bajar "https://aurorafemme.co/cdn/shop/collections/PANTIESINVISIBLES.jpg?width=1500"  assets/img/colecciones/panties-invisibles.jpg
-bajar "https://aurorafemme.co/cdn/shop/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?width=560" assets/img/logo-aurora-femme.png
+bajar "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/Hilos_Graduables.jpg?width=1500"   assets/img/colecciones/hilos-graduables.jpg
+bajar "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/PANTIESINVISIBLES.jpg?width=1500"  assets/img/colecciones/panties-invisibles.jpg
+bajar "https://cdn.shopify.com/s/files/1/0710/6838/5514/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?width=560" assets/img/logo-aurora-femme.png
 
 echo "Listo. Ahora sube las fotos: git add assets/img && git commit -m 'Fotos locales' && git push"

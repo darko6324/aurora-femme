@@ -26,14 +26,14 @@ const COLECCIONES = [
     nombre: "Hilos graduables",
     texto: "Encaje floral y de pestaña con tirantes que ajustas a tu cadera.",
     img: "assets/img/colecciones/hilos-graduables.jpg",
-    cdn: "https://aurorafemme.co/cdn/shop/collections/Hilos_Graduables.jpg?v=1784514470&width=1500",
+    cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/Hilos_Graduables.jpg?v=1784514470&width=1500",
   },
   {
     id: "panties-invisibles",
     nombre: "Panties invisibles",
     texto: "Sin costuras y con corte láser: no se marcan ni bajo el vestido más ajustado.",
     img: "assets/img/colecciones/panties-invisibles.jpg",
-    cdn: "https://aurorafemme.co/cdn/shop/collections/PANTIESINVISIBLES.jpg?v=1784514501&width=1500",
+    cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/PANTIESINVISIBLES.jpg?v=1784514501&width=1500",
   },
 ];
 
@@ -107,7 +107,7 @@ const PRODUCTOS = [
 
 const LOGO = {
   img: "assets/img/logo-aurora-femme.png",
-  cdn: "https://aurorafemme.co/cdn/shop/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?v=1778723989&width=560",
+  cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?v=1778723989&width=560",
 };
 
 /* =========================================================
