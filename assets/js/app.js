@@ -1,7 +1,8 @@
 /* =========================================================
    Aurora Femme — lógica de la tienda
-   Cabecera/pie compartidos, carrito, pedido por WhatsApp,
-   catálogo, ficha de producto y calculadora de tallas.
+   Cabecera/pie compartidos. El catálogo, la bolsa y el pedido por
+   WhatsApp viven en la plataforma de inventario (iframe en tienda.html).
+   Aquí: cabecera, pie, portada, calculadora de tallas y diario.
    ========================================================= */
 
 (() => {
@@ -11,7 +12,6 @@
 
   const pesos = (n) => "$" + Math.round(n).toLocaleString("es-CO");
   const porHandle = (h) => PRODUCTOS.find((p) => p.handle === h);
-  const urlProducto = (p) => `producto.html?p=${encodeURIComponent(p.handle)}`;
 
   // Imagen local con respaldo en el CDN mientras no se descarguen las fotos
   const img = (o, alt, extra = "") =>
@@ -38,9 +38,7 @@
 
   /* ---------------- Cabecera y pie ---------------- */
   const navLinks = [
-    ["tienda.html", "Tienda", "tienda"],
-    ["tienda.html?c=hilos-graduables", "Hilos graduables", "hilos"],
-    ["tienda.html?c=panties-invisibles", "Panties invisibles", "panties"],
+    ["tienda.html", "Catálogo", "tienda"],
     ["diario.html", "Diario", "diario"],
     ["nosotras.html", "Nosotras", "nosotras"],
   ];
@@ -48,11 +46,8 @@
   function montarCabecera() {
     const destino = $("#cabecera");
     if (!destino) return;
-    const actual = new URLSearchParams(location.search).get("c");
     const activo = (clave) =>
-      (clave === "tienda" && pagina === "tienda" && !actual) ||
-      (clave === "hilos" && actual === "hilos-graduables") ||
-      (clave === "panties" && actual === "panties-invisibles") ||
+      (clave === "tienda" && pagina === "tienda") ||
       (clave === "nosotras" && pagina === "nosotras") ||
       (clave === "diario" && (pagina === "diario" || pagina === "articulo"));
     destino.outerHTML = `
@@ -60,16 +55,13 @@
       <header class="cabecera">
         <div class="wrap">
           <nav class="nav" aria-label="Principal">
-            ${navLinks.slice(0, 4).map(([h, t, k]) => `<a href="${h}" ${activo(k) ? 'aria-current="page"' : ""}>${t}</a>`).join("")}
+            ${navLinks.slice(0, 2).map(([h, t, k]) => `<a href="${h}" ${activo(k) ? 'aria-current="page"' : ""}>${t}</a>`).join("")}
           </nav>
           <button class="icono-btn menu-btn" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false">${ICONOS.menu}</button>
           <a class="logo" href="index.html" aria-label="Aurora Femme, inicio">${img(LOGO, "Aurora Femme", 'loading="eager"')}</a>
           <div class="acciones">
             <a class="nav-extra" href="nosotras.html" ${activo("nosotras") ? 'aria-current="page"' : ""}>Nosotras</a>
-            <button class="icono-btn" id="abrirBuscar" aria-label="Buscar productos">${ICONOS.lupa}</button>
-            <button class="icono-btn" id="abrirCarrito" aria-label="Abrir bolsa de compras">
-              ${ICONOS.bolsa}<span class="contador" data-n="0">0</span>
-            </button>
+            <a class="icono-btn" href="tienda.html" aria-label="Ir al catálogo y a tu bolsa">${ICONOS.bolsa}</a>
           </div>
         </div>
       </header>
@@ -92,53 +84,6 @@
       menu.classList.remove("abierto"); menu.setAttribute("aria-hidden", "true");
       abrir.setAttribute("aria-expanded", "false"); abrir.focus();
     });
-    $("#abrirCarrito").addEventListener("click", abrirCarrito);
-    montarBuscador();
-  }
-
-  /* ---------------- Buscador ---------------- */
-  const sinTildes = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-  function montarBuscador() {
-    document.body.insertAdjacentHTML("beforeend", `
-      <div class="buscador" id="buscador" role="dialog" aria-modal="true" aria-label="Buscar productos" aria-hidden="true">
-        <div class="wrap">
-          <div class="buscador-barra">
-            ${ICONOS.lupa}
-            <label class="sr-only" for="buscarInput">Buscar</label>
-            <input id="buscarInput" type="search" placeholder="Busca por color, encaje, panty…" autocomplete="off">
-            <button class="icono-btn" id="cerrarBuscar" aria-label="Cerrar búsqueda">${ICONOS.cerrar}</button>
-          </div>
-          <div class="buscador-sugerencias" id="buscarSugerencias">
-            ${["Negro", "Encaje", "Sin costuras", "Palo de rosa", "Nude"].map((t) => `<button class="chip" data-sugerencia="${t}">${t}</button>`).join("")}
-          </div>
-          <div class="buscador-resultados" id="buscarResultados" aria-live="polite"></div>
-        </div>
-      </div>`);
-    const caja = $("#buscador"), input = $("#buscarInput"), salida = $("#buscarResultados");
-    const nudes = ["arena", "champagne", "duna", "avellana", "chocolate", "palo-de-rosa"];
-    const buscar = () => {
-      const q = sinTildes(input.value.trim());
-      if (!q) { salida.innerHTML = ""; return; }
-      const res = PRODUCTOS.filter((p) => {
-        const col = COLECCIONES.find((c) => c.id === p.coleccion);
-        const texto = sinTildes([p.nombre, p.detalle, p.desc, p.sku, COLORES[p.color].nombre, col?.nombre, nudes.includes(p.color) ? "nude piel" : ""].join(" "));
-        return q.split(/\s+/).every((t) => texto.includes(t));
-      });
-      salida.innerHTML = res.length
-        ? `<p class="conteo">${res.length} ${res.length === 1 ? "resultado" : "resultados"}</p><div class="grilla">${res.map(tarjeta).join("")}</div>`
-        : `<p class="buscador-vacio">No encontramos «${input.value.trim()}». Prueba con un color, «encaje» o «sin costuras», o <a class="enlace" href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">pregúntanos por WhatsApp</a>.</p>`;
-    };
-    input.addEventListener("input", buscar);
-    $$("[data-sugerencia]").forEach((b) => b.addEventListener("click", () => { input.value = b.dataset.sugerencia; buscar(); input.focus(); }));
-    const abrir = () => { caja.classList.add("abierto"); caja.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; setTimeout(() => input.focus(), 60); };
-    const cerrar = () => { if (!caja.classList.contains("abierto")) return; caja.classList.remove("abierto"); caja.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; $("#abrirBuscar").focus(); };
-    $("#abrirBuscar").addEventListener("click", abrir);
-    $("#cerrarBuscar").addEventListener("click", cerrar);
-    caja.addEventListener("click", (e) => { if (e.target === caja) cerrar(); if (e.target.closest("[data-agregar]")) cerrar(); });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") cerrar();
-      if (e.key === "/" && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); abrir(); }
-    });
   }
 
   function montarPie() {
@@ -160,9 +105,7 @@
             <div>
               <h4>Tienda</h4>
               <ul>
-                <li><a href="tienda.html?c=hilos-graduables">Hilos graduables</a></li>
-                <li><a href="tienda.html?c=panties-invisibles">Panties invisibles</a></li>
-                <li><a href="tienda.html">Todo el catálogo</a></li>
+                <li><a href="tienda.html">Catálogo</a></li>
                 <li><a href="index.html#tallas">Guía de tallas</a></li>
               </ul>
             </div>
@@ -195,230 +138,20 @@
       <a class="wa-flotante" href="https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent("Hola Aurora Femme, tengo una pregunta 💕")}" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">${ICONOS.wa}</a>`;
   }
 
-  /* ---------------- Carrito ---------------- */
-  const CLAVE = "aurora-bolsa-v1";
-  let bolsa = [];
-  try { bolsa = JSON.parse(localStorage.getItem(CLAVE)) || []; } catch { bolsa = []; }
-  bolsa = bolsa.filter((l) => porHandle(l.h));
-
-  const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify(bolsa)); } catch {} };
-  const unidades = () => bolsa.reduce((s, l) => s + l.q, 0);
-  const subtotal = () => bolsa.reduce((s, l) => s + porHandle(l.h).precio * l.q, 0);
-  const envio = () => (subtotal() >= TIENDA.envioGratisDesde || !bolsa.length ? 0 : TIENDA.costoEnvio);
-
-  function agregar(handle, q = 1) {
-    const linea = bolsa.find((l) => l.h === handle);
-    linea ? (linea.q += q) : bolsa.push({ h: handle, q });
-    guardar(); pintarCarrito();
-    const p = porHandle(handle);
-    aviso(`Agregaste ${p.nombre} a tu bolsa`);
-  }
-  function cambiar(handle, delta) {
-    const linea = bolsa.find((l) => l.h === handle);
-    if (!linea) return;
-    linea.q += delta;
-    if (linea.q <= 0) bolsa = bolsa.filter((l) => l.h !== handle);
-    guardar(); pintarCarrito();
-  }
-
-  function montarCarrito() {
-    document.body.insertAdjacentHTML("beforeend", `
-      <div class="velo" id="velo"></div>
-      <aside class="carrito" id="carrito" role="dialog" aria-modal="true" aria-labelledby="tituloBolsa" aria-hidden="true">
-        <div class="carrito-cabeza">
-          <h2 id="tituloBolsa">Tu bolsa</h2>
-          <button class="icono-btn" id="cerrarCarrito" aria-label="Cerrar bolsa">${ICONOS.cerrar}</button>
-        </div>
-        <div id="carritoContenido" style="display:flex;flex-direction:column;flex:1;min-height:0"></div>
-      </aside>
-      <div class="toast" id="toast" role="status" aria-live="polite"></div>`);
-    $("#cerrarCarrito").addEventListener("click", cerrarCarrito);
-    $("#velo").addEventListener("click", cerrarCarrito);
-    document.addEventListener("keydown", (e) => e.key === "Escape" && cerrarCarrito());
-    pintarCarrito();
-  }
-
-  let vista = "bolsa";
-  function abrirCarrito() {
-    vista = "bolsa"; pintarCarrito();
-    $("#carrito").classList.add("abierto"); $("#carrito").setAttribute("aria-hidden", "false");
-    $("#velo").classList.add("visible"); document.body.style.overflow = "hidden";
-    setTimeout(() => $("#cerrarCarrito").focus(), 50);
-  }
-  function cerrarCarrito() {
-    const c = $("#carrito");
-    if (!c || !c.classList.contains("abierto")) return;
-    c.classList.remove("abierto"); c.setAttribute("aria-hidden", "true");
-    $("#velo").classList.remove("visible"); document.body.style.overflow = "";
-  }
-
-  function pintarCarrito() {
-    $$(".contador").forEach((c) => { c.textContent = unidades(); c.dataset.n = unidades(); });
-    const cont = $("#carritoContenido");
-    if (!cont) return;
-
-    if (!bolsa.length) {
-      cont.innerHTML = `
-        <div class="carrito-cuerpo"><div class="carrito-vacio">
-          <h3>Tu bolsa está vacía</h3>
-          <p>Empieza por los hilos de encaje: hay ocho colores.</p>
-          <a class="btn" href="tienda.html">Ver la tienda</a>
-        </div></div>`;
-      return;
-    }
-
-    const falta = TIENDA.envioGratisDesde - subtotal();
-    const pct = Math.min(100, (subtotal() / TIENDA.envioGratisDesde) * 100);
-    const meta = `
-      <div class="envio-meta">
-        ${falta > 0 ? `Te faltan <b>${pesos(falta)}</b> para el envío gratis.` : "Tu pedido tiene <b>envío gratis</b>."}
-        <div class="barra"><i style="width:${pct}%"></i></div>
-      </div>`;
-    const totales = `
-      <div class="totales">
-        <div><span>Subtotal</span><span>${pesos(subtotal())}</span></div>
-        <div><span>Envío</span><span>${envio() ? pesos(envio()) : "Gratis"}</span></div>
-        <div class="total"><span>Total</span><span>${pesos(subtotal() + envio())}</span></div>
-      </div>`;
-
-    if (vista === "bolsa") {
-      cont.innerHTML = `
-        ${meta}
-        <div class="carrito-cuerpo">
-          ${bolsa.map((l) => {
-            const p = porHandle(l.h);
-            return `
-              <div class="linea-item">
-                <a href="${urlProducto(p)}">${img(p, p.nombre)}</a>
-                <div>
-                  <h3>${p.nombre}</h3>
-                  <div class="meta">${p.detalle} · Talla única</div>
-                  <div class="cantidad" aria-label="Cantidad">
-                    <button data-menos="${p.handle}" aria-label="Quitar una">−</button>
-                    <span>${l.q}</span>
-                    <button data-mas="${p.handle}" aria-label="Agregar una">+</button>
-                  </div>
-                  <button class="quitar" data-quitar="${p.handle}">Quitar</button>
-                </div>
-                <div class="linea-precio">${pesos(p.precio * l.q)}</div>
-              </div>`;
-          }).join("")}
-        </div>
-        <div class="carrito-pie">
-          ${totales}
-          <button class="btn btn--bloque" id="irPedido">Continuar con el pedido</button>
-          <p class="nota-pago">Confirmas el pago por WhatsApp: Nequi, Daviplata, transferencia o contraentrega.</p>
-        </div>`;
-      $$("[data-mas]", cont).forEach((b) => b.addEventListener("click", () => cambiar(b.dataset.mas, 1)));
-      $$("[data-menos]", cont).forEach((b) => b.addEventListener("click", () => cambiar(b.dataset.menos, -1)));
-      $$("[data-quitar]", cont).forEach((b) => b.addEventListener("click", () => cambiar(b.dataset.quitar, -Infinity)));
-      $("#irPedido").addEventListener("click", () => { vista = "datos"; pintarCarrito(); $("#f-nombre").focus(); });
-    } else {
-      let datos = {};
-      try { datos = JSON.parse(localStorage.getItem("aurora-datos-v1")) || {}; } catch {}
-      const v = (k) => (datos[k] ? String(datos[k]).replace(/"/g, "&quot;") : "");
-      cont.innerHTML = `
-        <div class="carrito-cuerpo" style="padding-top:20px">
-          <button class="volver" id="volverBolsa">Volver a la bolsa</button>
-          <h3 style="font-family:var(--f-texto);font-weight:500;margin-bottom:4px">¿A dónde te lo enviamos?</h3>
-          <p style="color:var(--gris-seda);font-size:.9rem;margin-bottom:18px">Con estos datos armamos tu pedido y te lo confirmamos por WhatsApp.</p>
-          <form class="checkout-form" id="formPedido" novalidate>
-            <div class="campo"><label for="f-nombre">Nombre y apellido</label><input id="f-nombre" name="nombre" autocomplete="name" required value="${v("nombre")}"></div>
-            <div class="campo"><label for="f-tel">Celular</label><input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required value="${v("tel")}"></div>
-            <div class="doble">
-              <div class="campo"><label for="f-ciudad">Ciudad</label><input id="f-ciudad" name="ciudad" autocomplete="address-level2" required value="${v("ciudad")}"></div>
-              <div class="campo"><label for="f-depto">Departamento</label><input id="f-depto" name="depto" autocomplete="address-level1" required value="${v("depto")}"></div>
-            </div>
-            <div class="campo"><label for="f-dir">Dirección y barrio</label><input id="f-dir" name="dir" autocomplete="street-address" required value="${v("dir")}"></div>
-            <div class="campo"><label for="f-pago">¿Cómo quieres pagar?</label>
-              <select id="f-pago" name="pago">
-                ${["Nequi", "Daviplata", "Transferencia Bancolombia", "Contraentrega"].map((m) => `<option ${datos.pago === m ? "selected" : ""}>${m}</option>`).join("")}
-              </select></div>
-            <div class="campo"><label for="f-nota">Nota (opcional)</label><textarea id="f-nota" name="nota" placeholder="Es un regalo, entregar en portería…"></textarea></div>
-            <p id="errorPedido" role="alert" style="color:var(--terracota-p);font-size:.9rem;min-height:1em"></p>
-          </form>
-        </div>
-        <div class="carrito-pie">
-          ${totales}
-          <button class="btn btn--bloque btn--wa" type="submit" form="formPedido">${ICONOS.wa.replace("<svg", '<svg width="20" height="20"')} Enviar pedido por WhatsApp</button>
-          <p class="nota-pago">Se abre WhatsApp con tu pedido listo para enviar.</p>
-        </div>`;
-      $("#volverBolsa").addEventListener("click", () => { vista = "bolsa"; pintarCarrito(); });
-      $("#formPedido").addEventListener("submit", enviarPedido);
-    }
-  }
-
-  function enviarPedido(e) {
-    e.preventDefault();
-    const f = e.target;
-    const d = Object.fromEntries(new FormData(f).entries());
-    const faltan = [...f.querySelectorAll("[required]")].filter((i) => !i.value.trim());
-    if (faltan.length) {
-      $("#errorPedido").textContent = "Completa nombre, celular, ciudad, departamento y dirección para enviar el pedido.";
-      faltan[0].focus();
-      return;
-    }
-    try { localStorage.setItem("aurora-datos-v1", JSON.stringify({ ...d, nota: "" })); } catch {}
-
-    const lineas = bolsa.map((l) => {
-      const p = porHandle(l.h);
-      return `• ${l.q} × ${p.nombre} (${p.sku}) — ${pesos(p.precio * l.q)}`;
-    });
-    const msg = [
-      "Hola Aurora Femme 💕 quiero hacer este pedido:",
-      "",
-      ...lineas,
-      "",
-      `Subtotal: ${pesos(subtotal())}`,
-      `Envío: ${envio() ? pesos(envio()) : "Gratis"}`,
-      `*Total: ${pesos(subtotal() + envio())}*`,
-      "",
-      `Nombre: ${d.nombre}`,
-      `Celular: ${d.tel}`,
-      `Dirección: ${d.dir}, ${d.ciudad}, ${d.depto}`,
-      `Pago: ${d.pago}`,
-      d.nota ? `Nota: ${d.nota}` : "",
-    ].filter((x, i, a) => x !== "" || a[i - 1] !== "").join("\n");
-
-    window.open(`https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-    bolsa = []; guardar(); vista = "bolsa";
-    $("#carritoContenido").innerHTML = `
-      <div class="carrito-cuerpo"><div class="carrito-vacio">
-        <h3>Pedido enviado a WhatsApp</h3>
-        <p>Te respondemos en horario de atención para confirmar el pago y la fecha de entrega.</p>
-        <button class="btn btn--claro" id="seguirComprando">Seguir viendo la tienda</button>
-      </div></div>`;
-    $$(".contador").forEach((c) => { c.textContent = 0; c.dataset.n = 0; });
-    $("#seguirComprando").addEventListener("click", cerrarCarrito);
-  }
-
-  let tAviso;
-  function aviso(texto) {
-    const t = $("#toast"); if (!t) return;
-    t.textContent = texto; t.classList.add("visible");
-    clearTimeout(tAviso); tAviso = setTimeout(() => t.classList.remove("visible"), 2400);
-  }
-
   /* ---------------- Tarjetas de producto ---------------- */
   const tarjeta = (p) => {
     const c = COLORES[p.color];
     return `
       <article class="tarjeta">
         <div class="tarjeta-media">
-          <a class="tarjeta-foto" href="${urlProducto(p)}" tabindex="-1" aria-hidden="true">${img(p, "")}</a>
-          <button class="tarjeta-agregar" data-agregar="${p.handle}" aria-label="Agregar ${p.nombre} a la bolsa">Agregar a la bolsa</button>
+          <a class="tarjeta-foto" href="tienda.html" tabindex="-1" aria-hidden="true">${img(p, "")}</a>
         </div>
         <div class="tarjeta-info">
-          <h3><a href="${urlProducto(p)}">${p.nombre}</a></h3>
-          <span class="tarjeta-precio">${pesos(p.precio)}</span>
+          <h3><a href="tienda.html">${p.nombre}</a></h3>
           <span class="tarjeta-color"><i class="punto" style="--c:${c.hex}"></i>${p.detalle}</span>
         </div>
       </article>`;
   };
-  document.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-agregar]");
-    if (b) { e.preventDefault(); agregar(b.dataset.agregar); }
-  });
 
   /* ---------------- Inicio ---------------- */
   function initInicio() {
@@ -435,9 +168,9 @@
         $$(".tela", lista).forEach((b) => b.setAttribute("aria-pressed", b.dataset.i == i));
         $(".hero").style.setProperty("--color-activo", c.hex);
         nombreColor.textContent = c.nombre;
-        ficha.href = urlProducto(p);
+        ficha.href = "tienda.html";
         ficha.querySelector("strong").textContent = p.nombre;
-        ficha.querySelector("span").textContent = `${pesos(p.precio)} · ${p.detalle}`;
+        ficha.querySelector("span").textContent = `${p.detalle} · Ver en el catálogo`;
         const vieja = foto.querySelector("img");
         const nueva = document.createElement("img");
         nueva.alt = p.nombre; nueva.src = p.img;
@@ -457,7 +190,7 @@
     // Colecciones
     const col = $("#colecciones");
     if (col) col.innerHTML = COLECCIONES.map((c) => `
-      <a class="coleccion" href="tienda.html?c=${c.id}">
+      <a class="coleccion" href="tienda.html">
         ${img(c, "")}
         <div class="coleccion-texto">
           <div><h3>${c.nombre}</h3><p>${c.texto}</p></div>
@@ -481,7 +214,7 @@
           <figure class="resena">
             <div class="estrellas" aria-label="${r.estrellas} de 5 estrellas">${Array.from({ length: 5 }, (_, i) => `<span class="${i < r.estrellas ? "" : "apagada"}">${ICONOS.estrella}</span>`).join("")}</div>
             <blockquote>${r.texto}</blockquote>
-            <figcaption><b>${r.nombre}</b>${r.ciudad ? `, ${r.ciudad}` : ""}${p ? `<a href="${urlProducto(p)}">${p.nombre}</a>` : ""}</figcaption>
+            <figcaption><b>${r.nombre}</b>${r.ciudad ? `, ${r.ciudad}` : ""}${p ? `<a href="tienda.html">${p.nombre}</a>` : ""}</figcaption>
           </figure>`;
       }).join("");
     }
@@ -526,7 +259,7 @@
       <aside class="articulo-cierre">
         <p class="claim">¿Te quedó alguna duda? Pregúntanos lo que sea.</p>
         <div class="hero-cta">
-          <a class="btn" href="tienda.html">Ver la tienda</a>
+          <a class="btn" href="tienda.html">Ver el catálogo</a>
           <a class="btn btn--claro" href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
       </aside>`;
@@ -571,126 +304,10 @@
     form.addEventListener("submit", (e) => e.preventDefault());
   }
 
-  /* ---------------- Tienda ---------------- */
-  function initTienda() {
-    const grilla = $("#grilla"); if (!grilla) return;
-    const params = new URLSearchParams(location.search);
-    let filtro = params.get("c") || "todo";
-    let orden = "recomendado";
-    let color = params.get("color") || "";
-    const titulo = $("#tituloTienda"), bajada = $("#bajadaTienda"), colores = $("#filtroColores");
-
-    const pintarColores = () => {
-      const disponibles = [...new Set(PRODUCTOS.filter((p) => filtro === "todo" || p.coleccion === filtro).map((p) => p.color))];
-      if (color && !disponibles.includes(color)) color = "";
-      colores.innerHTML = disponibles.map((k) => `
-        <button class="tela tela--chica" style="--c:${COLORES[k].hex}" data-color="${k}" aria-pressed="${k === color}" aria-label="${COLORES[k].nombre}" title="${COLORES[k].nombre}"></button>`).join("")
-        + (color ? `<button class="quitar" id="limpiarColor">Quitar color</button>` : "");
-      $$("[data-color]", colores).forEach((b) => b.addEventListener("click", () => { color = color === b.dataset.color ? "" : b.dataset.color; pintar(); }));
-      $("#limpiarColor")?.addEventListener("click", () => { color = ""; pintar(); });
-    };
-
-    const pintar = () => {
-      pintarColores();
-      let lista = PRODUCTOS.filter((p) => (filtro === "todo" || p.coleccion === filtro) && (!color || p.color === color));
-      if (orden === "menor") lista = [...lista].sort((a, b) => a.precio - b.precio);
-      if (orden === "mayor") lista = [...lista].sort((a, b) => b.precio - a.precio);
-      grilla.innerHTML = lista.length ? lista.map(tarjeta).join("")
-        : `<div class="carrito-vacio" style="grid-column:1/-1"><h3>Nada en este color por ahora</h3><p>Quita el filtro de color para ver toda la línea.</p></div>`;
-      $("#conteo").textContent = `${lista.length} ${lista.length === 1 ? "pieza" : "piezas"}`;
-      const col = COLECCIONES.find((c) => c.id === filtro);
-      const u = new URL(location);
-      filtro === "todo" ? u.searchParams.delete("c") : u.searchParams.set("c", filtro);
-      color ? u.searchParams.set("color", color) : u.searchParams.delete("color");
-      history.replaceState(null, "", u);
-      titulo.textContent = col ? col.nombre : "Toda la tienda";
-      bajada.textContent = col ? col.texto : "Hilos de encaje con tirantes graduables y panties invisibles sin costuras. Todo en talla única.";
-      document.title = `${col ? col.nombre : "Tienda"} | Aurora Femme`;
-      $$(".chip").forEach((c) => c.setAttribute("aria-pressed", c.dataset.filtro === filtro));
-    };
-    $$(".chip").forEach((c) => c.addEventListener("click", () => {
-      filtro = c.dataset.filtro;
-      pintar();
-    }));
-    $("#orden").addEventListener("change", (e) => { orden = e.target.value; pintar(); });
-    pintar();
-  }
-
-  /* ---------------- Producto ---------------- */
-  function initProducto() {
-    const cont = $("#producto"); if (!cont) return;
-    const p = porHandle(new URLSearchParams(location.search).get("p"));
-    if (!p) {
-      cont.innerHTML = `<div class="carrito-vacio" style="grid-column:1/-1"><h1 style="font-size:2rem">No encontramos esta pieza</h1><p>Puede que ya no esté disponible. Mira lo que hay en la tienda.</p><a class="btn" href="tienda.html">Ver la tienda</a></div>`;
-      return;
-    }
-    const c = COLORES[p.color];
-    const col = COLECCIONES.find((x) => x.id === p.coleccion);
-    const hermanos = PRODUCTOS.filter((x) => x.coleccion === p.coleccion && x.desc === p.desc);
-    document.title = `${p.nombre} | Aurora Femme`;
-    $('meta[name="description"]')?.setAttribute("content", `${p.nombre} ${p.detalle}. ${p.desc}`);
-    let q = 1;
-
-    cont.innerHTML = `
-      <div class="producto-foto">${img(p, `${p.nombre} ${p.detalle}`, 'loading="eager"')}</div>
-      <div class="producto-info">
-        <nav class="migas" aria-label="Ruta"><a href="tienda.html">Tienda</a> / <a href="tienda.html?c=${col.id}">${col.nombre}</a></nav>
-        <h1>${p.nombre}</h1>
-        <p class="detalle">${p.detalle}</p>
-        <p class="producto-precio">${pesos(p.precio)} <small style="font-size:.85rem;color:var(--gris-seda)">COP</small></p>
-
-        <div class="bloque">
-          <p class="bloque-titulo">Color: <b>${c.nombre}</b></p>
-          <div class="variantes">
-            ${hermanos.map((h) => `<a href="${urlProducto(h)}" style="--c:${COLORES[h.color].hex}" aria-label="${COLORES[h.color].nombre}" ${h === p ? 'aria-current="true"' : ""}></a>`).join("")}
-          </div>
-        </div>
-        <div class="bloque">
-          <p class="bloque-titulo">Talla: <b>Única</b> · se adapta de XS a L</p>
-          <div class="comprar">
-            <div class="cantidad" aria-label="Cantidad">
-              <button id="qMenos" aria-label="Una menos">−</button><span id="qValor">1</span><button id="qMas" aria-label="Una más">+</button>
-            </div>
-            <button class="btn" id="agregarFicha">Agregar a la bolsa</button>
-          </div>
-          <ul class="ventajas">
-            <li>${ICONOS.camion} Llega en ${TIENDA.entrega}</li>
-            <li>${ICONOS.caja} Empaque de regalo sin costo adicional</li>
-            <li>${ICONOS.chat} ¿Dudas con tu talla? <a class="enlace" href="https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(`Hola, tengo una pregunta sobre ${p.nombre} (${p.sku})`)}" target="_blank" rel="noopener">Pregúntanos</a></li>
-          </ul>
-        </div>
-        <details class="acordeon" open><summary>Descripción</summary><div><p>${p.desc}</p></div></details>
-        <details class="acordeon"><summary>Cuidado de la prenda</summary><div><p>Lava a mano con agua fría y jabón suave. No retuerzas el encaje: presiónalo con una toalla y sécalo a la sombra. No uses blanqueador ni secadora.</p></div></details>
-        <details class="acordeon"><summary>Envíos y cambios</summary><div><p>Enviamos a toda Colombia en ${TIENDA.entrega}. Gratis desde ${pesos(TIENDA.envioGratisDesde)}. Por higiene, la ropa interior solo se cambia si llega con defecto de fábrica. <a class="enlace" href="politicas.html#cambios">Ver política</a></p></div></details>
-        <p style="font-size:.82rem;color:var(--gris-seda);margin-top:16px">Referencia ${p.sku}</p>
-      </div>`;
-
-    $("#qMenos").addEventListener("click", () => { q = Math.max(1, q - 1); $("#qValor").textContent = q; });
-    $("#qMas").addEventListener("click", () => { q += 1; $("#qValor").textContent = q; });
-    $("#agregarFicha").addEventListener("click", () => { agregar(p.handle, q); abrirCarrito(); });
-
-    const rel = $("#relacionados");
-    if (rel) rel.innerHTML = PRODUCTOS.filter((x) => x !== p && x.coleccion === p.coleccion).slice(0, 4).map(tarjeta).join("");
-
-    // Datos estructurados para Google
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.textContent = JSON.stringify({
-      "@context": "https://schema.org", "@type": "Product",
-      name: p.nombre, sku: p.sku, description: p.desc, color: c.nombre,
-      image: new URL(p.img, location.href).href, brand: { "@type": "Brand", name: "Aurora Femme" },
-      offers: { "@type": "Offer", priceCurrency: "COP", price: p.precio, availability: "https://schema.org/InStock" },
-    });
-    document.head.appendChild(ld);
-  }
-
   /* ---------------- Arranque ---------------- */
   montarCabecera();
   montarPie();
-  montarCarrito();
   if (pagina === "inicio") initInicio();
-  if (pagina === "tienda") initTienda();
-  if (pagina === "producto") initProducto();
   if (pagina === "diario") initDiario();
   if (pagina === "articulo") initArticulo();
 })();

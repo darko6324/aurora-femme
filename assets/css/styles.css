@@ -465,6 +465,10 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .articulo-cierre { margin-top: 48px; padding: 32px; background: var(--nube); border-radius: var(--r-l); }
 .articulo-cierre .claim { font-size: 1.5rem; color: var(--ciruela); margin-bottom: 18px; }
 
+/* ---------- Catálogo (iframe de la plataforma) ---------- */
+.catalogo iframe { scroll-margin-top: 90px; min-height: 480px; }
+.catalogo-ayuda { font-size: .88rem; color: var(--gris-seda); padding-top: 18px; padding-bottom: clamp(56px, 8vw, 96px); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
