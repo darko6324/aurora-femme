@@ -466,7 +466,13 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .articulo-cierre .claim { font-size: 1.5rem; color: var(--ciruela); margin-bottom: 18px; }
 
 /* ---------- Catálogo (iframe de la plataforma) ---------- */
-.catalogo iframe { scroll-margin-top: 90px; min-height: 480px; }
+.catalogo { width: 100%; max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+#aurora-tienda { display: block; width: 100%; min-width: 0; border: 0; background: transparent; scroll-margin-top: 90px; }
+@media (max-width: 860px) {
+  .catalogo { padding: 0 8px; }
+  #aurora-tienda { scroll-margin-top: 70px; }
+  .tienda-pagina .cabeza-pagina { padding-bottom: 16px; }
+}
 .catalogo-ayuda { font-size: .88rem; color: var(--gris-seda); padding-top: 18px; padding-bottom: clamp(56px, 8vw, 96px); }
 
 /* ---------- Responsive ---------- */
