@@ -279,34 +279,35 @@
   }
 
   /* ---------------- Calculadora de tallas ---------------- */
+  // Guía oficial de Aurora Femme (cm). Busto: rango; cadera: máximo.
   const TALLAS = [
-    { t: "XS", busto: [80, 84], cintura: [60, 64], cadera: [86, 90] },
-    { t: "S", busto: [85, 89], cintura: [65, 69], cadera: [91, 95] },
-    { t: "M", busto: [90, 94], cintura: [70, 74], cadera: [96, 100] },
-    { t: "L", busto: [95, 100], cintura: [75, 80], cadera: [101, 106] },
-    { t: "XL", busto: [101, 107], cintura: [81, 87], cadera: [107, 113] },
+    { t: "XS", busto: [55, 59], caderaMax: 73 },
+    { t: "S",  busto: [60, 62], caderaMax: 73 },
+    { t: "M",  busto: [63, 65], caderaMax: 73 },
+    { t: "L",  busto: [66, 68], caderaMax: 83 },
   ];
   function initCalculadora() {
     const form = $("#calculadora");
     if (!form) return;
     const salida = $("#calcResultado");
     const filas = $$("#tablaTallas tbody tr");
+    const fuera = () => `Tus medidas pasan nuestra guía. <a class="enlace" href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">Escríbenos</a> y te asesoramos.`;
     const calcular = () => {
-      const val = (n) => parseFloat(form.elements[n].value);
-      const medidas = ["busto", "cintura", "cadera"].filter((m) => !isNaN(val(m)));
+      const busto = parseFloat(form.elements.busto.value);
+      const cadera = parseFloat(form.elements.cadera.value);
       filas.forEach((f) => f.classList.remove("marcada"));
-      if (!medidas.length) { salida.innerHTML = ""; return; }
-      // Por cada medida, la talla que la contiene; se queda con la mayor
-      let idx = -1;
-      for (const m of medidas) {
-        const v = val(m);
-        let i = TALLAS.findIndex((t) => v <= t[m][1]);
-        if (i === -1) i = TALLAS.length; // por encima de XL
+      if (isNaN(busto) && isNaN(cadera)) { salida.innerHTML = ""; return; }
+      let idx = 0;
+      if (!isNaN(busto)) {
+        // Cada talla cubre hasta justo antes de donde empieza la siguiente (59,5 es XS; 62,5 es S)
+        let i = TALLAS.findIndex((t, k) => busto < (TALLAS[k + 1] ? TALLAS[k + 1].busto[0] : t.busto[1] + 1));
+        if (i === -1) { salida.innerHTML = fuera(); return; }
         idx = Math.max(idx, i);
       }
-      if (idx >= TALLAS.length) {
-        salida.innerHTML = `Tus medidas pasan nuestra tabla. <a class="enlace" href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">Escríbenos</a> y te asesoramos.`;
-        return;
+      if (!isNaN(cadera)) {
+        const i = TALLAS.findIndex((t) => cadera <= t.caderaMax);
+        if (i === -1) { salida.innerHTML = fuera(); return; }
+        idx = Math.max(idx, i);
       }
       filas[idx]?.classList.add("marcada");
       salida.innerHTML = `<b>${TALLAS[idx].t}</b> es tu talla. Los hilos y panties son talla única y te quedan de XS a L.`;

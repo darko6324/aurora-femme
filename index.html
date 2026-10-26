@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=6">
+  <link rel="stylesheet" href="assets/css/styles.css?v=7">
 </head>
 <body data-pagina="inicio">
   <a class="sr-only" href="#contenido">Saltar al contenido</a>
@@ -134,24 +134,22 @@
           <form class="calculadora" id="calculadora">
             <h3>Calcula tu talla</h3>
             <p style="color:var(--gris-seda)">Mide en centímetros, con la cinta pegada al cuerpo sin apretar.</p>
-            <div class="calc-campos">
-              <div class="campo"><label for="c-busto">Busto</label><input id="c-busto" name="busto" type="number" inputmode="decimal" min="60" max="150" placeholder="88"></div>
-              <div class="campo"><label for="c-cintura">Cintura</label><input id="c-cintura" name="cintura" type="number" inputmode="decimal" min="50" max="140" placeholder="68"></div>
-              <div class="campo"><label for="c-cadera">Cadera</label><input id="c-cadera" name="cadera" type="number" inputmode="decimal" min="70" max="160" placeholder="94"></div>
+            <div class="calc-campos calc-campos--dos">
+              <div class="campo"><label for="c-busto">Contorno de busto</label><input id="c-busto" name="busto" type="number" inputmode="decimal" min="40" max="120" step="0.5" placeholder="61"></div>
+              <div class="campo"><label for="c-cadera">Contorno de cadera</label><input id="c-cadera" name="cadera" type="number" inputmode="decimal" min="40" max="140" step="0.5" placeholder="72"></div>
             </div>
             <p class="calc-resultado" id="calcResultado" aria-live="polite"></p>
           </form>
         </div>
         <div class="tabla-scroll">
           <table class="tabla" id="tablaTallas">
-            <caption>Medidas en centímetros</caption>
-            <thead><tr><th scope="col">Talla</th><th scope="col">Busto</th><th scope="col">Cintura</th><th scope="col">Cadera</th></tr></thead>
+            <caption>Unidad de medida: cm</caption>
+            <thead><tr><th scope="col">Talla</th><th scope="col">Contorno de busto</th><th scope="col">Contorno de cadera</th></tr></thead>
             <tbody>
-              <tr><td>XS</td><td>80 – 84</td><td>60 – 64</td><td>86 – 90</td></tr>
-              <tr><td>S</td><td>85 – 89</td><td>65 – 69</td><td>91 – 95</td></tr>
-              <tr><td>M</td><td>90 – 94</td><td>70 – 74</td><td>96 – 100</td></tr>
-              <tr><td>L</td><td>95 – 100</td><td>75 – 80</td><td>101 – 106</td></tr>
-              <tr><td>XL</td><td>101 – 107</td><td>81 – 87</td><td>107 – 113</td></tr>
+              <tr><td>XS</td><td>55 – 59</td><td>73 máx</td></tr>
+              <tr><td>S</td><td>60 – 62</td><td>73 máx</td></tr>
+              <tr><td>M</td><td>63 – 65</td><td>73 máx</td></tr>
+              <tr><td>L</td><td>66 – 68</td><td>83 máx</td></tr>
             </tbody>
           </table>
         </div>
@@ -192,7 +190,7 @@
 
   <div id="pie"></div>
 
-  <script src="assets/js/data.js?v=6"></script>
-  <script src="assets/js/app.js?v=6"></script>
+  <script src="assets/js/data.js?v=7"></script>
+  <script src="assets/js/app.js?v=7"></script>
 </body>
 </html>

@@ -149,19 +149,17 @@ const DIARIO = [
   {
     slug: "como-tomar-tus-medidas",
     titulo: "Cómo tomar tus medidas en dos minutos",
-    resumen: "Solo necesitas una cinta métrica y un espejo. Así encuentras tu talla sin adivinar.",
+    resumen: "Solo necesitas una cinta métrica y dos medidas: busto y cadera. Así encuentras tu talla sin adivinar.",
     fecha: "2026-09-20",
     lectura: "2 min",
     imagen: "hg002",
     cuerpo: `
       <p>Medirte en casa es más fácil de lo que parece. Hazlo con ropa interior delgada o sin ropa, de pie y relajada.</p>
-      <h2>Busto</h2>
+      <h2>Contorno de busto</h2>
       <p>Pasa la cinta por la parte más llena del pecho, paralela al piso. Que quede pegada, sin apretar.</p>
-      <h2>Cintura</h2>
-      <p>Mide en la parte más estrecha del torso, normalmente un poco arriba del ombligo.</p>
-      <h2>Cadera</h2>
+      <h2>Contorno de cadera</h2>
       <p>Junta los pies y pasa la cinta por la parte más ancha de la cadera y los glúteos.</p>
-      <p>Con esas tres medidas, usa la <a class="enlace" href="index.html#tallas">calculadora de tallas</a>. Si quedas entre dos tallas, elige la más grande. Y si tienes dudas, escríbenos por WhatsApp: te asesoramos con gusto.</p>`,
+      <p>Con esas dos medidas, usa la <a class="enlace" href="index.html#tallas">calculadora de tallas</a>. Si quedas entre dos tallas, elige la más grande. Y si tienes dudas, escríbenos por WhatsApp: te asesoramos con gusto.</p>`,
   },
   {
     slug: "hilo-o-panty-invisible",

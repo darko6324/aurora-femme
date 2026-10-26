@@ -247,6 +247,7 @@ p { margin: 0; }
 .calculadora h3 { font-family: var(--f-texto); font-weight: 500; font-size: 1.05rem; margin-bottom: 4px; }
 .calculadora > p { font-size: .9rem; margin: 0 0 16px; }
 .calc-campos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.calc-campos--dos { grid-template-columns: repeat(2, 1fr); }
 .campo label { display: block; font-size: .82rem; color: var(--gris-seda); margin-bottom: 6px; }
 .campo input, .campo select, .campo textarea {
   width: 100%; min-height: 46px; padding: 10px 14px;
