@@ -61,7 +61,7 @@
           <a class="logo" href="index.html" aria-label="Aurora Femme, inicio">${img(LOGO, "Aurora Femme", 'loading="eager"')}</a>
           <div class="acciones">
             <a class="nav-extra" href="nosotras.html" ${activo("nosotras") ? 'aria-current="page"' : ""}>Nosotras</a>
-            <a class="icono-btn" href="tienda.html" aria-label="Ir al catálogo y a tu bolsa">${ICONOS.bolsa}</a>
+            <a class="icono-btn" id="iconoBolsa" href="tienda.html?bolsa=1" aria-label="Abrir tu bolsa">${ICONOS.bolsa}<span class="contador" data-n="0">0</span></a>
           </div>
         </div>
       </header>
@@ -73,6 +73,17 @@
           <a href="politicas.html">Envíos y cambios</a>
         </nav>
       </div>`;
+
+    // Contador de la bolsa: lo actualiza la tienda embebida (tienda.html) y se recuerda entre páginas
+    window.auroraContador = (n) => {
+      n = Math.max(0, parseInt(n, 10) || 0);
+      $$(".contador").forEach((c) => { c.textContent = n; c.dataset.n = n; });
+      try { localStorage.setItem("aurora-tienda-unidades", String(n)); } catch {}
+    };
+    try { window.auroraContador(localStorage.getItem("aurora-tienda-unidades")); } catch {}
+    $("#iconoBolsa").addEventListener("click", (e) => {
+      if (pagina === "tienda" && window.auroraAbrirBolsa) { e.preventDefault(); window.auroraAbrirBolsa(); }
+    });
 
     const menu = $("#menuMovil");
     const abrir = $("#abrirMenu");

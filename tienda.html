@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=4">
+  <link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body data-pagina="tienda">
   <a class="sr-only" href="#contenido">Saltar al contenido</a>
@@ -23,13 +23,46 @@
       </header>
     </div>
     <section class="wrap catalogo" aria-label="Catálogo de productos">
-      <iframe src="https://pedidos.laempanadaguerrera.com/c/AURORA?embed=1" title="Catálogo" allowtransparency="true" style="width:100%;height:720px;border:0;display:block;background:transparent" loading="lazy"></iframe>
+      <!-- Tienda AURORA -->
+      <iframe id="aurora-tienda" src="https://pedidos.laempanadaguerrera.com/t/AURORA?embed=1" title="Tienda" loading="lazy"
+        style="width:100%;height:700px;border:0;display:block"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
     </section>
-    <div class="wrap"><p class="catalogo-ayuda">¿No carga el catálogo? <a class="enlace" href="https://pedidos.laempanadaguerrera.com/c/AURORA" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a> o <a class="enlace" href="https://wa.me/573127527565" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</p></div>
+    <div class="wrap"><p class="catalogo-ayuda">¿No carga el catálogo? <a class="enlace" href="https://pedidos.laempanadaguerrera.com/t/AURORA" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a> o <a class="enlace" href="https://wa.me/573127527565" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</p></div>
   </main>
   <div id="pie"></div>
-  <script src="assets/js/data.js?v=4"></script>
-  <script src="assets/js/app.js?v=4"></script>
-  <script>window.addEventListener("message",function(e){var d=e.data;if(!d||!d.tipo)return;var f=document.querySelector('iframe[src^="https://pedidos.laempanadaguerrera.com/c/AURORA"]');if(!f||e.source!==f.contentWindow)return;if(d.tipo==="catalogo:alto")f.style.height=d.alto+"px";if(d.tipo==="catalogo:subir")f.scrollIntoView({behavior:"smooth",block:"start"});});</script>
+  <script src="assets/js/data.js?v=5"></script>
+  <script src="assets/js/app.js?v=5"></script>
+  <script>
+  (function () {
+    var f = document.getElementById('aurora-tienda');
+    var ORIGEN = new URL(f.src, location.href).origin;
+    var P = 'aurora:', KEY = 'aurora-tienda-estado', previo = null;
+    function enviar(m) { f.contentWindow.postMessage(m, ORIGEN); }
+    function abrir() { previo = f.getAttribute('style'); f.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:2147483000;border:0;background:transparent'; document.documentElement.style.overflow = 'hidden'; }
+    function cerrar() { f.style.cssText = previo || ''; document.documentElement.style.overflow = ''; }
+    window.addEventListener('message', function (e) {
+      if (e.origin !== ORIGEN || e.source !== f.contentWindow) return;
+      var m = e.data || {};
+      if (typeof m.tipo !== 'string' || m.tipo.indexOf(P) !== 0) return;
+      switch (m.tipo.slice(P.length)) {
+        case 'altura': f.style.height = m.alto + 'px'; break;
+        case 'bolsa-abierta': abrir(); break;
+        case 'bolsa-cerrada': cerrar(); break;
+        case 'subir': f.scrollIntoView({ behavior: 'smooth', block: 'start' }); break;
+        case 'bolsa': if (window.auroraContador) window.auroraContador(m.unidades); break;
+        case 'estado-guardar': try { localStorage.setItem(KEY, JSON.stringify({ bolsa: m.bolsa, cliente: m.cliente })); } catch (x) {} break;
+        case 'estado-pedir': var s = null; try { s = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (x) {} enviar({ tipo: P + 'estado', bolsa: s && s.bolsa, cliente: s && s.cliente }); break;
+      }
+    });
+    // El ícono de bolsa de la cabecera abre la bolsa de la tienda
+    window.auroraAbrirBolsa = function () { enviar({ tipo: P + 'abrir-bolsa' }); };
+    // Llegando desde otra página con ?bolsa=1, abre la bolsa al cargar
+    if (new URLSearchParams(location.search).get('bolsa') === '1') {
+      f.loading = 'eager';
+      f.addEventListener('load', function () { setTimeout(window.auroraAbrirBolsa, 600); });
+    }
+  })();
+  </script>
 </body>
 </html>
