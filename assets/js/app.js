@@ -142,7 +142,7 @@
           </div>
           <div class="pie-base">
             <span>© ${new Date().getFullYear()} Aurora Femme. Hecho en Colombia.</span>
-            <div class="medios" aria-label="Medios de pago"><span>Nequi</span><span>Daviplata</span><span>Bancolombia</span><span>Contraentrega</span></div>
+            <div class="medios" aria-label="Medios de pago"><span>Nequi</span><span>Llave Bre-B</span><span>Transferencia</span></div>
           </div>
         </div>
       </footer>

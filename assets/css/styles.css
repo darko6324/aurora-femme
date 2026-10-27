@@ -476,6 +476,11 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 }
 .catalogo-ayuda { font-size: .88rem; color: var(--gris-seda); padding-top: 18px; padding-bottom: clamp(56px, 8vw, 96px); }
 
+/* ---------- Nosotras: foto del equipo ---------- */
+.equipo-foto { margin: 0 0 clamp(32px, 5vw, 56px); max-width: 860px; border-radius: var(--r-l); overflow: hidden; background: var(--nube); aspect-ratio: 4 / 3; }
+.equipo-foto img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+@media (max-width: 860px) { .equipo-foto { aspect-ratio: 1366 / 1150; } }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
