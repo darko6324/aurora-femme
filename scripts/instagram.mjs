@@ -17,6 +17,10 @@ const TOKEN = process.env.IG_TOKEN;
 const USUARIO = 'aurorafemme.co';
 const CUANTAS = 6;
 const API = 'https://graph.instagram.com';
+// Cuenta de Instagram de Aurora (ID de la API). Se usa si el token es de usuario del sistema
+// (app «Aurora Femme Web», inicio de sesión unificado): esos tokens leen por graph.facebook.com.
+const IG_USER_ID = process.env.IG_USER_ID || '17841439055867959';
+const API_FB = 'https://graph.facebook.com/v21.0';
 const DIR_IMG = fileURLToPath(new URL('../assets/img/instagram/', import.meta.url));
 const ARCHIVO = fileURLToPath(new URL('../assets/js/instagram.js', import.meta.url));
 
@@ -49,7 +53,14 @@ async function guardarImagen(buf, base) {
 
 async function traer() {
   const campos = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp';
-  const r = await pedir(`${API}/me/media?fields=${campos}&limit=${CUANTAS * 2}&access_token=${TOKEN}`);
+  const q = `fields=${campos}&limit=${CUANTAS * 2}&access_token=${TOKEN}`;
+  let r;
+  try {
+    r = await pedir(`${API}/me/media?${q}`);          // token de inicio de sesión con Instagram
+  } catch (e) {
+    console.log(`Instagram: graph.instagram.com no aceptó el token, pruebo graph.facebook.com.`);
+    r = await pedir(`${API_FB}/${IG_USER_ID}/media?${q}`); // token de usuario del sistema
+  }
   const { data = [] } = await r.json();
 
   // Baja primero a memoria: solo si hay publicaciones nuevas se reemplazan las fotos guardadas.
@@ -109,7 +120,7 @@ if (!TOKEN) {
 } else {
   try {
     await traer();
-    await mantenerVivo();
+    if (TOKEN.startsWith('IG')) await mantenerVivo(); // los tokens de usuario del sistema no vencen
   } catch (e) {
     console.warn(`Instagram: ${e.message}. Se usan los datos guardados.`);
   }
