@@ -13,7 +13,8 @@
 import { writeFile, readdir, unlink, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
-const TOKEN = process.env.IG_TOKEN;
+// Se limpia por si al pegarlo en GitHub quedaron espacios, saltos de línea o comillas.
+const TOKEN = (process.env.IG_TOKEN || '').trim().replace(/^["']|["']$/g, '').replace(/\s+/g, '');
 const USUARIO = 'aurorafemme.co';
 const CUANTAS = 6;
 const API = 'https://graph.instagram.com';
@@ -58,7 +59,7 @@ async function traer() {
   try {
     r = await pedir(`${API}/me/media?${q}`);          // token de inicio de sesión con Instagram
   } catch (e) {
-    console.log(`Instagram: graph.instagram.com no aceptó el token, pruebo graph.facebook.com.`);
+    console.log(`Instagram: graph.instagram.com no aceptó el token (${e.message.slice(0, 120)}), pruebo graph.facebook.com.`);
     r = await pedir(`${API_FB}/${IG_USER_ID}/media?${q}`); // token de usuario del sistema
   }
   const { data = [] } = await r.json();
@@ -115,6 +116,8 @@ async function mantenerVivo() {
   }
 }
 
+// Diagnóstico sin revelar el token: solo su tipo (2 primeras letras) y su largo.
+if (TOKEN) console.log(`Instagram: token tipo ${TOKEN.slice(0, 2)}…, ${TOKEN.length} caracteres.`);
 if (!TOKEN) {
   console.log('Instagram: sin IG_TOKEN, se usan los datos guardados.');
 } else {
