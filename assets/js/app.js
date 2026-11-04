@@ -230,10 +230,46 @@
       }).join("");
     }
 
+    initInstagram();
+
     const dia = $("#diarioInicio");
     if (dia) dia.innerHTML = DIARIO.slice(0, 3).map(tarjetaDiario).join("");
 
     initCalculadora();
+  }
+
+  /* ---------------- Instagram ---------------- */
+  // Las fotos y textos los deja scripts/instagram.mjs dentro del sitio (assets/js/instagram.js).
+  function initInstagram() {
+    const grid = $("#igGrid");
+    const posts = (window.INSTAGRAM && window.INSTAGRAM.posts) || [];
+    if (!grid || !posts.length) return; // sin publicaciones: quedan solo los botones
+    // Rejilla de 3 columnas: con 4 o 5 publicaciones se muestran 3 para que no quede un hueco
+    const visibles = posts.length >= 6 ? posts.slice(0, 6) : posts.slice(0, Math.min(posts.length, 3));
+    const resumen = (t) => {
+      const limpio = (t || "").replace(/#[\p{L}\d_]+/gu, "").replace(/\s+/g, " ").trim();
+      return limpio.length > 110 ? limpio.slice(0, 107).trimEnd() + "…" : limpio;
+    };
+    const fecha = (iso) => new Date(iso).toLocaleDateString("es-CO", { day: "numeric", month: "short", timeZone: "America/Bogota" });
+    const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const icono = (tipo) => tipo === "VIDEO"
+      ? '<span class="ig-tipo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>'
+      : tipo === "CAROUSEL_ALBUM"
+        ? '<span class="ig-tipo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="7" width="13" height="13" rx="2"/><path d="M4 16V5a1 1 0 0 1 1-1h11"/></svg></span>'
+        : "";
+    grid.innerHTML = visibles.map((p) => {
+      const txt = esc(resumen(p.texto));
+      const enlace = /^https:\/\/(www\.)?instagram\.com\//.test(p.enlace) ? p.enlace : `https://instagram.com/${TIENDA.instagram}`;
+      return `
+        <li>
+          <a class="ig-post" href="${enlace}" target="_blank" rel="noopener">
+            <img src="assets/img/instagram/${encodeURIComponent(p.imagen)}" alt="${txt || "Publicación de @" + TIENDA.instagram}" width="480" height="480" loading="lazy" decoding="async">
+            ${icono(p.tipo)}
+            <span class="ig-texto"><span>${txt}</span><small>${fecha(p.fecha)} · Ver en Instagram</small></span>
+          </a>
+        </li>`;
+    }).join("");
+    grid.hidden = false;
   }
 
   /* ---------------- Diario ---------------- */

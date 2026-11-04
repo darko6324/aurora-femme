@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=8">
+  <link rel="stylesheet" href="assets/css/styles.css?v=9">
 </head>
 <body data-pagina="inicio">
   <a class="sr-only" href="#contenido">Saltar al contenido</a>
@@ -175,22 +175,28 @@
       </div>
     </section>
 
-    <!-- Comunidad -->
-    <section class="seccion comunidad" style="padding-top:0">
+    <!-- Instagram: últimas publicaciones (scripts/instagram.mjs, una vez al día) -->
+    <section class="seccion comunidad" id="instagram" aria-labelledby="ig-titulo">
       <div class="wrap">
-        <h2>¿Ya tienes tu Aurora?</h2>
-        <p class="claim">Muéstranos tu unboxing y etiquétanos. Nos encanta ver a dónde llega cada pedido.</p>
-        <div class="comunidad-redes">
-          <a class="btn" href="https://instagram.com/aurorafemme.co" target="_blank" rel="noopener">Seguir en Instagram</a>
-          <a class="btn btn--claro" href="https://tiktok.com/@aurorafemme.co" target="_blank" rel="noopener">Ver en TikTok</a>
+        <div class="ig-cabeza">
+          <div>
+            <h2 id="ig-titulo">Lo último en Instagram</h2>
+            <p class="claim">Muéstranos tu unboxing y etiquétanos en @aurorafemme.co. Nos encanta ver a dónde llega cada pedido.</p>
+          </div>
+          <div class="comunidad-redes">
+            <a class="btn" href="https://instagram.com/aurorafemme.co" target="_blank" rel="noopener">Seguir en Instagram</a>
+            <a class="btn btn--claro" href="https://tiktok.com/@aurorafemme.co" target="_blank" rel="noopener">Ver en TikTok</a>
+          </div>
         </div>
+        <ul class="ig-grid" id="igGrid" hidden></ul>
       </div>
     </section>
   </main>
 
   <div id="pie"></div>
 
-  <script src="assets/js/data.js?v=8"></script>
-  <script src="assets/js/app.js?v=8"></script>
+  <script src="assets/js/data.js?v=9"></script>
+  <script src="assets/js/instagram.js?v=9"></script>
+  <script src="assets/js/app.js?v=9"></script>
 </body>
 </html>

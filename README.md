@@ -37,3 +37,13 @@ Ejecuta `bash scripts/descargar-imagenes.sh` para bajar las fotos. Mientras no l
 2. En Custom domain escribe `aurorafemme.co` (se crea el archivo `CNAME`).
 3. En tu proveedor de dominio, apunta los registros A a 185.199.108.153, 185.199.109.153, 185.199.110.153 y 185.199.111.153, y un CNAME `www` → `darko6324.github.io`.
 4. Activa **Enforce HTTPS**.
+
+## Instagram en la portada
+`scripts/instagram.mjs` trae las 6 últimas publicaciones de @aurorafemme.co con la API de Instagram
+y deja las fotos (webp 480 px) en `assets/img/instagram/` y los textos en `assets/js/instagram.js`.
+Corre en GitHub Actions (`.github/workflows/deploy.yml`) en cada push y todos los días a las 6:15 a. m.
+El sitio no carga nada de Instagram al visitarlo: sin cookies de terceros ni scripts externos.
+
+- Token: secreto `IG_TOKEN` del repositorio. Dura 60 días; renovarlo antes desde Meta for Developers.
+- Sin token o si la API falla, la sección muestra solo los botones «Seguir en Instagram» y «Ver en TikTok».
+- GitHub Pages debe publicar desde **GitHub Actions** (Settings → Pages → Source).

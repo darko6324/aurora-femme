@@ -481,6 +481,27 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .equipo-foto img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
 @media (max-width: 860px) { .equipo-foto { aspect-ratio: 1366 / 1150; } }
 
+/* ---------- Instagram ---------- */
+.comunidad .ig-cabeza { display: grid; gap: 20px; justify-items: center; }
+.comunidad .ig-cabeza .claim { margin-bottom: 0; }
+.ig-grid[hidden] { display: none; }
+.ig-grid { list-style: none; padding: 0; margin: clamp(28px, 4vw, 44px) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(8px, 1.4vw, 16px); text-align: left; }
+.ig-post { position: relative; display: block; aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: var(--nube); color: var(--blanco); text-decoration: none; }
+.ig-post img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+.ig-tipo { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(23,18,20,.55); }
+.ig-tipo svg { width: 16px; height: 16px; }
+.ig-texto { position: absolute; inset: auto 0 0 0; display: grid; gap: 6px; padding: 44px 14px 14px; font-size: .88rem; line-height: 1.4;
+  background: linear-gradient(to top, rgba(23,18,20,.85), rgba(23,18,20,0)); opacity: 0; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease); }
+.ig-texto span { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ig-texto small { color: var(--rosa); font-size: .78rem; font-weight: 500; }
+.ig-post:hover img, .ig-post:focus-visible img { transform: scale(1.04); }
+.ig-post:hover .ig-texto, .ig-post:focus-visible .ig-texto { opacity: 1; transform: none; }
+@media (hover: none) { .ig-texto { display: none; } }
+@media (max-width: 560px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  .ig-grid li:nth-child(3):last-child { display: none; } /* con 3, en 2 columnas la tercera quedaría sola */
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
