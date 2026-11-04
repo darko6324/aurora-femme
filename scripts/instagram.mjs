@@ -22,6 +22,7 @@ const API = 'https://graph.instagram.com';
 // (app «Aurora Femme Web», inicio de sesión unificado): esos tokens leen por graph.facebook.com.
 const IG_USER_ID = process.env.IG_USER_ID || '17841439055867959';
 const API_FB = 'https://graph.facebook.com/v21.0';
+const NEGOCIO = process.env.IG_NEGOCIO || '2357358101227292'; // portafolio aurora_lenceria_
 const DIR_IMG = fileURLToPath(new URL('../assets/img/instagram/', import.meta.url));
 const ARCHIVO = fileURLToPath(new URL('../assets/js/instagram.js', import.meta.url));
 
@@ -59,7 +60,10 @@ async function buscarCuenta() {
   console.log(`Instagram: token de «${yo.name ?? yo.id}».`);
   const intentos = [
     `${API_FB}/me/accounts?fields=name,instagram_business_account{id,username}&limit=50&access_token=${TOKEN}`,
-    `${API_FB}/me/instagram_accounts?fields=id,username&limit=50&access_token=${TOKEN}`,
+    `${API_FB}/${NEGOCIO}/owned_instagram_accounts?fields=id,username&limit=50&access_token=${TOKEN}`,
+    `${API_FB}/${NEGOCIO}/instagram_business_accounts?fields=id,username&limit=50&access_token=${TOKEN}`,
+    `${API_FB}/${NEGOCIO}/owned_pages?fields=name,instagram_business_account{id,username}&limit=50&access_token=${TOKEN}`,
+    `${API_FB}/me/assigned_pages?fields=name,instagram_business_account{id,username}&limit=50&access_token=${TOKEN}`,
   ];
   const cuentas = [];
   for (const url of intentos) {
