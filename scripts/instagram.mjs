@@ -52,6 +52,33 @@ async function guardarImagen(buf, base) {
   return nombre;
 }
 
+// Con un token de usuario del sistema, la cuenta de Instagram se encuentra a través de las
+// páginas de Facebook a las que el token tiene acceso. Solo se imprimen IDs y nombres de usuario.
+async function buscarCuenta() {
+  const yo = await (await pedir(`${API_FB}/me?fields=id,name&access_token=${TOKEN}`)).json();
+  console.log(`Instagram: token de «${yo.name ?? yo.id}».`);
+  const intentos = [
+    `${API_FB}/me/accounts?fields=name,instagram_business_account{id,username}&limit=50&access_token=${TOKEN}`,
+    `${API_FB}/me/instagram_accounts?fields=id,username&limit=50&access_token=${TOKEN}`,
+  ];
+  const cuentas = [];
+  for (const url of intentos) {
+    try {
+      const { data = [] } = await (await pedir(url)).json();
+      for (const d of data) {
+        const ig = d.instagram_business_account ?? (d.username ? d : null);
+        if (ig?.id) cuentas.push(ig);
+      }
+    } catch (e) {
+      console.log(`Instagram: búsqueda sin resultado (${e.message.slice(0, 100)}).`);
+    }
+  }
+  console.log(`Instagram: cuentas visibles: ${cuentas.map((c) => `${c.username ?? '?'} (${c.id})`).join(', ') || 'ninguna'}.`);
+  const elegida = cuentas.find((c) => c.username === USUARIO) ?? cuentas[0];
+  if (!elegida) return IG_USER_ID;
+  return elegida.id;
+}
+
 async function traer() {
   const campos = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp';
   const q = `fields=${campos}&limit=${CUANTAS * 2}&access_token=${TOKEN}`;
@@ -60,7 +87,8 @@ async function traer() {
     r = await pedir(`${API}/me/media?${q}`);          // token de inicio de sesión con Instagram
   } catch (e) {
     console.log(`Instagram: graph.instagram.com no aceptó el token (${e.message.slice(0, 120)}), pruebo graph.facebook.com.`);
-    r = await pedir(`${API_FB}/${IG_USER_ID}/media?${q}`); // token de usuario del sistema
+    const id = await buscarCuenta();
+    r = await pedir(`${API_FB}/${id}/media?${q}`); // token de usuario del sistema
   }
   const { data = [] } = await r.json();
 
