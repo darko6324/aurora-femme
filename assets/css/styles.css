@@ -576,3 +576,6 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 /* Mapa del sitio en el HTML (lo reemplaza el pie con diseño al cargar app.js) */
 .pie-estatico ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 32px 0; margin: 0; font-size: .9rem; }
 .pie-estatico a { color: var(--gris-seda); }
+
+/* Franja de destacados del inicio (iframe de la plataforma) */
+.destacados-cta { display: flex; justify-content: center; padding-top: clamp(20px, 3vw, 32px); }
