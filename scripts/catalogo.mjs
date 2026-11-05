@@ -271,6 +271,7 @@ function pagina({ titulo, descripcion, canonica, ogImagen, ogTipo = 'website', j
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css?v=${V}">
+  <script src="/assets/js/medicion.js?v=${V}" defer></script>
 ${jsonld.map((j) => `  <script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body data-pagina="${paginaId}">
