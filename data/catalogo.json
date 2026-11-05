@@ -1,0 +1,1044 @@
+{
+  "actualizado": "2026-11-05T18:43:46.973Z",
+  "productos": [
+    {
+      "sku": "HG007PALODEROSA",
+      "nombre": "Tanga de Encaje de Pestana Palo de Rosa con Argollas Doradas",
+      "descripcion": "Tanga de encaje de pestaña color palo de rosa, con argollas doradas en la unión de los tirantes graduables. El borde de pestañas le da un acabado delicado y los laterales lisos acompañan la cadera con comodidad. Talla única en un rosa suave y femenino. Una pieza para el uso diario o para regalarte algo bonito sin tener que justificarlo.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG007PALODEROSA%2Fcatalogo-HG007PALODEROSA-01_grande.jpg?alt=media&token=f7b77155-46d4-4529-b756-f45d4ba90306",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG008UVA",
+      "nombre": "Tanga de Encaje de Pestana Uva con Argollas Plateadas",
+      "descripcion": "Tanga de encaje de pestaña color uva, un vino profundo y elegante, con argollas plateadas en la unión de los tirantes graduables. El borde de pestañas añade un detalle delicado y los laterales lisos se adaptan con comodidad a la cadera. Talla única. Una prenda de carácter para quienes prefieren los tonos oscuros en su lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG008UVA%2Fcatalogo-HG008UVA-01_grande.jpg?alt=media&token=44c4a272-8bbd-45c5-b0ab-3fd9af5df444",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG001ARENA",
+      "nombre": "Tanga de Encaje Floral Arena con Mariposa Dorada",
+      "descripcion": "Tanga de encaje floral color arena con un pequeño detalle de mariposa dorada al frente. El encaje transparente de borde festoneado se une a una banda lateral lisa y a tirantes graduables, para que la prenda se ajuste a tu cadera con comodidad. Talla única en un tono neutro que combina con todo y se disfruta a diario. Lencería colombiana de Aurora Femme, con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG001ARENA%2Fcatalogo-HG001ARENA-01_grande.jpg?alt=media&token=07bfffdf-39ac-47e5-862c-9aa62d41c307",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG003FRAMBUESA",
+      "nombre": "Tanga de Encaje Floral Frambuesa con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color frambuesa, un rosa intenso lleno de vida, con moño al frente y tirantes graduables que ajustas a tu medida. Encaje transparente con laterales lisos y buen ajuste en la cadera. Talla única. Para quien quiere un toque de color en su ropa interior de todos los días, sin complicarse con tallas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG003FRAMBUESA%2Fcatalogo-HG003FRAMBUESA-01_grande.jpg?alt=media&token=7feb408b-7ad2-482b-adb2-0f0f808081fb",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG005GRISTORMENTA",
+      "nombre": "Tanga de Encaje Floral Gris Tormenta con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color gris tormenta, un gris carbón sobrio y moderno, con moño discreto al frente y tirantes graduables. El encaje semitransparente se combina con laterales lisos para un ajuste cómodo en la cadera. Talla única. Una alternativa elegante al negro, fácil de combinar con el resto de tu lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG005GRISTORMENTA%2Fcatalogo-HG005GRISTORMENTA-01_grande.jpg?alt=media&token=b488f4be-bac9-493c-8ee4-650059251000",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG002MAUVE",
+      "nombre": "Tanga de Encaje Floral Mauve con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color mauve, un rosa empolvado suave, con moño pequeño al frente y tirantes graduables con hebilla metálica. El encaje transparente se siente delicado y los laterales lisos se adaptan con comodidad a la cadera. Talla única. Una pieza para el uso diario que también funciona como detalle especial en tu cajón de lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG002MAUVE%2Fcatalogo-HG002MAUVE-01_grande.jpg?alt=media&token=353349b5-e8f6-4cf3-824c-51da828d9efd",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG006NEGRO",
+      "nombre": "Tanga de Encaje Floral Negro con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral negra con moño pequeño al frente y tirantes graduables con hebilla. El encaje semitransparente y los laterales lisos ofrecen un ajuste cómodo en la cadera. Talla única. El negro de siempre en versión delicada: una prenda básica para el uso diario y para las ocasiones en que quieras sentirte bonita por dentro.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG006NEGRO%2Fcatalogo-HG006NEGRO-01_grande.jpg?alt=media&token=7aea59f1-4640-4902-9d58-ae5767902a69",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG004OCEANOPROFUNDO",
+      "nombre": "Tanga de Encaje Floral Oceano Profundo con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color océano profundo, un azul petróleo oscuro y elegante, con moño al frente y tirantes graduables con hebilla. El encaje transparente deja ver la piel con delicadeza y los laterales lisos acompañan la cadera sin apretar. Talla única. Una opción distinta al negro clásico para quienes buscan lencería con carácter.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG004OCEANOPROFUNDO%2Fcatalogo-HG004OCEANOPROFUNDO-01_grande.jpg?alt=media&token=72958515-b55e-4ac4-92d3-1b5e1ba2b74c",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PI003AVELLANA",
+      "nombre": "Panty Invisible Sin Costuras Avellana - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color avellana, un caramelo suave de tono medio, con corte láser y bordes planos. No se marca bajo la ropa y se siente ligero y cómodo durante todo el día. Talla única. Una opción pensada para quienes buscan un tono que se acerque más a su piel y quieren comodidad en cada jornada.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI003AVELLANA%2Fcatalogo-PI003AVELLANA-01_grande.jpg?alt=media&token=e90b0b36-0269-4352-ad90-bbb37337c380",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PI001CHAMPAGNE",
+      "nombre": "Panty Invisible Sin Costuras Champagne - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color champagne, un beige claro cercano al tono de la piel, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa ajustada, y la tela suave se siente cómoda desde la mañana hasta la noche. Talla única. Un básico esencial para usar bajo pantalones, vestidos y faldas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI001CHAMPAGNE%2Fcatalogo-PI001CHAMPAGNE-01_grande.jpg?alt=media&token=010e6a55-5160-46e5-b13c-033fb5371882",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PI004CHOCOLATE",
+      "nombre": "Panty Invisible Sin Costuras Chocolate - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color chocolate, un café profundo y uniforme, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa y la tela suave se siente cómoda a diario. Talla única. Un tono pensado para quienes buscan una ropa interior que se acerque a su tono de piel y pase desapercibida bajo prendas ajustadas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI004CHOCOLATE%2Fcatalogo-PI004CHOCOLATE-01_grande.jpg?alt=media&token=06b2461a-39e4-46bc-8cc1-ba74695c6b6b",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PI002DUNA",
+      "nombre": "Panty Invisible Sin Costuras Duna - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color duna, un beige arena cálido, con bordes en corte láser sin costuras visibles. Su diseño liso y plano se adapta a la cadera sin marcar bajo la ropa, con una sensación suave sobre la piel. Talla única. Una prenda básica y cómoda para el uso diario, pensada para llevar bajo prendas ajustadas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI002DUNA%2Fcatalogo-PI002DUNA-01_grande.jpg?alt=media&token=e46d66d8-edbd-4b91-a626-e6feb587ec97",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PI005NEGRO",
+      "nombre": "Panty Invisible Sin Costuras Negro - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color negro, con acabado en corte láser y bordes planos que no se marcan bajo la ropa. La tela suave y ligera acompaña tu día con comodidad. Talla única. Un básico negro, ideal para usar bajo pantalones y vestidos oscuros, en el trabajo o en cualquier plan.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI005NEGRO%2Fcatalogo-PI005NEGRO-01_grande.jpg?alt=media&token=9276438e-cf07-457f-9d92-e2754189d2be",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF001PALODEROSA",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty corte tanga color palo de rosa con franja de encaje floral en la cintura y moño pequeño al centro. Los laterales en encaje transparente y el refuerzo interior en algodón combinan delicadeza con comodidad para el uso de todos los días. Talla única. Un rosa suave y femenino para quienes disfrutan de la lencería con detalles románticos.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF001PALODEROSA%2Fcatalogo-PF001PALODEROSA-01_grande.jpg?alt=media&token=72877a98-b7aa-4fd8-833a-a83a7a8746c1",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF002BLANCO",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty blanco corte tanga con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. El refuerzo en algodón en la zona interior aporta comodidad y frescura durante todo el día. Talla única. Un blanco limpio y delicado, fácil de combinar y perfecto como básico de tu cajón de lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF002BLANCO%2Fcatalogo-PF002BLANCO-01_grande.jpg?alt=media&token=5483f1c8-4103-4924-9166-0baf02ea474e",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF003UVA",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty corte tanga color uva, un vino profundo y elegante, con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. Cuenta con refuerzo en algodón en la parte interior para mayor comodidad. Talla única. Una opción de carácter para quienes prefieren los tonos oscuros sin renunciar al encaje.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF003UVA%2Fcatalogo-PF003UVA-01_grande.jpg?alt=media&token=8f5a955a-3c46-49c7-afcc-189b7b143182",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF004ROJO",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty rojo corte tanga con franja de encaje floral en la cintura, moño al centro y laterales de encaje transparente. El refuerzo en algodón en la zona interior lo hace cómodo para usar durante el día. Talla única. Un rojo intenso para quienes quieren darle color a su lencería, ya sea a diario o en una ocasión especial.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF004ROJO%2Fcatalogo-PF004ROJO-01_grande.jpg?alt=media&token=ee1f5820-e5a5-419d-88cb-1371d8c16c37",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF005AZULOSCURO",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty corte tanga color azul oscuro, un azul noche sobrio y elegante, con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. Incluye refuerzo en algodón en la parte interior para mayor comodidad. Talla única. Una alternativa distinta al negro, ideal para el uso diario.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF005AZULOSCURO%2Fcatalogo-PF005AZULOSCURO-01_grande.jpg?alt=media&token=7b4b9069-d748-4698-9e13-2dd5bc24e849",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "PF006NEGRO",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "descripcion": "Panty negro corte tanga con franja de encaje floral en la cintura, moño discreto al centro y laterales en encaje transparente. El refuerzo en algodón en la zona interior aporta comodidad en el uso de todos los días. Talla única. El negro clásico en una versión con detalles delicados, fácil de combinar con cualquier prenda.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF006NEGRO%2Fcatalogo-PF006NEGRO-01_grande.jpg?alt=media&token=0ca45cbd-6efa-4845-83f9-c23bc33f8882",
+      "precio": 15000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETALELI",
+      "nombre": "Set Alelí Lila",
+      "descripcion": "Conjunto de lencería de dos piezas color lila con bordado floral en tonos morado y rosa sobre tul transparente. El brasier con aro y copas bordadas tiene tirantes rosados graduables y la tanga de acabado satinado hace juego con el mismo bordado. Un set delicado y romántico para el uso especial y para regalarte algo bonito. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETALELI%2Fcatalogo-SETALELI-01_grande.jpg?alt=media&token=ff1940e1-96fb-4f70-b951-f1a4a1e2b3a6",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETALESSIA",
+      "nombre": "Set Alessia Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con encaje en forma de pétalos sobre tul color piel. El brasier con aro lleva un pequeño aro en forma de corazón al centro, copas con diseño de flor y tirantes graduables. La tanga hace juego con el mismo encaje y detalles de cristal en los tirantes. Un set con carácter para ocasiones en las que quieres sentirte especial.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETALESSIA%2Fcatalogo-SETALESSIA-01_grande.jpg?alt=media&token=a9cd35c5-dd1a-4c05-bd4c-9d807fe7a8f4",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETAMBER",
+      "nombre": "Set Amber Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con brasier de aro, copas en encaje de pestañas y base en tela satinada, acompañado de una tanga satinada con tirantes graduables. La tela suave se siente cómoda sobre la piel y el encaje le da un toque delicado. Un set clásico y elegante para el uso diario o para una ocasión especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETAMBER%2Fcatalogo-SETAMBER-01_grande.jpg?alt=media&token=3006f4c3-90d4-40d6-b839-d6ac6996d2bd",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETAMOREMIO",
+      "nombre": "Set Amore Mio Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas con estampado de corazones rojos sobre malla transparente. El brasier tipo triángulo, sin aro y con banda ancha en la base, se combina con una panty de corte clásico en el mismo estampado. Un set ligero, fresco y juguetón para quienes disfrutan de la lencería con detalles lindos. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETAMOREMIO%2Fcatalogo-SETAMOREMIO-01_grande.jpg?alt=media&token=cb32e982-3b16-4508-9bad-c19cdc6d3eed",
+      "precio": 55000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETANNIE",
+      "nombre": "Set Annie Blanco",
+      "descripcion": "Conjunto de lencería de encaje blanco con detalle de mariposa dorada, de dos piezas. El top tipo bralette, sin aro, tiene encaje de pestañas, tirantes ajustables y banda en la base; la panty de tiro alto en las piernas combina malla transparente al centro con encaje en los costados. Un set suave y delicado, cómodo para el uso diario o para sentirte especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETANNIE%2Fcatalogo-SETANNIE-01_grande.jpg?alt=media&token=5f502d9f-4143-4f52-be11-d3dfd870dfd9",
+      "precio": 50000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETANTONELLA",
+      "nombre": "Set Antonella Rosado",
+      "descripcion": "Conjunto de lencería de dos piezas en tul color durazno con bordado de flores en tonos rosados y fucsia. El brasier con aro tiene tirantes ajustables y laterales en malla; la tanga hace juego con el bordado y lleva tirantes graduables en la cadera. Un set delicado y romántico, con un acabado que se ve cuidado de cerca. Lencería colombiana de Aurora Femme.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETANTONELLA%2Fcatalogo-SETANTONELLA-01_grande.jpg?alt=media&token=5a583643-3a24-4faa-b532-cbbf4139a941",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETANTONIA",
+      "nombre": "Set Antonia Dorado",
+      "descripcion": "Conjunto de lencería de dos piezas en tul café chocolate con bordado floral en tonos cobre y rosa antiguo. El brasier con aro lleva copas con tiras de satín y tirantes ajustables; la tanga hace juego con el mismo bordado y tiras verticales en los costados. Un set de tonos cálidos y terrosos, elegante y distinto a los colores de siempre. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETANTONIA%2Fcatalogo-SETANTONIA-01_grande.jpg?alt=media&token=13883934-3375-4329-af6e-112c7810d287",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETARABELLA",
+      "nombre": "Set Arabella Lila",
+      "descripcion": "Conjunto de lencería de dos piezas color lila con bordado floral en tono morado sobre tul transparente. El brasier con aro y copas bordadas lleva tirantes graduables, y la tanga hace juego con tiras verticales en malla y tirantes ajustables en los costados. Un set delicado y femenino, con bordes festoneados que dan un acabado elegante. Lencería colombiana de Aurora Femme.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETARABELLA%2Fcatalogo-SETARABELLA-01_grande.jpg?alt=media&token=e3f1e59c-d986-4def-b8e0-649840b4e0de",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETARIANA",
+      "nombre": "Set Ariana Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas en encaje de pestañas. El brasier con aro combina copas de encaje con malla transparente y tirantes graduables; la tanga en encaje a juego lleva tirantes ajustables en la cadera. Un set luminoso y delicado, con un acabado festoneado que lo hace especial. Ideal para estrenar lencería bonita o para regalarte algo que te guste. Lencería colombiana de Aurora Femme.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETARIANA%2Fcatalogo-SETARIANA-01_grande.jpg?alt=media&token=d47db420-cf05-4b67-9909-74ab1d3d780f",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETAURA",
+      "nombre": "Set Aura Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas en encaje de pestañas. El brasier con aro lleva copas de encaje con moño pequeño al centro y tirantes graduables; la tanga de encaje a juego tiene tirantes ajustables en la cadera. Un set delicado, de encaje abundante y bordes suaves, para usar a diario o en una ocasión que quieras volver especial. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETAURA%2Fcatalogo-SETAURA-01_grande.jpg?alt=media&token=e46a9c6c-c9ea-4d6e-8e9d-02e9b20ed81c",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETCELESTE",
+      "nombre": "Set Celeste Azul Celeste",
+      "descripcion": "Conjunto de lencería de encaje azul celeste de dos piezas. El brasier con aro tiene copas en encaje transparente, laterales festoneados y tirantes de satín; la tanga a juego lleva tirantes ajustables con hebilla en la cadera. Un azul suave y luminoso para quienes buscan un color distinto, con un acabado delicado y cómodo. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETCELESTE%2Fcatalogo-SETCELESTE-01_grande.jpg?alt=media&token=45ff1f22-99db-45e0-958b-eb94ab6dcc48",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETCHERRY",
+      "nombre": "Set Cherry Blanco",
+      "descripcion": "Conjunto de lencería blanco con estampado de cerezas rojas sobre malla transparente, de dos piezas. El top tipo triángulo, sin aro y con banda ancha en la base, se combina con una tanga ligera en el mismo estampado. Un set fresco y divertido, cómodo para el uso diario. Para quienes disfrutan de la lencería con un toque lúdico. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETCHERRY%2Fcatalogo-SETCHERRY-01_grande.jpg?alt=media&token=426d40af-b5fe-4eda-9dd7-65a4a18be93e",
+      "precio": 55000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETCHLOE",
+      "nombre": "Set Chloe Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con encaje en forma de pétalos sobre tul color piel. El brasier con aro tiene copas con diseño de flor y tiras de satín negro que lo hacen especial, y la tanga hace juego con el mismo encaje y lleva tiras de satín. Un set con carácter, pensado para una ocasión en la que quieres sentirte especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETCHLOE%2Fcatalogo-SETCHLOE-01_grande.jpg?alt=media&token=ec131e4c-6d8a-49c5-8b3b-96ffb69d3e5f",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETELOISA-LILA",
+      "nombre": "Set Eloisa Lila",
+      "descripcion": "Conjunto de lencería de encaje lila de dos piezas. El brasier con aro combina encaje de pestañas con tiras de satín en el escote y doble banda en los costados; la tanga a juego tiene encaje festoneado y tirantes ajustables en la cadera. Un set en un lila suave y alegre, ideal para quienes quieren salir del negro de siempre. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-LILA%2Fcatalogo-SETELOISA-LILA-01_grande.jpg?alt=media&token=e56cff70-04b2-4f73-971e-193205c8139a",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETELOISA-NEGRO",
+      "nombre": "Set Eloisa Negro",
+      "descripcion": "Conjunto de lencería de encaje negro de dos piezas. El brasier con aro lleva encaje de pestañas, tiras de satín en el escote y doble banda en los costados; la tanga de encaje festoneado hace juego y tiene tirantes ajustables en la cadera. Un set clásico con detalles que lo hacen distinto, para el uso diario o para una ocasión especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-NEGRO%2Fcatalogo-SETELOISA-NEGRO-01_grande.jpg?alt=media&token=05a39193-dfda-4452-b656-069c50901b11",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETELOISA-VINOTINTO",
+      "nombre": "Set Eloisa Vinotinto",
+      "descripcion": "Conjunto de lencería de encaje vinotinto de dos piezas. El brasier con aro combina encaje de pestañas con tiras de satín en el escote y doble banda en los costados; la tanga a juego tiene encaje festoneado y tirantes ajustables en la cadera. Un set en un tono vino intenso, con un acabado elegante y cuidado en cada detalle. Lencería colombiana de Aurora Femme.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-VINOTINTO%2Fcatalogo-SETELOISA-VINOTINTO-01_grande.jpg?alt=media&token=17a089ab-22f1-4bb9-bd3d-5c4c20fa56e8",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETEMERALD",
+      "nombre": "Set Emerald Verde Esmeralda",
+      "descripcion": "Conjunto de lencería de dos piezas en tul color piel con bordado floral en verde esmeralda. El brasier con aro lleva una hebilla con cristales al centro y tirantes de satín graduables; la tanga hace juego con el bordado, tiras verticales de malla y tirantes ajustables. Un set de tonos profundos, elegante y con carácter. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETEMERALD%2Fcatalogo-SETEMERALD-01_grande.jpg?alt=media&token=e0ee6737-1a5a-4bf5-b6b3-2364a1a58146",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETEMILIA",
+      "nombre": "Set Emilia Cafe",
+      "descripcion": "Conjunto de lencería de dos piezas en tul color piel con bordado floral en tono café chocolate. El brasier con aro tiene borde festoneado, tirantes de satín graduables y laterales en malla; la tanga hace juego con el mismo bordado y lleva tirantes ajustables. Un set de tonos tierra, sobrio y delicado, que combina con todo lo que ya tienes. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETEMILIA%2Fcatalogo-SETEMILIA-01_grande.jpg?alt=media&token=47c8f2ff-7107-4905-b359-8261586656c8",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETEMMA",
+      "nombre": "Set Emma Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas en malla transparente con detalles de moño. El brasier con aro tiene tirantes graduables y cierre trasero con ganchos; la tanga a juego lleva tira vertical en malla, moño pequeño y argollas en los costados. Un set ligero y minimalista, para quienes prefieren una lencería sencilla y bien terminada. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETEMMA%2Fcatalogo-SETEMMA-01_grande.jpg?alt=media&token=99f6b46d-82e2-4544-bda6-944ea26e822f",
+      "precio": 60000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETFIORELLA",
+      "nombre": "Set Fiorella Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado de rosas sobre malla transparente. El brasier con aro lleva tirantes bordados y laterales en malla; la tanga hace juego con el mismo bordado y tiene tirantes ajustables con argollas en los costados. Un set romántico en negro, con un diseño floral que se ve cuidado de cerca. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETFIORELLA%2Fcatalogo-SETFIORELLA-01_grande.jpg?alt=media&token=d4b006b5-f591-447e-897f-e17e9feb315c",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETHAILEY",
+      "nombre": "Set Hailey Violeta",
+      "descripcion": "Conjunto de lencería violeta de dos piezas en malla transparente con bordado de flores en el mismo tono. El brasier con aro tiene bordes festoneados, detalles en satín y tirantes graduables; la tanga hace juego con el bordado y doble tira en los costados. Un set en un violeta intenso que se aleja de lo básico y le da color a tu cajón de lencería. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETHAILEY%2Fcatalogo-SETHAILEY-01_grande.jpg?alt=media&token=9746f82e-ca0f-4b5d-b551-d06391985176",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETHELENA",
+      "nombre": "Set Helena Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas en encaje y malla. El brasier con aro lleva tiras verticales que marcan la estructura de las copas, moño de satín al centro y bordes de encaje de pestañas; la tanga de encaje festoneado tiene tirantes ajustables con hebillas doradas. Un set clásico y elegante, para el uso diario o una ocasión especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETHELENA%2Fcatalogo-SETHELENA-01_grande.jpg?alt=media&token=a48f5bfb-a51a-422b-a0a5-fa55be4a41df",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETISABEL",
+      "nombre": "Set Isabel Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas con bordado floral sobre malla transparente. El brasier con aro, de línea larga tipo corsé, combina copas bordadas con flores, paneles de tul y tirantes ajustables; la tanga a juego lleva el mismo bordado al frente y tiras laterales ajustables en la cadera. Un set delicado y romántico, ideal para una fecha especial o para estrenar lencería bonita. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETISABEL%2Fcatalogo-SETISABEL-01_grande.jpg?alt=media&token=0e86acd5-5299-47d3-8e10-8c7d2b3d5ff0",
+      "precio": 90000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETISABELLA",
+      "nombre": "Set Isabella Rojo",
+      "descripcion": "Conjunto de lencería rojo de dos piezas en encaje de pestañas. El top tipo bralette, sin aro, tiene detalles de encaje en los hombros y cierre frontal con argolla; la tanga hace juego con laterales de encaje y pequeñas argollas metálicas. Un set rojo intenso para quienes quieren un color con presencia, ya sea a diario o en una fecha especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETISABELLA%2Fcatalogo-SETISABELLA-01_grande.jpg?alt=media&token=f933dbb4-84f5-4da7-8296-71be0f398502",
+      "precio": 60000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETJULIETA",
+      "nombre": "Set Julieta Rojo",
+      "descripcion": "Conjunto de lencería rojo de dos piezas en encaje de pestañas. El brasier con aro tiene un pequeño detalle de ojal al centro, tirantes graduables y doble tira en los costados; la tanga a juego lleva encaje festoneado, tirantes ajustables y parte trasera en tela satinada. Un set de rojo intenso para quienes quieren un color con presencia, para estrenar en una fecha especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETJULIETA%2Fcatalogo-SETJULIETA-01_grande.jpg?alt=media&token=6682b26e-0852-4016-b079-ab3d212c8b4c",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETLEIA",
+      "nombre": "Set Leia Lavanda",
+      "descripcion": "Conjunto de lencería de dos piezas en color lavanda, con bordado floral en tonos lila y blanco sobre tul transparente. El brasier con aro tiene tirantes de satín y laterales en malla; la tanga hace juego con el bordado, tiras en los costados y tirantes ajustables. Un set suave y delicado, de tonos pastel, ideal para quienes buscan una lencería tierna y elegante. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETLEIA%2Fcatalogo-SETLEIA-01_grande.jpg?alt=media&token=f3d7f2aa-50ad-4152-b225-8783aa6b56d9",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETLOLA",
+      "nombre": "Set Lola Menta",
+      "descripcion": "Conjunto de lencería de encaje en tono menta turquesa, de dos piezas. El brasier de copas con aro lleva bordes festoneados y tirantes de satín que se cruzan; la tanga de encaje floral hace juego y tiene tirantes ajustables con argollas. Un set fresco y luminoso, distinto a los colores de siempre, para el uso diario o para consentirte. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETLOLA%2Fcatalogo-SETLOLA-01_grande.jpg?alt=media&token=7fb97786-e877-45f6-9e51-5f92b09a7f73",
+      "precio": 50000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMAR",
+      "nombre": "Set Mar Azul",
+      "descripcion": "Conjunto de lencería de encaje azul rey de dos piezas. El top tipo triángulo, sin aro y con banda ancha en la base, tiene tirantes ajustables; la tanga a juego en el mismo encaje lleva tirantes ajustables con argollas. Un set de un azul intenso y elegante, cómodo para el uso diario y distinto a los colores de siempre. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMAR%2Fcatalogo-SETMAR-01_grande.jpg?alt=media&token=fa7bd613-bbe1-46b3-b3db-d260c088a997",
+      "precio": 50000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMARQUESA",
+      "nombre": "Set Marquesa Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado de flores sobre tul color piel. El brasier con aro tiene borde festoneado y tirantes ajustables; la tanga hace juego con el mismo bordado, tiras verticales en los costados y tirantes de ajuste. Un set elegante, que contrasta el negro con el tono piel del tul y que se siente especial desde la primera vez que lo usas. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMARQUESA%2Fcatalogo-SETMARQUESA-01_grande.jpg?alt=media&token=a28c09d9-6a42-4a2e-ad90-6c4a1bb5ab22",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMATILDA-BLANCO",
+      "nombre": "Set Matilda Blanco",
+      "descripcion": "Conjunto de lencería de encaje de pestañas en blanco marfil, de dos piezas. El brasier con aro tiene tirantes ajustables y bordes suaves; la tanga de encaje a juego lleva tirantes ajustables en la cadera. Un set luminoso y delicado, ideal para quienes buscan un clásico sin complicaciones y fácil de combinar. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMATILDA-BLANCO%2Fcatalogo-SETMATILDA-BLANCO-01_grande.jpg?alt=media&token=b0bd7534-3efc-4e48-890b-47a2809e9baf",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMATILDA-LAVANDA",
+      "nombre": "Set Matilda Lavanda",
+      "descripcion": "Conjunto de lencería de encaje de pestañas en color lavanda, un azul violeta suave, de dos piezas. El brasier con aro tiene tirantes de satín ajustables y bordes festoneados; la tanga de encaje a juego lleva tirantes ajustables. Un set en un tono pastel poco común, delicado y cómodo para el uso diario. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMATILDA-LAVANDA%2Fcatalogo-SETMATILDA-LAVANDA-01_grande.jpg?alt=media&token=b1a995fb-fde7-4e7b-9f29-7e06efffd668",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMATILDA-NEGRO",
+      "nombre": "Set Matilda Negro",
+      "descripcion": "Conjunto de lencería de encaje de pestañas negro de dos piezas. El brasier con aro lleva tirantes ajustables y bordes festoneados; la tanga de encaje a juego tiene tirantes ajustables con detalles metálicos dorados. Un set clásico y sencillo, para quienes prefieren el negro y quieren lencería bonita que se pueda usar a diario. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMATILDA-NEGRO%2Fcatalogo-SETMATILDA-NEGRO-01_grande.jpg?alt=media&token=a0297bea-0328-4e32-bfdf-1a9f50b49291",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMATILDA-ROJO",
+      "nombre": "Set Matilda Rojo",
+      "descripcion": "Conjunto de lencería de encaje de pestañas en color rojo, de dos piezas. El brasier con aro tiene tirantes graduables y bordes festoneados; la tanga de encaje a juego lleva tirantes ajustables con hebilla. Un set rojo que combina delicadeza y presencia, para el uso diario o para esas fechas en las que quieres estrenar algo especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMATILDA-ROJO%2Fcatalogo-SETMATILDA-ROJO-01_grande.jpg?alt=media&token=9a3e6df7-4a82-40a9-b997-03a849acf6a4",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMATILDA-VINOTINTO",
+      "nombre": "Set Matilda Vinotinto",
+      "descripcion": "Conjunto de lencería de encaje de pestañas en tono vinotinto, de dos piezas. El brasier con aro tiene tirantes graduables y bordes festoneados; la tanga de encaje a juego lleva tirantes ajustables con hebilla. Un vino profundo y elegante, para quienes prefieren los colores oscuros pero quieren salir del negro. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMATILDA-VINOTINTO%2Fcatalogo-SETMATILDA-VINOTINTO-01_grande.jpg?alt=media&token=d8443d42-612a-469c-aa2c-67af2119ca51",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMELINA",
+      "nombre": "Set Melina Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas en malla transparente con bordado floral en hilo dorado. El brasier con aro lleva tirantes graduables con argollas doradas y laterales en malla; la tanga hace juego con el bordado, tiras verticales y tirantes ajustables. Un set con detalles dorados que lo hacen especial, ideal para una ocasión en la que quieras sentirte elegante. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMELINA%2Fcatalogo-SETMELINA-01_grande.jpg?alt=media&token=2e9e2cba-6d44-4227-aecb-23b32739be72",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETMILA",
+      "nombre": "Set Mila Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas en malla transparente con bordado de pequeñas flores y hojas. El brasier con aro tiene laterales en malla y tirantes ajustables; la tanga de borde bordado hace juego, con tiras verticales y tirantes graduables. Un set delicado y sencillo, en negro, para el uso diario o para cuando quieras algo bonito sin recargar. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETMILA%2Fcatalogo-SETMILA-01_grande.jpg?alt=media&token=c82fb75f-60e4-462e-bfe1-5da75e546a3f",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETOLIVIA",
+      "nombre": "Set Olivia Verde Olivia",
+      "descripcion": "Conjunto de lencería de dos piezas en tul color piel con bordado floral en tono verde oliva oscuro. El brasier con aro tiene borde festoneado, laterales en malla y tirantes de satín graduables; la tanga hace juego con el bordado, tiras verticales y tirantes ajustables. Un verde profundo y distinto a los colores de siempre, elegante y cómodo. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETOLIVIA%2Fcatalogo-SETOLIVIA-01_grande.jpg?alt=media&token=7f1fa2bd-8bf0-4287-9fee-7d5640bd7fe4",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETORIANA-NEGRO",
+      "nombre": "Set Oriana Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con diseño de tiras anchas de satín. El brasier con aro tiene copas de tul con bordado floral, tirantes graduables y doble banda en los costados; la tanga hace juego con el bordado, argollas metálicas y tirantes ajustables en la cadera. Un set con carácter y estructura, para quienes buscan una lencería diferente. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETORIANA-NEGRO%2Fcatalogo-SETORIANA-NEGRO-01_grande.jpg?alt=media&token=5b937260-c244-417e-9c12-b8e6376cfd16",
+      "precio": 90000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETORIANA-ROJO",
+      "nombre": "Set Oriana Rojo",
+      "descripcion": "Conjunto de lencería rojo de dos piezas con diseño de tiras anchas de satín. El brasier con aro tiene copas de tul con bordado floral, tirantes graduables y doble banda en los costados; la tanga hace juego con el bordado, argollas metálicas y tirantes ajustables en la cadera. Un set de rojo intenso con un diseño distinto, para una fecha en la que quieras sentirte especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETORIANA-ROJO%2Fcatalogo-SETORIANA-ROJO-01_grande.jpg?alt=media&token=fc71e829-5d59-4ff9-9819-74c62bb15a8f",
+      "precio": 90000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETRENATA-PALODEROSA",
+      "nombre": "Set Renata Palo de rosa",
+      "descripcion": "Conjunto de lencería de encaje floral color palo de rosa, de dos piezas. El brasier con aro tiene tirantes de satín ajustables y borde festoneado; la tanga de encaje hace juego con volantes de encaje en los costados y tiras finas en la parte frontal. Un set en un rosa suave y femenino, delicado y cómodo para el uso diario. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETRENATA-PALODEROSA%2Fcatalogo-SETRENATA-PALODEROSA-01_grande.jpg?alt=media&token=136e4ceb-b82b-4c10-84c2-c4ee539d183f",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETRENATA-ROJO",
+      "nombre": "Set Renata Rojo",
+      "descripcion": "Conjunto de lencería de encaje floral rojo, de dos piezas. El brasier con aro tiene tirantes de satín ajustables y borde festoneado; la tanga de encaje hace juego con volantes de encaje en los costados y tiras finas en la parte frontal. Un set rojo de buena presencia, para estrenar en una ocasión especial o para darle color a tu lencería de todos los días. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETRENATA-ROJO%2Fcatalogo-SETRENATA-ROJO-01_grande.jpg?alt=media&token=f7e0118b-c7ae-4cdf-b2c0-f0faa8433120",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETRENATA-VINOTINTO",
+      "nombre": "Set Renata Vinotinto",
+      "descripcion": "Conjunto de lencería de encaje floral vinotinto, de dos piezas. El brasier con aro tiene tirantes de satín ajustables y borde festoneado; la tanga de encaje hace juego con volantes de encaje en los costados y tiras finas en la parte frontal. Un vino profundo y elegante, para quienes buscan un color oscuro distinto al negro. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETRENATA-VINOTINTO%2Fcatalogo-SETRENATA-VINOTINTO-01_grande.jpg?alt=media&token=bda9176c-1862-480c-bb47-b644c1a9fe38",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSALMA-BLANCO",
+      "nombre": "Set Salma Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas con bordado floral en tono marfil sobre tul transparente. El brasier con aro tiene borde festoneado, laterales en malla y tirantes ajustables; la tanga hace juego con el bordado, tiras verticales y tirantes de ajuste. Un set luminoso y delicado, perfecto para quienes buscan lencería blanca con un acabado cuidado. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSALMA-BLANCO%2Fcatalogo-SETSALMA-BLANCO-01_grande.jpg?alt=media&token=c68f4999-fdb1-4beb-b6c7-f22cc82bc023",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSALMA-NEGRO",
+      "nombre": "Set Salma Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado de flores y hojas sobre tul color piel. El brasier con aro tiene borde festoneado, detalle en zigzag en los laterales y tirantes ajustables; la tanga hace juego con el bordado, tiras verticales y tirantes graduables. Un set elegante en el que el negro contrasta con el tono piel del tul. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSALMA-NEGRO%2Fcatalogo-SETSALMA-NEGRO-01_grande.jpg?alt=media&token=d74adc9c-6fd6-4213-9e25-ed325b48ad61",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSAMARA",
+      "nombre": "Set Samara Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado floral y bordes de pestañas sobre tul color piel. El brasier con aro tiene laterales en malla y tirantes graduables; la tanga a juego lleva tiras verticales en la parte frontal y tirantes ajustables en la cadera. Un set delicado para el uso diario o para una ocasión en la que quieras sentirte especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSAMARA%2Fcatalogo-SETSAMARA-01_grande.jpg?alt=media&token=e2046380-4dd3-423d-9c00-15f75966f5f9",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSARAH-BLANCO",
+      "nombre": "Set Sarah Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas con bordado de flores y hojas con relieve sobre tul transparente. El brasier con aro tiene tirantes finos y laterales en malla; la tanga hace juego con el mismo bordado y tiras en la cintura. Un set de diseño distinto y delicado, con un acabado que se ve cuidado de cerca. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSARAH-BLANCO%2Fcatalogo-SETSARAH-BLANCO-01_grande.jpg?alt=media&token=d36ec671-80cd-49c4-b539-fcdf27544f2c",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSARAH-NEGRO",
+      "nombre": "Set Sarah Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado de flores y hojas con relieve sobre malla negra. El brasier con aro tiene tirantes finos y laterales en malla; la tanga hace juego con el mismo bordado y tiras en la cintura. Un set elegante y con textura, para quienes prefieren el negro con un diseño diferente. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSARAH-NEGRO%2Fcatalogo-SETSARAH-NEGRO-01_grande.jpg?alt=media&token=f0a0bc4e-9361-4fbe-a1b2-d5c45e5b3353",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSELENA",
+      "nombre": "Set Selena Blanco",
+      "descripcion": "Conjunto de lencería blanco de dos piezas en encaje de pestañas. El brasier con aro tiene cierre trasero con ganchos y tirantes graduables; la tanga de encaje a juego lleva doble tira en los costados y una cinta ajustable en la cintura. Un set blanco con mucho encaje, delicado y con detalles que lo hacen especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSELENA%2Fcatalogo-SETSELENA-01_grande.jpg?alt=media&token=76b3f9a2-76cc-4297-8e71-b6394f626ecf",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSIENNA",
+      "nombre": "Set Sienna Negro",
+      "descripcion": "Conjunto de lencería negro de dos piezas con bordado de lirios sobre tul color piel. El brasier con aro tiene un pequeño moño al centro, laterales en malla y tirantes graduables; la tanga hace juego con una flor bordada al frente y tirantes ajustables. Un set de diseño floral grande, elegante y delicado a la vez. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSIENNA%2Fcatalogo-SETSIENNA-01_grande.jpg?alt=media&token=4527c2b7-fbaa-49af-86b2-ea5c1bfec6d7",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSILVIA",
+      "nombre": "Set Silvia Azul Oscuro",
+      "descripcion": "Conjunto de lencería azul oscuro de dos piezas con bordado de lirios sobre malla transparente y detalles en satín. El brasier con aro tiene tirantes ajustables y tiras en los hombros, y la tanga hace juego con el bordado, tirantes graduables y parte trasera en tela satinada. Un azul profundo y elegante, distinto a los colores de siempre. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSILVIA%2Fcatalogo-SETSILVIA-01_grande.jpg?alt=media&token=13f79f72-e91c-4dbc-96af-8e120259f3c7",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSOFIA-MAGENTA",
+      "nombre": "Set Sofia Magenta",
+      "descripcion": "Conjunto de lencería magenta de dos piezas con bordado de lirios sobre tul y base en tela satinada. El brasier con aro lleva moños pequeños y tirantes graduables; la tanga hace juego con el bordado, tirantes ajustables y parte trasera satinada. Un set de color intenso, entre fucsia y vino, para quienes quieren una lencería con presencia y un acabado delicado. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSOFIA-MAGENTA%2Fcatalogo-SETSOFIA-MAGENTA-01_grande.jpg?alt=media&token=04a55ad3-27d8-42d9-994a-50b5a42b73e8",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETSOFIA-ROJO",
+      "nombre": "Set Sofia Rojo",
+      "descripcion": "Conjunto de lencería rojo de dos piezas con bordado de lirios sobre tul y base en tela satinada. El brasier con aro tiene moños pequeños y tirantes graduables; la tanga hace juego con el bordado, tirantes ajustables y parte trasera satinada. Un set rojo de acabado brillante y detalles bordados, para estrenar en una fecha especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSOFIA-ROJO%2Fcatalogo-SETSOFIA-ROJO-01_grande.jpg?alt=media&token=c13fedae-340e-414f-8f66-2c501ba251bd",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETTANIA",
+      "nombre": "Set Tania Rojo",
+      "descripcion": "Conjunto de lencería rojo de dos piezas en encaje de pestañas. El top tipo triángulo, sin aro, se combina con tiras de satín ajustables que forman un diseño con cinta en el cuello y cintura; la tanga de encaje a juego lleva un pequeño moño al frente y tirantes ajustables. Un set con diseño de tiras, distinto y fácil de ajustar, en un rojo intenso. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETTANIA%2Fcatalogo-SETTANIA-01_grande.jpg?alt=media&token=f91e569f-01c6-4d73-ba37-3c54b4373254",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETVALERI",
+      "nombre": "Set Valeri Negro",
+      "descripcion": "Conjunto de lencería de dos piezas en malla color piel con encaje de pestañas negro y bordes en negro. El brasier con aro tiene laterales en malla y tirantes graduables; la tanga a juego lleva encaje al frente y tirantes ajustables con argollas. Un set que contrasta el negro con el tono piel, delicado y cómodo para el uso diario. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVALERI%2Fcatalogo-SETVALERI-01_grande.jpg?alt=media&token=e83fca68-edb2-4b43-8be2-b10712f4d61d",
+      "precio": 80000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETVERONICA-NEGRO",
+      "nombre": "Set Veronica Negro",
+      "descripcion": "Conjunto de lencería de encaje de pestañas negro de dos piezas. El brasier con aro tiene un pequeño moño al centro, tirantes graduables y doble banda en los costados; la tanga de encaje a juego lleva tirantes ajustables con argollas. Un set negro con detalles que lo hacen distinto, para el uso diario o para una ocasión especial. Aurora Femme, lencería colombiana.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-NEGRO%2Fcatalogo-SETVERONICA-NEGRO-01_grande.jpg?alt=media&token=1e18634f-97b0-4631-bea1-6062441562ca",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETVERONICA-PALODEROSA",
+      "nombre": "Set Veronica Palo de rosa",
+      "descripcion": "Conjunto de lencería de encaje de pestañas color palo de rosa, de dos piezas. El brasier con aro tiene un pequeño moño al centro, tirantes graduables y doble banda satinada en los costados; la tanga de encaje a juego lleva tirantes ajustables. Un set en un rosa cálido y suave, delicado y femenino. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-PALODEROSA%2Fcatalogo-SETVERONICA-PALODEROSA-01_grande.jpg?alt=media&token=5ff7d80d-db71-4206-b0c2-d6d97f307c00",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "SETVERONICA-ROJO",
+      "nombre": "Set Veronica Rojo",
+      "descripcion": "Conjunto de lencería de encaje de pestañas rojo, de dos piezas. El brasier con aro tiene doble banda satinada en los costados y tirantes graduables; la tanga de encaje a juego lleva tirantes ajustables con argollas. Un set rojo intenso y con detalles cuidados, para el uso diario o una fecha especial. Aurora Femme, lencería colombiana con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-ROJO%2Fcatalogo-SETVERONICA-ROJO-01_grande.jpg?alt=media&token=31c3c711-4b43-4909-8624-57c6f5e1cf12",
+      "precio": 75000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "BBDNOHELIA",
+      "nombre": "Babydoll Noelia Uva",
+      "descripcion": "Babydoll de encaje y malla transparente color uva, con copas con aro, moño de satín al centro y tirantes graduables con ajustador. Falda ligera y vaporosa con detalle en forma de corazón, terminada en un amplio borde de encaje festoneado. Incluye tanga de encaje a juego con tirantes graduables. Un conjunto de dos piezas para dormir cómoda o para una ocasión especial. Aurora Femme: eleva tu feminidad.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FBBDNOHELIA%2Fcatalogo-BBDNOHELIA-01_grande.jpg?alt=media&token=31e7554c-a5ce-4cf4-846a-a8ca3f5a16cd",
+      "precio": 70000,
+      "moneda": "COP",
+      "disponible": true
+    }
+  ],
+  "variantes": [
+    {
+      "codigo": "HG007PALODEROSA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG008UVA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG001ARENA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG003FRAMBUESA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG005GRISTORMENTA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG002MAUVE-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG006NEGRO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG004OCEANOPROFUNDO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PI003AVELLANA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PI001CHAMPAGNE-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PI004CHOCOLATE-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PI002DUNA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PI005NEGRO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF001PALODEROSA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF002BLANCO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF003UVA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF004ROJO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF005AZULOSCURO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "PF006NEGRO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "SETALELI-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETALESSIA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETAMBER-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETAMBER-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETAMOREMIO-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETANNIE-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETANTONELLA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETANTONIA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETARABELLA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETARIANA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETAURA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETCELESTE-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETCHERRY-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETCHLOE-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETELOISA-LILA-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETELOISA-LILA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETELOISA-NEGRO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETELOISA-NEGRO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETELOISA-VINOTINTO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETEMERALD-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETEMILIA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETEMMA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETFIORELLA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETHAILEY-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETHELENA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETISABEL-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETISABELLA-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETJULIETA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETLEIA-L",
+      "disponible": true
+    },
+    {
+      "codigo": "SETLOLA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMAR-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMARQUESA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-BLANCO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-BLANCO-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-BLANCO-L",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-LAVANDA-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-NEGRO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-NEGRO-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-ROJO-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-ROJO-L",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMATILDA-VINOTINTO-L",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMELINA-L",
+      "disponible": true
+    },
+    {
+      "codigo": "SETMILA-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETOLIVIA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETORIANA-NEGRO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETORIANA-ROJO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETORIANA-ROJO-M",
+      "disponible": true
+    },
+    {
+      "codigo": "SETRENATA-PALODEROSA-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETRENATA-ROJO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETRENATA-VINOTINTO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSALMA-BLANCO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSALMA-NEGRO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSAMARA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSARAH-BLANCO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSARAH-NEGRO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSELENA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSIENNA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSILVIA-L",
+      "disponible": false
+    },
+    {
+      "codigo": "SETSOFIA-MAGENTA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETSOFIA-ROJO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETTANIA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETVALERI-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETVERONICA-NEGRO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETVERONICA-PALODEROSA-S",
+      "disponible": true
+    },
+    {
+      "codigo": "SETVERONICA-ROJO-XS",
+      "disponible": true
+    },
+    {
+      "codigo": "SETVERONICA-ROJO-S",
+      "disponible": true
+    },
+    {
+      "codigo": "BBDNOHELIA-S",
+      "disponible": true
+    }
+  ]
+}
