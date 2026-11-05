@@ -1,8 +1,9 @@
 /* =========================================================
    Aurora Femme — catálogo
-   Fuente única de los productos de la tienda.
-   Para agregar un producto: copia un bloque, cambia los datos
-   y pon la foto en assets/img/productos/ con el mismo nombre.
+   Datos del sitio: contacto, colecciones de la portada, diario y reseñas.
+   Los productos y fotos reales vienen de la plataforma de inventario
+   (scripts/catalogo.mjs → assets/js/catalogo.js). PRODUCTOS aquí solo
+   elige qué piezas muestra la portada; la foto y el enlace salen por código.
    ========================================================= */
 
 const TIENDA = {
@@ -13,29 +14,40 @@ const TIENDA = {
   instagram: "aurorafemme.co",
   tiktok: "aurorafemme.co",
   envioGratisDesde: 200000,
-  costoEnvio: 12000,                 // ajústalo a tu tarifa real
+  costoEnvio: 13000,                 // envío en pedidos por debajo del envío gratis
   horario: ["Lun – Vie: 8:00 a.m. – 6:00 p.m.", "Sáb: 9:00 a.m. – 2:00 p.m."],
   entrega: "2 a 8 días hábiles según destino",
 };
 
-const CDN = "https://cdn.shopify.com/s/files/1/0710/6838/5514/files/";
 
 const COLECCIONES = [
   {
     id: "hilos-graduables",
-    url: "hilos-de-encaje/",
-    nombre: "Hilos graduables",
+    url: "tangas-de-encaje/",
+    nombre: "Tangas e hilos de encaje",
     texto: "Encaje floral y de pestaña con tirantes que ajustas a tu cadera.",
-    img: "assets/img/colecciones/hilos-graduables.jpg",
-    cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/Hilos_Graduables.jpg?v=1784514470&width=1500",
+    img: "",
   },
   {
     id: "panties-invisibles",
     url: "panties-invisibles/",
     nombre: "Panties invisibles",
     texto: "Sin costuras y con corte láser: no se marcan ni bajo el vestido más ajustado.",
-    img: "assets/img/colecciones/panties-invisibles.jpg",
-    cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/collections/PANTIESINVISIBLES.jpg?v=1784514501&width=1500",
+    img: "",
+  },
+  {
+    id: "panties-de-encaje",
+    url: "panties-de-encaje/",
+    nombre: "Panties de algodón",
+    texto: "Corte tanga, refuerzo en algodón y una franja de encaje floral. Para todos los días.",
+    img: "",
+  },
+  {
+    id: "conjuntos-de-lenceria",
+    url: "conjuntos-de-lenceria/",
+    nombre: "Conjuntos de lencería",
+    texto: "Sets de dos piezas en encaje y babydolls, del negro y el rojo al lila o el blanco.",
+    img: "",
   },
 ];
 
@@ -66,50 +78,49 @@ const PRODUCTOS = [
   // ---------- Hilos graduables ----------
   { sku: "HG008", handle: "tanga-encaje-pestana-uva", nombre: "Tanga de encaje de pestaña Uva", detalle: "con argollas plateadas",
     coleccion: "hilos-graduables", color: "uva", precio: 12000, destacado: true,
-    img: "assets/img/productos/hg008-uva.jpg", cdn: CDN + "hg008-uva-2048.jpg?v=1784586063", desc: DESC_HILO_PESTANA },
+    img: "assets/img/productos/hg008-uva.jpg", desc: DESC_HILO_PESTANA },
   { sku: "HG007", handle: "tanga-encaje-pestana-palo-de-rosa", nombre: "Tanga de encaje de pestaña Palo de rosa", detalle: "con argollas doradas",
     coleccion: "hilos-graduables", color: "palo-de-rosa", precio: 12000, destacado: true,
-    img: "assets/img/productos/hg007-palo-de-rosa.jpg", cdn: CDN + "hg007-palo-de-rosa-2048.jpg?v=1784586063", desc: DESC_HILO_PESTANA },
+    img: "assets/img/productos/hg007-palo-de-rosa.jpg", desc: DESC_HILO_PESTANA },
   { sku: "HG006", handle: "tanga-encaje-floral-negro", nombre: "Tanga de encaje floral Negro", detalle: "con tirantes graduables",
     coleccion: "hilos-graduables", color: "negro", precio: 12000, destacado: true,
-    img: "assets/img/productos/hg006-negro.jpg", cdn: CDN + "hg006-negro-2048.jpg?v=1784586063", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg006-negro.jpg", desc: DESC_HILO_FLORAL },
   { sku: "HG005", handle: "tanga-encaje-floral-gris-tormenta", nombre: "Tanga de encaje floral Gris tormenta", detalle: "con tirantes graduables",
     coleccion: "hilos-graduables", color: "gris-tormenta", precio: 12000, destacado: true,
-    img: "assets/img/productos/hg005-gris-tormenta.jpg", cdn: CDN + "hg005-gris-tormenta-2048.jpg?v=1784586062", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg005-gris-tormenta.jpg", desc: DESC_HILO_FLORAL },
   { sku: "HG004", handle: "tanga-encaje-floral-oceano-profundo", nombre: "Tanga de encaje floral Océano profundo", detalle: "con tirantes graduables",
     coleccion: "hilos-graduables", color: "oceano-profundo", precio: 12000,
-    img: "assets/img/productos/hg004-oceano-profundo.jpg", cdn: CDN + "hg004-oceano-profundo-01.jpg?v=1784424685", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg004-oceano-profundo.jpg", desc: DESC_HILO_FLORAL },
   { sku: "HG003", handle: "tanga-encaje-floral-frambuesa", nombre: "Tanga de encaje floral Frambuesa", detalle: "con tirantes graduables",
     coleccion: "hilos-graduables", color: "frambuesa", precio: 12000,
-    img: "assets/img/productos/hg003-frambuesa.png", cdn: CDN + "hg003-frambuesa-01.png?v=1784424678", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg003-frambuesa.png", desc: DESC_HILO_FLORAL },
   { sku: "HG002", handle: "tanga-encaje-floral-mauve", nombre: "Tanga de encaje floral Mauve", detalle: "con tirantes graduables",
     coleccion: "hilos-graduables", color: "mauve", precio: 12000,
-    img: "assets/img/productos/hg002-mauve.jpg", cdn: CDN + "hg002-mauve-2048.jpg?v=1784586695", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg002-mauve.jpg", desc: DESC_HILO_FLORAL },
   { sku: "HG001", handle: "tanga-encaje-floral-arena", nombre: "Tanga de encaje floral Arena", detalle: "con mariposa dorada",
     coleccion: "hilos-graduables", color: "arena", precio: 12000,
-    img: "assets/img/productos/hg001-arena.jpg", cdn: CDN + "hg001-arena-2048.jpg?v=1784586062", desc: DESC_HILO_FLORAL },
+    img: "assets/img/productos/hg001-arena.jpg", desc: DESC_HILO_FLORAL },
 
   // ---------- Panties invisibles ----------
   { sku: "PI001", handle: "panty-invisible-champagne", nombre: "Panty invisible Champagne", detalle: "sin costuras, corte láser",
     coleccion: "panties-invisibles", color: "champagne", precio: 15000,
-    img: "assets/img/productos/pi001-champagne.jpg", cdn: CDN + "pi001-champagne-01.jpg?v=1784515311", desc: DESC_PANTY },
+    img: "assets/img/productos/pi001-champagne.jpg", desc: DESC_PANTY },
   { sku: "PI002", handle: "panty-invisible-duna", nombre: "Panty invisible Duna", detalle: "sin costuras, corte láser",
     coleccion: "panties-invisibles", color: "duna", precio: 15000,
-    img: "assets/img/productos/pi002-duna.jpg", cdn: CDN + "pi002-duna-01.jpg?v=1784515320", desc: DESC_PANTY },
+    img: "assets/img/productos/pi002-duna.jpg", desc: DESC_PANTY },
   { sku: "PI003", handle: "panty-invisible-avellana", nombre: "Panty invisible Avellana", detalle: "sin costuras, corte láser",
     coleccion: "panties-invisibles", color: "avellana", precio: 15000,
-    img: "assets/img/productos/pi003-avellana.jpg", cdn: CDN + "pi003-avellana-01.jpg?v=1784583819", desc: DESC_PANTY },
+    img: "assets/img/productos/pi003-avellana.jpg", desc: DESC_PANTY },
   { sku: "PI004", handle: "panty-invisible-chocolate", nombre: "Panty invisible Chocolate", detalle: "sin costuras, corte láser",
     coleccion: "panties-invisibles", color: "chocolate", precio: 15000,
-    img: "assets/img/productos/pi004-chocolate.jpg", cdn: CDN + "pi004-chocolate-01.jpg?v=1784515337", desc: DESC_PANTY },
+    img: "assets/img/productos/pi004-chocolate.jpg", desc: DESC_PANTY },
   { sku: "PI005", handle: "panty-invisible-negro", nombre: "Panty invisible Negro", detalle: "sin costuras, corte láser",
     coleccion: "panties-invisibles", color: "negro", precio: 15000,
-    img: "assets/img/productos/pi005-negro.jpg", cdn: CDN + "pi005-negro-01.jpg?v=1784515344", desc: DESC_PANTY },
+    img: "assets/img/productos/pi005-negro.jpg", desc: DESC_PANTY },
 ];
 
 const LOGO = {
   img: "assets/img/logo-aurora-femme.png",
-  cdn: "https://cdn.shopify.com/s/files/1/0710/6838/5514/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?v=1778723989&width=560",
 };
 
 /* =========================================================

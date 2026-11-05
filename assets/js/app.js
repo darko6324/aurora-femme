@@ -15,11 +15,12 @@
   // Enlaces a las fichas indexables (los genera scripts/catalogo.mjs en assets/js/catalogo.js)
   const CAT = window.CATALOGO || { productos: {}, categorias: {} };
   const urlProducto = (p) => CAT.productos[p.sku] || "tienda.html";
+  // Fotos propias del catálogo (webp optimizadas en assets/img/catalogo)
+  PRODUCTOS.forEach((p) => { const f = (CAT.fotos || {})[p.sku]; if (f) { p.img = f.m; p.imgGrande = f.l; } });
+  COLECCIONES.forEach((c) => { const f = (CAT.fotoCategoria || {})[(c.url || "").replace(/\/$/, "")]; if (f) c.img = f; });
 
-  // Imagen local con respaldo en el CDN mientras no se descarguen las fotos
   const img = (o, alt, extra = "") =>
-    `<img src="${o.img}" alt="${alt}" loading="lazy" decoding="async" ${extra}
-      onerror="this.onerror=null;this.src='${o.cdn}'">`;
+    `<img src="${o.img}" alt="${alt}" loading="lazy" decoding="async" ${extra}>`;
 
   const ICONOS = {
     bolsa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12.5a1 1 0 0 1-1 .9H7a1 1 0 0 1-1-.9L5 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></svg>',
@@ -42,7 +43,7 @@
   /* ---------------- Cabecera y pie ---------------- */
   const navLinks = [
     ["tienda.html", "Catálogo", "tienda"],
-    ["diario.html", "Diario", "diario"],
+    ["diario/", "Diario", "diario"],
     ["nosotras.html", "Nosotras", "nosotras"],
   ];
 
@@ -52,7 +53,7 @@
     const activo = (clave) =>
       (clave === "tienda" && pagina === "tienda") ||
       (clave === "nosotras" && pagina === "nosotras") ||
-      (clave === "diario" && (pagina === "diario" || pagina === "articulo"));
+      (clave === "diario" && (pagina === "diario" || pagina === "nota"));
     destino.outerHTML = `
       <div class="aviso">Envío gratis desde <strong>${pesos(TIENDA.envioGratisDesde)}</strong> a toda Colombia</div>
       <header class="cabecera">
@@ -120,9 +121,9 @@
               <h4>Tienda</h4>
               <ul>
                 <li><a href="tienda.html">Catálogo</a></li>
-                <li><a href="hilos-de-encaje/">Hilos de encaje</a></li>
+                <li><a href="tangas-de-encaje/">Tangas e hilos de encaje</a></li>
                 <li><a href="panties-invisibles/">Panties invisibles</a></li>
-                <li><a href="panties-de-encaje/">Panties de encaje</a></li>
+                <li><a href="panties-de-encaje/">Panties de algodón</a></li>
                 <li><a href="conjuntos-de-lenceria/">Conjuntos de lencería</a></li>
                 <li><a href="index.html#tallas">Guía de tallas</a></li>
               </ul>
@@ -131,7 +132,7 @@
               <h4>Ayuda</h4>
               <ul>
                 <li><a href="nosotras.html">Nosotras</a></li>
-                <li><a href="diario.html">Diario Aurora</a></li>
+                <li><a href="diario/">Diario Aurora</a></li>
                 <li><a href="politicas.html#envios">Envíos</a></li>
                 <li><a href="politicas.html#cambios">Cambios y devoluciones</a></li>
                 <li><a href="politicas.html#privacidad">Privacidad</a></li>
@@ -191,8 +192,7 @@
         ficha.querySelector("span").textContent = `${p.detalle} · Ver en el catálogo`;
         const vieja = foto.querySelector("img");
         const nueva = document.createElement("img");
-        nueva.alt = p.nombre; nueva.src = p.img;
-        nueva.onerror = () => { nueva.onerror = null; nueva.src = p.cdn; };
+        nueva.alt = p.nombre; nueva.src = p.imgGrande || p.img;
         nueva.classList.add("saliendo");
         foto.appendChild(nueva);
         const entrar = () => requestAnimationFrame(() => {
@@ -284,9 +284,9 @@
   const imagenDiario = (a) => PRODUCTOS.find((p) => p.sku.toLowerCase() === a.imagen) || PRODUCTOS[0];
   const tarjetaDiario = (a) => `
     <article class="nota">
-      <a class="nota-foto" href="articulo.html?a=${a.slug}" tabindex="-1" aria-hidden="true">${img(imagenDiario(a), "")}</a>
+      <a class="nota-foto" href="diario/${a.slug}/" tabindex="-1" aria-hidden="true">${img(imagenDiario(a), "")}</a>
       <p class="nota-meta"><time datetime="${a.fecha}">${fechaLarga(a.fecha)}</time>, ${a.lectura} de lectura</p>
-      <h3><a href="articulo.html?a=${a.slug}">${a.titulo}</a></h3>
+      <h3><a href="diario/${a.slug}/">${a.titulo}</a></h3>
       <p>${a.resumen}</p>
     </article>`;
 
@@ -294,33 +294,6 @@
     const g = $("#diarioLista");
     if (g) g.innerHTML = DIARIO.map(tarjetaDiario).join("");
   }
-  function initArticulo() {
-    const cont = $("#articulo"); if (!cont) return;
-    const a = DIARIO.find((x) => x.slug === new URLSearchParams(location.search).get("a"));
-    if (!a) {
-      cont.innerHTML = `<div class="carrito-vacio"><h1 style="font-size:2rem">No encontramos esta entrada</h1><p>Mira las demás notas del diario.</p><a class="btn" href="diario.html">Ir al diario</a></div>`;
-      return;
-    }
-    document.title = `${a.titulo} | Diario Aurora`;
-    $('meta[name="description"]')?.setAttribute("content", a.resumen);
-    const p = imagenDiario(a);
-    cont.innerHTML = `
-      <nav class="migas" aria-label="Ruta"><a href="diario.html">Diario Aurora</a></nav>
-      <h1>${a.titulo}</h1>
-      <p class="nota-meta"><time datetime="${a.fecha}">${fechaLarga(a.fecha)}</time>, ${a.lectura} de lectura</p>
-      <div class="articulo-foto">${img(p, p.nombre, 'loading="eager"')}</div>
-      <div class="texto-largo articulo-cuerpo">${a.cuerpo}</div>
-      <aside class="articulo-cierre">
-        <p class="claim">¿Te quedó alguna duda? Pregúntanos lo que sea.</p>
-        <div class="hero-cta">
-          <a class="btn" href="tienda.html">Ver el catálogo</a>
-          <a class="btn btn--claro" href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        </div>
-      </aside>`;
-    const otras = $("#otrasNotas");
-    if (otras) otras.innerHTML = DIARIO.filter((x) => x !== a).slice(0, 3).map(tarjetaDiario).join("");
-  }
-
   /* ---------------- Calculadora de tallas ---------------- */
   // Guía oficial de Aurora Femme (cm). Busto: rango; cadera: máximo.
   const TALLAS = [
@@ -364,5 +337,4 @@
   montarPie();
   if (pagina === "inicio") initInicio();
   if (pagina === "diario") initDiario();
-  if (pagina === "articulo") initArticulo();
 })();

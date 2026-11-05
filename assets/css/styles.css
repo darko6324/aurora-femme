@@ -572,3 +572,7 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
   .ficha-foto { position: static; }
   .ficha-cta { max-width: none; }
 }
+
+/* Mapa del sitio en el HTML (lo reemplaza el pie con diseño al cargar app.js) */
+.pie-estatico ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 32px 0; margin: 0; font-size: .9rem; }
+.pie-estatico a { color: var(--gris-seda); }

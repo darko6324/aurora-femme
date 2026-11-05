@@ -17,14 +17,16 @@
 import { writeFile, readFile, mkdir, rm, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import vm from 'node:vm';
 
 const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '10'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '11'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
+const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
 
 let sharp = null;
 try { sharp = (await import('sharp')).default; } catch { /* sin fotos propias: se usan las de la plataforma */ }
@@ -34,13 +36,13 @@ try { sharp = (await import('sharp')).default; } catch { /* sin fotos propias: s
 /* ------------------------------------------------------------------ */
 const CATEGORIAS = [
   {
-    id: 'hilos-de-encaje', prefijos: ['HG'],
-    nombre: 'Hilos de encaje', tipo: 'Hilo de encaje',
-    h1: 'Hilos y tangas de encaje',
-    title: 'Hilos y tangas de encaje con tirantes graduables',
-    description: 'Hilos y tangas de encaje con tirantes graduables, talla única de XS a L. Ocho colores. Envío a toda Colombia, gratis desde $200.000.',
+    id: 'tangas-de-encaje', antes: ['hilos-de-encaje'], prefijos: ['HG'],
+    nombre: 'Tangas e hilos de encaje', tipo: 'Tanga de encaje',
+    h1: 'Tangas e hilos de encaje',
+    title: 'Tangas e hilos de encaje graduables',
+    description: 'Tangas e hilos de encaje con tirantes graduables, talla única de XS a L, en ocho colores. Envío a toda Colombia, gratis desde $200.000.',
     intro: [
-      'Tangas de encaje floral y de pestaña con tirantes graduables: los ajustas a tu cadera para que no aprieten ni se bajen en todo el día.',
+      'Tangas de encaje floral y de pestaña, tipo hilo, con tirantes graduables: los ajustas a tu cadera para que no aprieten ni se bajen en todo el día.',
       'Son talla única y se adaptan de XS a L. Escoge tu color: negro, rojo frambuesa, palo de rosa, uva, arena y más.',
     ],
     google: 'Apparel & Accessories > Clothing > Underwear & Socks > Underwear',
@@ -59,12 +61,12 @@ const CATEGORIAS = [
   },
   {
     id: 'panties-de-encaje', prefijos: ['PF'],
-    nombre: 'Panties de encaje', tipo: 'Panty de encaje',
-    h1: 'Panties de encaje con refuerzo en algodón',
-    title: 'Panties de encaje con refuerzo en algodón',
-    description: 'Panties corte tanga con franja de encaje floral, refuerzo en algodón y moño. Ropa interior femenina para todos los días. Envío a toda Colombia.',
+    nombre: 'Panties de algodón y encaje', tipo: 'Panty de algodón y encaje',
+    h1: 'Panties de algodón con encaje',
+    title: 'Panties de algodón con encaje, corte tanga',
+    description: 'Panties de algodón corte tanga con franja de encaje floral y moño. Ropa interior femenina para todos los días. Envío a toda Colombia.',
     intro: [
-      'Panty corte tanga con franja de encaje floral, refuerzo en algodón donde importa y un moño pequeño de detalle.',
+      'Panty de algodón corte tanga: refuerzo en algodón donde importa, una franja de encaje floral y un moño pequeño de detalle.',
       'Ropa interior femenina para todos los días, en seis colores: palo de rosa, blanco, uva, rojo, azul oscuro y negro.',
     ],
     google: 'Apparel & Accessories > Clothing > Underwear & Socks > Underwear',
@@ -105,6 +107,12 @@ const COLORES_TEXTO = ['Océano Profundo', 'Gris Tormenta', 'Palo de Rosa', 'Azu
 const COLOR_SKU = { PALODEROSA: 'Palo de Rosa', AZULOSCURO: 'Azul Oscuro', BLANCO: 'Blanco', UVA: 'Uva', ROJO: 'Rojo', NEGRO: 'Negro' };
 const ORDEN_TALLAS = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'Única'];
 const nombreTalla = (t) => (/^UNICA$/i.test(t) ? 'Única' : t.toUpperCase());
+
+// Nombre corto para títulos (Google corta pasados ~65 caracteres) y tarjetas.
+function nombreCorto(p, nombre, color) {
+  if (p.sku.startsWith('PF')) return `Panty de algodón y encaje ${color}`.trim();
+  return nombre.replace(/ con Tirantes Graduables/i, ' graduable').replace(/\s*-\s*Corte Láser/i, ' corte láser').replace(/\s+/g, ' ').trim();
+}
 
 function colorDe(p, nombre) {
   if (p.sku.startsWith('PF')) return COLOR_SKU[p.sku.replace(/^PF\d+/, '')] ?? '';
@@ -197,7 +205,7 @@ function normalizar({ productos, variantes }) {
     let tallas = (porSku.get(p.sku) ?? []).sort((a, b) => ORDEN_TALLAS.indexOf(a.talla) - ORDEN_TALLAS.indexOf(b.talla));
     if (!tallas.length) tallas = [{ codigo: p.sku, talla: 'Única', disponible: p.disponible }];
     lista.push({
-      ...p, nombre, color, cat, slug: s,
+      ...p, nombre, corto: nombreCorto(p, nombre, color), color, cat, slug: s,
       descripcion: tildes(p.descripcion).trim() || `${cat.tipo} de Aurora Femme. ${cat.intro[0]}`,
       url: `/${cat.id}/${s}/`, tallas, disponible: tallas.some((t) => t.disponible),
     });
@@ -239,7 +247,7 @@ const absoluta = (u) => (u.startsWith('http') ? u : SITIO + u);
 /* ------------------------------------------------------------------ */
 /* 4. Plantillas                                                       */
 /* ------------------------------------------------------------------ */
-function pagina({ titulo, descripcion, canonica, ogImagen, ogTipo = 'website', jsonld = [], cuerpo, paginaId }) {
+function pagina({ titulo, descripcion, canonica, ogImagen, ogTipo = 'website', jsonld = [], cuerpo, paginaId, noindex = false }) {
   return `<!doctype html>
 <html lang="es-CO">
 <head>
@@ -248,7 +256,7 @@ function pagina({ titulo, descripcion, canonica, ogImagen, ogTipo = 'website', j
   <base href="/">
   <title>${esc(titulo)}</title>
   <meta name="description" content="${esc(descripcion)}">
-  <link rel="canonical" href="${canonica}">
+  <link rel="canonical" href="${canonica}">${noindex ? '\n  <meta name="robots" content="noindex">' : ''}
   <meta name="theme-color" content="#FDF7F5">
   <meta property="og:site_name" content="Aurora Femme">
   <meta property="og:locale" content="es_CO">
@@ -271,7 +279,7 @@ ${jsonld.map((j) => `  <script type="application/ld+json">${JSON.stringify(j).re
   <main id="contenido">
 ${cuerpo}
   </main>
-  <div id="pie"></div>
+  <div id="pie">${PIE_ESTATICO}</div>
   <script src="/assets/js/data.js?v=${V}"></script>
   <script src="/assets/js/catalogo.js?v=${V}"></script>
   <script src="/assets/js/app.js?v=${V}"></script>
@@ -298,7 +306,7 @@ const tarjeta = (p) => `
           <article class="tarjeta">
             <div class="tarjeta-media"><a class="tarjeta-foto" href="${p.url}" tabindex="-1" aria-hidden="true">${imagenHtml(p)}</a></div>
             <div class="tarjeta-info">
-              <h3><a href="${p.url}">${esc(p.nombre)}</a></h3>
+              <h3><a href="${p.url}">${esc(p.corto)}</a></h3>
               <span class="tarjeta-precio">${pesos(p.precio)}</span>
               <span class="tarjeta-color">${textoTallas(p)}</span>
             </div>
@@ -312,7 +320,7 @@ const migasLd = (items) => ({
 
 const garantias = `
             <ul class="ficha-garantias">
-              <li><b>Envío a toda Colombia</b> en 2 a 8 días hábiles. Gratis desde ${pesos(ENVIO_GRATIS)}.</li>
+              <li><b>Envío a toda Colombia</b> en 2 a 8 días hábiles: ${pesos(COSTO_ENVIO)}, gratis desde ${pesos(ENVIO_GRATIS)}.</li>
               <li><b>Empaque especial</b> incluido, listo para regalar o regalarte.</li>
               <li><b>Pagas fácil</b> por Nequi, Llave Bre-B o transferencia.</li>
             </ul>`;
@@ -322,8 +330,10 @@ function paginaProducto(p, lista) {
   const relacionados = lista.filter((o) => o.cat === p.cat && o !== p && o.disponible).slice(0, 4);
   const unica = p.tallas.length === 1 && p.tallas[0].talla === 'Única';
   const textoWa = encodeURIComponent(`Hola Aurora Femme, me interesa: ${p.nombre} (${p.sku}) 💕`);
-  const titulo = `${recortar(p.nombre, 58)} | Aurora Femme`;
-  const descripcion = recortar(`${p.nombre}: ${p.descripcion}`, 150) + ` ${pesos(p.precio)}. Envío a toda Colombia.`;
+  const marca = `${p.corto} | Aurora Femme`;
+  const titulo = marca.length <= 65 ? marca : recortar(p.corto, 64);
+  const cola = ` ${pesos(p.precio)}. Envío a toda Colombia.`;
+  const descripcion = recortar(p.descripcion, 155 - cola.length) + cola;
   const oferta = (t) => ({
     '@type': 'Offer', url: SITIO + p.url, price: p.precio, priceCurrency: p.moneda,
     availability: `https://schema.org/${t.disponible ? 'InStock' : 'OutOfStock'}`,
@@ -332,7 +342,7 @@ function paginaProducto(p, lista) {
       '@type': 'OfferShippingDetails',
       shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'CO' },
       deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' }, transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 8, unitCode: 'DAY' } },
-      ...(p.precio >= ENVIO_GRATIS ? { shippingRate: { '@type': 'MonetaryAmount', value: 0, currency: 'COP' } } : {}),
+      shippingRate: { '@type': 'MonetaryAmount', value: p.precio >= ENVIO_GRATIS ? 0 : COSTO_ENVIO, currency: 'COP' },
     },
   });
   const base = {
@@ -460,12 +470,12 @@ ${items.join('\n').replace(/\n\s*\n/g, '\n')}
 /* 6. Sitemap y robots                                                 */
 /* ------------------------------------------------------------------ */
 function sitemap(lista, hoy) {
-  const fijas = [['/', '1.0'], ['/tienda.html', '0.9'], ['/nosotras.html', '0.6'], ['/diario.html', '0.6'], ['/politicas.html', '0.3']];
+  const fijas = [['/', '1.0'], ['/tienda.html', '0.9'], ['/nosotras.html', '0.6'], ['/diario/', '0.6'], ['/politicas.html', '0.3']];
   const urls = [
     ...fijas.map(([u, pr]) => ({ u, pr })),
     ...CATEGORIAS.map((c) => ({ u: `/${c.id}/`, pr: '0.9', img: lista.find((p) => p.cat === c)?.foto })),
     ...lista.map((p) => ({ u: p.url, pr: '0.8', img: p.foto, titulo: p.nombre })),
-    ...ARTICULOS.map((a) => ({ u: `/articulo.html?a=${a}`, pr: '0.5' })),
+    ...SITIO_DATOS.DIARIO.map((a) => ({ u: `/diario/${a.slug}/`, pr: '0.6' })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -478,11 +488,168 @@ ${urls.map(({ u, pr, img }) => `  <url>
 </urlset>
 `;
 }
-let ARTICULOS = [];
+
+/* ------------------------------------------------------------------ */
+/* 7. Datos propios del sitio (data.js): diario y productos de la portada */
+/* ------------------------------------------------------------------ */
+async function leerDatosSitio() {
+  const codigo = await readFile(RAIZ + 'assets/js/data.js', 'utf8');
+  const ctx = {};
+  vm.runInNewContext(codigo + '\n;this.__d = { DIARIO, PRODUCTOS, COLECCIONES };', ctx);
+  return ctx.__d;
+}
+const SITIO_DATOS = await leerDatosSitio().catch((e) => { console.warn(`Catálogo: no pude leer data.js (${e.message}).`); return { DIARIO: [], PRODUCTOS: [], COLECCIONES: [] }; });
+
+// Enlaces del pie en el HTML: Google los ve aunque no ejecute JavaScript. app.js los reemplaza por el pie con diseño.
+const ENLACES_SITIO = [
+  ['/', 'Inicio'], ['/tienda.html', 'Catálogo'],
+  ...CATEGORIAS.map((c) => [`/${c.id}/`, c.nombre]),
+  ['/diario/', 'Diario Aurora'], ['/nosotras.html', 'Nosotras'], ['/index.html#tallas', 'Guía de tallas'], ['/politicas.html', 'Envíos y cambios'],
+];
+const PIE_ESTATICO = `<nav class="pie-estatico wrap" aria-label="Mapa del sitio"><ul>${ENLACES_SITIO.map(([u, t]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></nav>`;
+
+const fechaLarga = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' });
+const fotoNota = (a, lista) => lista.find((p) => p.sku.toLowerCase().startsWith(a.imagen) && !p.foto.remota) ?? lista.find((p) => !p.foto.remota) ?? lista[0];
+const tarjetaNota = (a, lista) => {
+  const p = fotoNota(a, lista);
+  return `
+          <article class="nota">
+            <a class="nota-foto" href="/diario/${a.slug}/" tabindex="-1" aria-hidden="true">${imagenHtml(p, { alt: '' })}</a>
+            <p class="nota-meta"><time datetime="${a.fecha}">${fechaLarga(a.fecha)}</time>, ${esc(a.lectura)} de lectura</p>
+            <h3><a href="/diario/${a.slug}/">${esc(a.titulo)}</a></h3>
+            <p>${esc(a.resumen)}</p>
+          </article>`;
+};
+
+function paginaNota(a, lista) {
+  const url = `/diario/${a.slug}/`;
+  const ruta = [['Inicio', '/'], ['Diario Aurora', '/diario/'], [a.titulo, url]];
+  const p = fotoNota(a, lista);
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.titulo, description: a.resumen,
+    datePublished: a.fecha, inLanguage: 'es-CO', mainEntityOfPage: SITIO + url, image: absoluta(p.foto.jpg),
+    author: { '@type': 'Organization', name: 'Aurora Femme' }, publisher: { '@type': 'Organization', name: 'Aurora Femme', url: SITIO + '/' },
+  };
+  const cuerpo = `
+    <article class="wrap articulo">
+      ${migas(ruta)}
+      <h1>${esc(a.titulo)}</h1>
+      <p class="nota-meta"><time datetime="${a.fecha}">${fechaLarga(a.fecha)}</time>, ${esc(a.lectura)} de lectura</p>
+      <div class="articulo-foto">${imagenHtml(p, { carga: 'eager', tam: '(max-width: 860px) 100vw, 760px', alt: `${p.nombre}, Aurora Femme` })}</div>
+      <div class="texto-largo articulo-cuerpo">${a.cuerpo}</div>
+      <aside class="articulo-cierre">
+        <p class="claim">¿Te quedó alguna duda? Pregúntanos lo que sea.</p>
+        <div class="hero-cta">
+          <a class="btn" href="/tienda.html">Ver el catálogo</a>
+          <a class="btn btn--claro" href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </aside>
+    </article>
+    <section class="seccion" style="padding-top:0">
+      <div class="wrap">
+        <div class="seccion-cabeza"><h2>Sigue leyendo</h2><a class="enlace" href="/diario/">Todas las notas</a></div>
+        <div class="notas">${SITIO_DATOS.DIARIO.filter((x) => x !== a).slice(0, 3).map((x) => tarjetaNota(x, lista)).join('')}
+        </div>
+      </div>
+    </section>`;
+  return pagina({ titulo: `${a.titulo} | Aurora Femme`, descripcion: a.resumen, canonica: SITIO + url, ogImagen: p.foto.jpg, ogTipo: 'article', jsonld: [ld, migasLd(ruta)], cuerpo, paginaId: 'nota' });
+}
+
+function paginaDiario(lista) {
+  const ruta = [['Inicio', '/'], ['Diario Aurora', '/diario/']];
+  const cuerpo = `
+    <div class="wrap">
+      <header class="cabeza-pagina">
+        ${migas(ruta)}
+        <h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Diario Aurora</h1>
+        <p>Lo que nos preguntan por WhatsApp, respondido con calma: cuidado de la lencería, tallas y cómo combinar.</p>
+      </header>
+      <div class="notas" style="padding-bottom:clamp(64px,8vw,110px)">${SITIO_DATOS.DIARIO.map((a) => tarjetaNota(a, lista)).join('')}
+      </div>
+    </div>`;
+  return pagina({ titulo: 'Diario Aurora: consejos de lencería | Aurora Femme', descripcion: 'Cómo cuidar tu lencería, cómo tomar tus medidas y qué ponerte según la ropa. Consejos de Aurora Femme.', canonica: `${SITIO}/diario/`, jsonld: [migasLd(ruta)], cuerpo, paginaId: 'diario' });
+}
+
+/* ------------------------------------------------------------------ */
+/* 8. Redirecciones: URL vieja de la categoría y URLs de Shopify         */
+/* ------------------------------------------------------------------ */
+const redireccion = (destino) => `<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <title>Aurora Femme</title>
+  <link rel="canonical" href="${SITIO}${destino}">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=${destino}">
+  <script>location.replace(${JSON.stringify(destino)} + location.search + location.hash);</script>
+</head>
+<body><p><a href="${destino}">Esta página cambió de dirección. Ir a la página nueva</a></p></body>
+</html>
+`;
+
+function pagina404(lista) {
+  // Direcciones de la tienda anterior (Shopify) → páginas nuevas
+  const mapa = {
+    '/collections/hilos-graduables': '/tangas-de-encaje/', '/collections/panties-invisibles': '/panties-invisibles/',
+    '/collections/all': '/tienda.html', '/collections': '/tienda.html', '/products': '/tienda.html', '/cart': '/tienda.html?bolsa=1',
+    '/pages/contact': '/nosotras.html', '/pages/about': '/nosotras.html', '/blogs/news': '/diario/', '/search': '/tienda.html',
+    '/policies/shipping-policy': '/politicas.html#envios', '/policies/refund-policy': '/politicas.html#cambios',
+    '/policies/privacy-policy': '/politicas.html#privacidad', '/policies/terms-of-service': '/politicas.html#terminos',
+  };
+  for (const p of SITIO_DATOS.PRODUCTOS) {
+    const destino = lista.find((x) => x.sku.startsWith(p.sku))?.url;
+    if (destino && p.handle) mapa[`/products/${p.handle}`] = destino;
+  }
+  const fichas = lista.map((p) => [p.slug, p.url]);
+  const ruta = [['Inicio', '/']];
+  const cuerpo = `
+    <div class="wrap" style="padding:clamp(48px,8vw,110px) 0">
+      <h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">No encontramos esta página</h1>
+      <p style="color:var(--gris-seda);max-width:52ch;margin-top:12px">Puede que haya cambiado de dirección. Te llevamos a lo que buscabas o mira el catálogo.</p>
+      <p style="margin-top:24px"><a class="btn" href="/tienda.html">Ver el catálogo</a></p>
+    </div>
+    <script>
+      (function () {
+        var M = ${JSON.stringify(mapa)}, F = ${JSON.stringify(fichas)};
+        var p = location.pathname.replace(/\\/+$/, '').toLowerCase().replace(/^\\/(es|en)(?=\\/)/, '');
+        var d = M[p];
+        if (!d && /^\\/(collections\\/[^/]+\\/)?products\\//.test(p)) {
+          var h = p.split('/').pop().split('-'), mejor = null, puntos = 1;
+          F.forEach(function (f) { var t = f[0].split('-'), n = h.filter(function (w) { return w.length > 2 && t.indexOf(w) >= 0; }).length; if (n > puntos) { puntos = n; mejor = f[1]; } });
+          d = mejor || '/tienda.html';
+        }
+        if (!d && /^\\/(collections|pages|blogs|policies|account|cart)/.test(p)) d = '/tienda.html';
+        if (d) location.replace(d);
+      })();
+    </script>`;
+  return pagina({ titulo: 'Página no encontrada | Aurora Femme', descripcion: 'Esta página cambió de dirección.', canonica: `${SITIO}/404.html`, jsonld: [], cuerpo, paginaId: 'error', noindex: true });
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Logo propio (se guarda una sola vez en el repo)                   */
+/* ------------------------------------------------------------------ */
+const LOGO = 'assets/img/logo-aurora-femme.png';
+async function asegurarLogo() {
+  if (existsSync(RAIZ + LOGO)) return;
+  const fuentes = [
+    'https://cdn.shopify.com/s/files/1/0710/6838/5514/files/2aa5262b-2887-42d2-a589-e285c5002880-removebg-preview.png?width=560',
+    `${'https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/'}empresas%2FAURORA%2Fmarca%2Flogo.jpg?alt=media&token=03ee047d-c4be-42c8-8d38-04fa401e7065`,
+  ];
+  for (const u of fuentes) {
+    try {
+      const buf = Buffer.from(await (await pedir(u)).arrayBuffer());
+      if (sharp) await sharp(buf).resize({ width: 560, withoutEnlargement: true }).png({ compressionLevel: 9 }).toFile(RAIZ + LOGO);
+      else await writeFile(RAIZ + LOGO, buf);
+      console.log(`Catálogo: logo guardado en ${LOGO}.`);
+      return;
+    } catch (e) { console.warn(`Catálogo: logo no disponible en ${u.slice(0, 40)}… (${e.message}).`); }
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /* Principal                                                           */
 /* ------------------------------------------------------------------ */
+await asegurarLogo();
 const d = await datos();
 if (!d) {
   console.log('Catálogo: sin datos, no se generan páginas de producto.');
@@ -491,33 +658,56 @@ if (!d) {
 const lista = normalizar(d);
 await fotos(lista);
 
-// Artículos del diario (para el sitemap)
-try {
-  const data = await readFile(RAIZ + 'assets/js/data.js', 'utf8');
-  const bloque = data.slice(data.indexOf('DIARIO'));
-  ARTICULOS = [...bloque.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
-} catch { /* sin diario */ }
-
-// Limpia carpetas de categoría anteriores y escribe las nuevas
+// Categorías y fichas (y las direcciones anteriores, que ahora redirigen)
 for (const c of CATEGORIAS) {
-  await rm(RAIZ + c.id, { recursive: true, force: true });
+  for (const viejo of [c.id, ...(c.antes ?? [])]) await rm(RAIZ + viejo, { recursive: true, force: true });
   await mkdir(RAIZ + c.id, { recursive: true });
   await writeFile(RAIZ + c.id + '/index.html', paginaCategoria(c, lista));
+  for (const viejo of c.antes ?? []) {
+    await mkdir(RAIZ + viejo, { recursive: true });
+    await writeFile(`${RAIZ}${viejo}/index.html`, redireccion(`/${c.id}/`));
+    for (const p of lista.filter((x) => x.cat === c)) {
+      await mkdir(`${RAIZ}${viejo}/${p.slug}`, { recursive: true });
+      await writeFile(`${RAIZ}${viejo}/${p.slug}/index.html`, redireccion(p.url));
+    }
+  }
 }
 for (const p of lista) {
   await mkdir(RAIZ + p.url.slice(1), { recursive: true });
   await writeFile(RAIZ + p.url.slice(1) + 'index.html', paginaProducto(p, lista));
 }
 
-// Enlaces para la portada: código corto (HG007) y completo → URL del producto
-const enlaces = {};
-for (const p of lista) { enlaces[p.sku] = p.url; const corto = p.sku.match(/^[A-Z]+\d+/)?.[0]; if (corto && !enlaces[corto]) enlaces[corto] = p.url; }
+// Diario: una página por nota y el listado
+await rm(RAIZ + 'diario', { recursive: true, force: true });
+await mkdir(RAIZ + 'diario', { recursive: true });
+await writeFile(RAIZ + 'diario/index.html', paginaDiario(lista));
+for (const a of SITIO_DATOS.DIARIO) {
+  await mkdir(`${RAIZ}diario/${a.slug}`, { recursive: true });
+  await writeFile(`${RAIZ}diario/${a.slug}/index.html`, paginaNota(a, lista));
+}
+await writeFile(RAIZ + '404.html', pagina404(lista));
+
+// Para la portada (app.js): enlace y fotos propias por código, y una foto por categoría
+const enlaces = {}, fotosSku = {};
+for (const p of lista) {
+  const corto = p.sku.match(/^[A-Z]+\d+/)?.[0];
+  const f = p.foto.remota ? null : { m: p.foto.webp480, l: p.foto.webp };
+  for (const k of [p.sku, corto]) {
+    if (!k) continue;
+    if (!enlaces[k]) enlaces[k] = p.url;
+    if (f && !fotosSku[k]) fotosSku[k] = f;
+  }
+}
 const cats = Object.fromEntries(CATEGORIAS.map((c) => [c.id, `/${c.id}/`]));
+const fotoCat = Object.fromEntries(CATEGORIAS.map((c) => {
+  const p = lista.find((x) => x.cat === c && x.disponible && !x.foto.remota);
+  return [c.id, p ? p.foto.webp : null];
+}));
 await writeFile(RAIZ + 'assets/js/catalogo.js', '/* Generado por scripts/catalogo.mjs. No editar a mano. */\n' +
-  `window.CATALOGO = ${JSON.stringify({ productos: enlaces, categorias: cats, nombres: Object.fromEntries(CATEGORIAS.map((c) => [c.id, c.nombre])) })};\n`);
+  `window.CATALOGO = ${JSON.stringify({ productos: enlaces, fotos: fotosSku, categorias: cats, fotoCategoria: fotoCat, nombres: Object.fromEntries(CATEGORIAS.map((c) => [c.id, c.nombre])) })};\n`);
 
 const hoy = new Date().toISOString().slice(0, 10);
 await writeFile(RAIZ + 'sitemap.xml', sitemap(lista, hoy));
 await writeFile(RAIZ + 'merchant.xml', feed(lista));
-await writeFile(RAIZ + 'robots.txt', `User-agent: *\nAllow: /\nDisallow: /producto.html\n\nSitemap: ${SITIO}/sitemap.xml\n`);
-console.log(`Catálogo: ${lista.length} páginas de producto, ${CATEGORIAS.length} categorías, sitemap y feed de Merchant listos.`);
+await writeFile(RAIZ + 'robots.txt', `User-agent: *\nAllow: /\nDisallow: /producto.html\nDisallow: /articulo.html\n\nSitemap: ${SITIO}/sitemap.xml\n`);
+console.log(`Catálogo: ${lista.length} fichas, ${CATEGORIAS.length} categorías, ${SITIO_DATOS.DIARIO.length} notas del diario, 404, sitemap y feed de Merchant listos.`);
