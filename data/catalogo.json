@@ -1,6 +1,60 @@
 {
-  "actualizado": "2026-11-05T18:43:46.973Z",
+  "actualizado": "2026-11-05T20:39:38.472Z",
   "productos": [
+    {
+      "sku": "HG001ARENA",
+      "nombre": "Tanga de Encaje Floral Arena con Mariposa Dorada",
+      "descripcion": "Tanga de encaje floral color arena con un pequeño detalle de mariposa dorada al frente. El encaje transparente de borde festoneado se une a una banda lateral lisa y a tirantes graduables, para que la prenda se ajuste a tu cadera con comodidad. Talla única en un tono neutro que combina con todo y se disfruta a diario. Lencería colombiana de Aurora Femme, con envío a todo el país.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG001ARENA%2Fcatalogo-HG001ARENA-01_grande.jpg?alt=media&token=07bfffdf-39ac-47e5-862c-9aa62d41c307",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG002MAUVE",
+      "nombre": "Tanga de Encaje Floral Mauve con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color mauve, un rosa empolvado suave, con moño pequeño al frente y tirantes graduables con hebilla metálica. El encaje transparente se siente delicado y los laterales lisos se adaptan con comodidad a la cadera. Talla única. Una pieza para el uso diario que también funciona como detalle especial en tu cajón de lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG002MAUVE%2Fcatalogo-HG002MAUVE-01_grande.jpg?alt=media&token=353349b5-e8f6-4cf3-824c-51da828d9efd",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG003FRAMBUESA",
+      "nombre": "Tanga de Encaje Floral Frambuesa con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color frambuesa, un rosa intenso lleno de vida, con moño al frente y tirantes graduables que ajustas a tu medida. Encaje transparente con laterales lisos y buen ajuste en la cadera. Talla única. Para quien quiere un toque de color en su ropa interior de todos los días, sin complicarse con tallas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG003FRAMBUESA%2Fcatalogo-HG003FRAMBUESA-01_grande.jpg?alt=media&token=7feb408b-7ad2-482b-adb2-0f0f808081fb",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG004OCEANOPROFUNDO",
+      "nombre": "Tanga de Encaje Floral Oceano Profundo con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color océano profundo, un azul petróleo oscuro y elegante, con moño al frente y tirantes graduables con hebilla. El encaje transparente deja ver la piel con delicadeza y los laterales lisos acompañan la cadera sin apretar. Talla única. Una opción distinta al negro clásico para quienes buscan lencería con carácter.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG004OCEANOPROFUNDO%2Fcatalogo-HG004OCEANOPROFUNDO-01_grande.jpg?alt=media&token=72958515-b55e-4ac4-92d3-1b5e1ba2b74c",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG005GRISTORMENTA",
+      "nombre": "Tanga de Encaje Floral Gris Tormenta con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral color gris tormenta, un gris carbón sobrio y moderno, con moño discreto al frente y tirantes graduables. El encaje semitransparente se combina con laterales lisos para un ajuste cómodo en la cadera. Talla única. Una alternativa elegante al negro, fácil de combinar con el resto de tu lencería.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG005GRISTORMENTA%2Fcatalogo-HG005GRISTORMENTA-01_grande.jpg?alt=media&token=b488f4be-bac9-493c-8ee4-650059251000",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
+    {
+      "sku": "HG006NEGRO",
+      "nombre": "Tanga de Encaje Floral Negro con Tirantes Graduables",
+      "descripcion": "Tanga de encaje floral negra con moño pequeño al frente y tirantes graduables con hebilla. El encaje semitransparente y los laterales lisos ofrecen un ajuste cómodo en la cadera. Talla única. El negro de siempre en versión delicada: una prenda básica para el uso diario y para las ocasiones en que quieras sentirte bonita por dentro.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG006NEGRO%2Fcatalogo-HG006NEGRO-01_grande.jpg?alt=media&token=7aea59f1-4640-4902-9d58-ae5767902a69",
+      "precio": 12000,
+      "moneda": "COP",
+      "disponible": true
+    },
     {
       "sku": "HG007PALODEROSA",
       "nombre": "Tanga de Encaje de Pestana Palo de Rosa con Argollas Doradas",
@@ -20,55 +74,19 @@
       "disponible": true
     },
     {
-      "sku": "HG001ARENA",
-      "nombre": "Tanga de Encaje Floral Arena con Mariposa Dorada",
-      "descripcion": "Tanga de encaje floral color arena con un pequeño detalle de mariposa dorada al frente. El encaje transparente de borde festoneado se une a una banda lateral lisa y a tirantes graduables, para que la prenda se ajuste a tu cadera con comodidad. Talla única en un tono neutro que combina con todo y se disfruta a diario. Lencería colombiana de Aurora Femme, con envío a todo el país.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG001ARENA%2Fcatalogo-HG001ARENA-01_grande.jpg?alt=media&token=07bfffdf-39ac-47e5-862c-9aa62d41c307",
+      "sku": "PI001CHAMPAGNE",
+      "nombre": "Panty Invisible Sin Costuras Champagne - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color champagne, un beige claro cercano al tono de la piel, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa ajustada, y la tela suave se siente cómoda desde la mañana hasta la noche. Talla única. Un básico esencial para usar bajo pantalones, vestidos y faldas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI001CHAMPAGNE%2Fcatalogo-PI001CHAMPAGNE-01_grande.jpg?alt=media&token=010e6a55-5160-46e5-b13c-033fb5371882",
       "precio": 12000,
       "moneda": "COP",
       "disponible": true
     },
     {
-      "sku": "HG003FRAMBUESA",
-      "nombre": "Tanga de Encaje Floral Frambuesa con Tirantes Graduables",
-      "descripcion": "Tanga de encaje floral color frambuesa, un rosa intenso lleno de vida, con moño al frente y tirantes graduables que ajustas a tu medida. Encaje transparente con laterales lisos y buen ajuste en la cadera. Talla única. Para quien quiere un toque de color en su ropa interior de todos los días, sin complicarse con tallas.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG003FRAMBUESA%2Fcatalogo-HG003FRAMBUESA-01_grande.jpg?alt=media&token=7feb408b-7ad2-482b-adb2-0f0f808081fb",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
-      "sku": "HG005GRISTORMENTA",
-      "nombre": "Tanga de Encaje Floral Gris Tormenta con Tirantes Graduables",
-      "descripcion": "Tanga de encaje floral color gris tormenta, un gris carbón sobrio y moderno, con moño discreto al frente y tirantes graduables. El encaje semitransparente se combina con laterales lisos para un ajuste cómodo en la cadera. Talla única. Una alternativa elegante al negro, fácil de combinar con el resto de tu lencería.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG005GRISTORMENTA%2Fcatalogo-HG005GRISTORMENTA-01_grande.jpg?alt=media&token=b488f4be-bac9-493c-8ee4-650059251000",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
-      "sku": "HG002MAUVE",
-      "nombre": "Tanga de Encaje Floral Mauve con Tirantes Graduables",
-      "descripcion": "Tanga de encaje floral color mauve, un rosa empolvado suave, con moño pequeño al frente y tirantes graduables con hebilla metálica. El encaje transparente se siente delicado y los laterales lisos se adaptan con comodidad a la cadera. Talla única. Una pieza para el uso diario que también funciona como detalle especial en tu cajón de lencería.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG002MAUVE%2Fcatalogo-HG002MAUVE-01_grande.jpg?alt=media&token=353349b5-e8f6-4cf3-824c-51da828d9efd",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
-      "sku": "HG006NEGRO",
-      "nombre": "Tanga de Encaje Floral Negro con Tirantes Graduables",
-      "descripcion": "Tanga de encaje floral negra con moño pequeño al frente y tirantes graduables con hebilla. El encaje semitransparente y los laterales lisos ofrecen un ajuste cómodo en la cadera. Talla única. El negro de siempre en versión delicada: una prenda básica para el uso diario y para las ocasiones en que quieras sentirte bonita por dentro.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG006NEGRO%2Fcatalogo-HG006NEGRO-01_grande.jpg?alt=media&token=7aea59f1-4640-4902-9d58-ae5767902a69",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
-      "sku": "HG004OCEANOPROFUNDO",
-      "nombre": "Tanga de Encaje Floral Oceano Profundo con Tirantes Graduables",
-      "descripcion": "Tanga de encaje floral color océano profundo, un azul petróleo oscuro y elegante, con moño al frente y tirantes graduables con hebilla. El encaje transparente deja ver la piel con delicadeza y los laterales lisos acompañan la cadera sin apretar. Talla única. Una opción distinta al negro clásico para quienes buscan lencería con carácter.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG004OCEANOPROFUNDO%2Fcatalogo-HG004OCEANOPROFUNDO-01_grande.jpg?alt=media&token=72958515-b55e-4ac4-92d3-1b5e1ba2b74c",
+      "sku": "PI002DUNA",
+      "nombre": "Panty Invisible Sin Costuras Duna - Corte Laser",
+      "descripcion": "Panty invisible sin costuras color duna, un beige arena cálido, con bordes en corte láser sin costuras visibles. Su diseño liso y plano se adapta a la cadera sin marcar bajo la ropa, con una sensación suave sobre la piel. Talla única. Una prenda básica y cómoda para el uso diario, pensada para llevar bajo prendas ajustadas.",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI002DUNA%2Fcatalogo-PI002DUNA-01_grande.jpg?alt=media&token=e46d66d8-edbd-4b91-a626-e6feb587ec97",
       "precio": 12000,
       "moneda": "COP",
       "disponible": true
@@ -83,28 +101,10 @@
       "disponible": true
     },
     {
-      "sku": "PI001CHAMPAGNE",
-      "nombre": "Panty Invisible Sin Costuras Champagne - Corte Laser",
-      "descripcion": "Panty invisible sin costuras color champagne, un beige claro cercano al tono de la piel, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa ajustada, y la tela suave se siente cómoda desde la mañana hasta la noche. Talla única. Un básico esencial para usar bajo pantalones, vestidos y faldas.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI001CHAMPAGNE%2Fcatalogo-PI001CHAMPAGNE-01_grande.jpg?alt=media&token=010e6a55-5160-46e5-b13c-033fb5371882",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
       "sku": "PI004CHOCOLATE",
       "nombre": "Panty Invisible Sin Costuras Chocolate - Corte Laser",
       "descripcion": "Panty invisible sin costuras color chocolate, un café profundo y uniforme, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa y la tela suave se siente cómoda a diario. Talla única. Un tono pensado para quienes buscan una ropa interior que se acerque a su tono de piel y pase desapercibida bajo prendas ajustadas.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI004CHOCOLATE%2Fcatalogo-PI004CHOCOLATE-01_grande.jpg?alt=media&token=06b2461a-39e4-46bc-8cc1-ba74695c6b6b",
-      "precio": 12000,
-      "moneda": "COP",
-      "disponible": true
-    },
-    {
-      "sku": "PI002DUNA",
-      "nombre": "Panty Invisible Sin Costuras Duna - Corte Laser",
-      "descripcion": "Panty invisible sin costuras color duna, un beige arena cálido, con bordes en corte láser sin costuras visibles. Su diseño liso y plano se adapta a la cadera sin marcar bajo la ropa, con una sensación suave sobre la piel. Talla única. Una prenda básica y cómoda para el uso diario, pensada para llevar bajo prendas ajustadas.",
-      "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI002DUNA%2Fcatalogo-PI002DUNA-01_grande.jpg?alt=media&token=e46d66d8-edbd-4b91-a626-e6feb587ec97",
       "precio": 12000,
       "moneda": "COP",
       "disponible": true
@@ -697,6 +697,30 @@
   ],
   "variantes": [
     {
+      "codigo": "HG001ARENA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG002MAUVE-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG003FRAMBUESA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG004OCEANOPROFUNDO-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG005GRISTORMENTA-UNICA",
+      "disponible": true
+    },
+    {
+      "codigo": "HG006NEGRO-UNICA",
+      "disponible": true
+    },
+    {
       "codigo": "HG007PALODEROSA-UNICA",
       "disponible": true
     },
@@ -705,27 +729,11 @@
       "disponible": true
     },
     {
-      "codigo": "HG001ARENA-UNICA",
+      "codigo": "PI001CHAMPAGNE-UNICA",
       "disponible": true
     },
     {
-      "codigo": "HG003FRAMBUESA-UNICA",
-      "disponible": true
-    },
-    {
-      "codigo": "HG005GRISTORMENTA-UNICA",
-      "disponible": true
-    },
-    {
-      "codigo": "HG002MAUVE-UNICA",
-      "disponible": true
-    },
-    {
-      "codigo": "HG006NEGRO-UNICA",
-      "disponible": true
-    },
-    {
-      "codigo": "HG004OCEANOPROFUNDO-UNICA",
+      "codigo": "PI002DUNA-UNICA",
       "disponible": true
     },
     {
@@ -733,15 +741,7 @@
       "disponible": true
     },
     {
-      "codigo": "PI001CHAMPAGNE-UNICA",
-      "disponible": true
-    },
-    {
       "codigo": "PI004CHOCOLATE-UNICA",
-      "disponible": true
-    },
-    {
-      "codigo": "PI002DUNA-UNICA",
       "disponible": true
     },
     {
