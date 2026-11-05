@@ -140,6 +140,46 @@ const RESENAS = [];
    ========================================================= */
 const DIARIO = [
   {
+    slug: "como-saber-tu-talla-de-brasier",
+    titulo: "Cómo saber tu talla de brasier sin adivinar",
+    resumen: "Dos medidas, una cinta métrica y cinco minutos. Así entiendes el número y la letra de tu talla.",
+    fecha: "2026-11-05",
+    lectura: "4 min",
+    imagen: "setmatilda-blanco",
+    cuerpo: `
+      <p>Casi todas compramos brasier por costumbre: pedimos la misma talla de hace años y aguantamos tirantes que se caen o aros que pellizcan. La talla de un brasier tiene dos partes y se calcula con dos medidas.</p>
+      <h2>1. El número: tu contorno bajo el busto</h2>
+      <p>Pasa la cinta justo debajo del busto, donde va la banda del brasier. Que quede firme y paralela al piso. Esa medida define el número (32, 34, 36…), que es el ancho de la banda. La banda es la que sostiene: si se sube por la espalda, está grande.</p>
+      <h2>2. La letra: la diferencia con tu busto</h2>
+      <p>Ahora mide el contorno de busto por la parte más llena, sin apretar. Resta las dos medidas. Entre más grande la diferencia, más grande la copa (A, B, C, D…). Por eso dos mujeres con el mismo número pueden usar copas distintas.</p>
+      <h2>Señales de que tu talla no es la correcta</h2>
+      <ul>
+        <li>La banda se sube por la espalda: prueba un número menos.</li>
+        <li>El aro se clava o la copa se arruga: prueba otra copa.</li>
+        <li>Los tirantes dejan marca: estás cargando el peso en los hombros y no en la banda.</li>
+      </ul>
+      <h2>Tu talla en Aurora Femme</h2>
+      <p>Las tablas cambian entre marcas, así que no te quedes con un número de otra tienda. Nuestros <a class="enlace" href="/conjuntos-de-lenceria/">conjuntos de lencería</a> van de XS a L: mide busto y cadera y usa la <a class="enlace" href="/index.html#tallas">calculadora de tallas</a>. Si quedas entre dos tallas, elige la más grande. Y si tienes dudas, escríbenos por WhatsApp con tus medidas: te decimos cuál te queda.</p>`,
+  },
+  {
+    slug: "tangas-de-algodon-o-de-encaje",
+    titulo: "Tangas de algodón o de encaje: cuál elegir",
+    resumen: "El algodón para el día a día, el encaje para sentirte linda. Y una opción que junta las dos.",
+    fecha: "2026-11-05",
+    lectura: "3 min",
+    imagen: "pf001",
+    cuerpo: `
+      <p>No es una pelea: cada tela tiene su momento. La pregunta es qué vas a hacer hoy y qué te vas a poner encima.</p>
+      <h2>Algodón: para todos los días</h2>
+      <p>El algodón deja respirar la piel, es suave y aguanta bien las lavadas. Es la elección para jornadas largas, para hacer ejercicio o para los días en que solo quieres estar cómoda.</p>
+      <h2>Encaje: para sentirte linda</h2>
+      <p>El encaje es liviano y se ve bonito bajo un vestido o simplemente para ti. Una tanga de encaje con <a class="enlace" href="/tangas-de-encaje/">tirantes graduables</a> se ajusta a tu cadera para que no apriete ni se baje.</p>
+      <h2>¿Y si quiero las dos?</h2>
+      <p>Para eso están nuestros <a class="enlace" href="/panties-de-encaje/">panties de algodón con encaje</a>: corte tanga, refuerzo de algodón donde importa y una franja de encaje floral. Y si vas a usar algo ajustado o claro, mira los <a class="enlace" href="/panties-invisibles/">panties invisibles sin costuras</a>.</p>
+      <h2>Para que te duren</h2>
+      <p>Algodón o encaje, lávalos a mano o en bolsa de malla, con agua fría y sin secadora. Te contamos más en <a class="enlace" href="/diario/como-cuidar-tu-lenceria/">cómo cuidar tu lencería</a>.</p>`,
+  },
+  {
     slug: "como-cuidar-tu-lenceria",
     titulo: "Cómo cuidar tu lencería para que te dure",
     resumen: "El encaje es delicado, pero no complicado. Cinco hábitos que hacen la diferencia.",

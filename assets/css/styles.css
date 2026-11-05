@@ -579,3 +579,15 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 
 /* Franja de destacados del inicio (iframe de la plataforma) */
 .destacados-cta { display: flex; justify-content: center; padding-top: clamp(20px, 3vw, 32px); }
+
+/* Regalos de temporada */
+.regalo-fechas { margin-top: 22px; padding: 18px 22px; border-radius: var(--r-s); background: var(--nube); max-width: 62ch; }
+.regalo-fechas p { margin: 0 !important; color: var(--ciruela) !important; }
+.regalo-fechas p + p { margin-top: 8px !important; color: var(--gris-seda) !important; font-size: .92rem; }
+.regalos-banda { padding-top: 0; }
+.regalos-banda .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px); background: var(--nube); border-radius: var(--r-l); }
+.regalos-banda h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.regalos-banda p { color: var(--gris-seda); margin-top: 8px; max-width: 56ch; }
+.catalogo-texto { max-width: 760px; padding-top: 32px; }
+.catalogo-texto h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.catalogo-texto p { color: var(--gris-seda); margin-top: 12px; }

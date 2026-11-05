@@ -23,7 +23,7 @@ const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '15'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '16'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
 const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
@@ -473,7 +473,7 @@ ${items.join('\n').replace(/\n\s*\n/g, '\n')}
 /* 6. Sitemap y robots                                                 */
 /* ------------------------------------------------------------------ */
 function sitemap(lista, hoy) {
-  const fijas = [['/', '1.0'], ['/tienda.html', '0.9'], ['/nosotras.html', '0.6'], ['/diario/', '0.6'], ['/politicas.html', '0.3']];
+  const fijas = [['/', '1.0'], ['/tienda.html', '0.9'], ['/regalos-de-lenceria/', '0.9'], ['/nosotras.html', '0.6'], ['/diario/', '0.6'], ['/politicas.html', '0.3']];
   const urls = [
     ...fijas.map(([u, pr]) => ({ u, pr })),
     ...CATEGORIAS.map((c) => ({ u: `/${c.id}/`, pr: '0.9', img: lista.find((p) => p.cat === c)?.foto })),
@@ -507,7 +507,7 @@ const SITIO_DATOS = await leerDatosSitio().catch((e) => { console.warn(`Catálog
 const ENLACES_SITIO = [
   ['/', 'Inicio'], ['/tienda.html', 'Catálogo'],
   ...CATEGORIAS.map((c) => [`/${c.id}/`, c.nombre]),
-  ['/diario/', 'Diario Aurora'], ['/nosotras.html', 'Nosotras'], ['/index.html#tallas', 'Guía de tallas'], ['/politicas.html', 'Envíos y cambios'],
+  ['/regalos-de-lenceria/', 'Regalos de Navidad'], ['/diario/', 'Diario Aurora'], ['/nosotras.html', 'Nosotras'], ['/index.html#tallas', 'Guía de tallas'], ['/politicas.html', 'Envíos y cambios'],
 ];
 const PIE_ESTATICO = `<nav class="pie-estatico wrap" aria-label="Mapa del sitio"><ul>${ENLACES_SITIO.map(([u, t]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></nav>`;
 
@@ -649,6 +649,67 @@ async function asegurarLogo() {
   }
 }
 
+
+/* ------------------------------------------------------------------ */
+/* 10. Regalos de lencería (temporada de diciembre)                     */
+/* ------------------------------------------------------------------ */
+const FECHAS_NAVIDAD = { nacional: '21 de diciembre', bogota: '23 de diciembre' };
+function paginaRegalos(lista) {
+  const url = '/regalos-de-lenceria/';
+  const ruta = [['Inicio', '/'], ['Regalos de lencería', url]];
+  const colores = ['Rojo', 'Negro', 'Blanco', 'Vinotinto', 'Palo de rosa', 'Lila'];
+  // Un set por color, en orden de temporada (rojo, negro, blanco…), y se repite la ronda hasta llenar 8
+  const disponibles = lista.filter((p) => p.cat.id === 'conjuntos-de-lenceria' && p.disponible).sort((a, b) => a.precio - b.precio);
+  const porColor = colores.map((c) => disponibles.filter((p) => p.color.toLowerCase() === c.toLowerCase()));
+  porColor.push(disponibles.filter((p) => !colores.some((c) => p.color.toLowerCase() === c.toLowerCase())));
+  const sets = [];
+  for (let ronda = 0; sets.length < 8 && porColor.some((g) => g.length > ronda); ronda++) {
+    for (const g of porColor) if (g[ronda] && sets.length < 8) sets.push(g[ronda]);
+  }
+  const detalles = lista.filter((p) => ['tangas-de-encaje', 'panties-de-encaje'].includes(p.cat.id) && p.disponible).slice(0, 8);
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Regalos de lencería para Navidad', url: SITIO + url,
+    mainEntity: { '@type': 'ItemList', itemListElement: [...sets, ...detalles].map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: SITIO + p.url, name: p.nombre })) },
+  };
+  const cuerpo = `
+    <div class="wrap">
+      <header class="cabeza-pagina">
+        ${migas(ruta)}
+        <h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Regalos de lencería para Navidad</h1>
+        <p>Un regalo íntimo no tiene que dar pena. Escoge un set o una tanga de encaje, nosotras lo enviamos en nuestro empaque especial, listo para entregar o para regalarte a ti.</p>
+        <div class="regalo-fechas">
+          <p><b>¿Quieres que llegue antes de Navidad?</b> Haz tu pedido hasta el <b>${FECHAS_NAVIDAD.nacional}</b> si es para otra ciudad, o hasta el <b>${FECHAS_NAVIDAD.bogota}</b> si es en Bogotá.</p>
+          <p>Envío ${pesos(COSTO_ENVIO)} a toda Colombia, gratis desde ${pesos(ENVIO_GRATIS)}. Pagas por Nequi, Llave Bre-B o transferencia.</p>
+        </div>
+      </header>
+    </div>
+    <section class="seccion" style="padding-top:0">
+      <div class="wrap">
+        <div class="seccion-cabeza"><h2>Sets para regalar</h2><a class="enlace" href="/conjuntos-de-lenceria/">Ver todos los conjuntos</a></div>
+        <div class="grilla">${sets.map(tarjeta).join('')}
+        </div>
+      </div>
+    </section>
+    <section class="seccion" style="padding-top:0">
+      <div class="wrap">
+        <div class="seccion-cabeza"><h2>Detalles desde ${pesos(Math.min(...detalles.map((p) => p.precio)))}</h2><a class="enlace" href="/tangas-de-encaje/">Ver todas las tangas</a></div>
+        <div class="grilla">${detalles.map(tarjeta).join('')}
+        </div>
+      </div>
+    </section>
+    <section class="seccion">
+      <div class="wrap cat-ayuda">
+        <h2>¿Y si no sé su talla?</h2>
+        <p>Las tangas e hilos de encaje son talla única y se ajustan de XS a L con los tirantes graduables: es el regalo más seguro. Para un set, pregúntanos por WhatsApp con las medidas que tengas y te ayudamos a escoger. Por higiene, la ropa interior no tiene cambio por talla, así que preferimos asesorarte antes.</p>
+        <p><a class="btn" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola Aurora Femme, quiero un regalo de Navidad y necesito ayuda con la talla 🎁')}" target="_blank" rel="noopener">Pedir ayuda por WhatsApp</a></p>
+      </div>
+    </section>`;
+  return pagina({
+    titulo: 'Regalos de lencería para Navidad | Aurora Femme',
+    descripcion: `Sets de lencería y tangas de encaje para regalar, en empaque especial. Pide hasta el ${FECHAS_NAVIDAD.nacional} (${FECHAS_NAVIDAD.bogota} en Bogotá) para que llegue antes de Navidad.`,
+    canonica: SITIO + url, ogImagen: sets[0]?.foto.jpg, jsonld: [ld, migasLd(ruta)], cuerpo, paginaId: 'categoria',
+  });
+}
 /* ------------------------------------------------------------------ */
 /* Principal                                                           */
 /* ------------------------------------------------------------------ */
@@ -689,6 +750,9 @@ for (const a of SITIO_DATOS.DIARIO) {
   await writeFile(`${RAIZ}diario/${a.slug}/index.html`, paginaNota(a, lista));
 }
 await writeFile(RAIZ + '404.html', pagina404(lista));
+await rm(RAIZ + 'regalos-de-lenceria', { recursive: true, force: true });
+await mkdir(RAIZ + 'regalos-de-lenceria', { recursive: true });
+await writeFile(RAIZ + 'regalos-de-lenceria/index.html', paginaRegalos(lista));
 
 // Para la portada (app.js): enlace y fotos propias por código, y una foto por categoría
 const enlaces = {}, fotosSku = {};

@@ -125,6 +125,7 @@
                 <li><a href="panties-invisibles/">Panties invisibles</a></li>
                 <li><a href="panties-de-encaje/">Panties de algodón</a></li>
                 <li><a href="conjuntos-de-lenceria/">Conjuntos de lencería</a></li>
+                <li><a href="regalos-de-lenceria/">Regalos de Navidad</a></li>
                 <li><a href="index.html#tallas">Guía de tallas</a></li>
               </ul>
             </div>
@@ -281,7 +282,11 @@
 
   /* ---------------- Diario ---------------- */
   const fechaLarga = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
-  const imagenDiario = (a) => PRODUCTOS.find((p) => p.sku.toLowerCase() === a.imagen) || PRODUCTOS[0];
+  const imagenDiario = (a) => {
+    const f = (CAT.fotos || {})[String(a.imagen).toUpperCase()];
+    if (f) return { img: f.m };
+    return PRODUCTOS.find((p) => p.sku.toLowerCase() === a.imagen) || PRODUCTOS[0];
+  };
   const tarjetaDiario = (a) => `
     <article class="nota">
       <a class="nota-foto" href="diario/${a.slug}/" tabindex="-1" aria-hidden="true">${img(imagenDiario(a), "")}</a>
