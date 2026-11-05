@@ -5,9 +5,9 @@
    ========================================================= */
 (function () {
   var IDS = {
-    ga4: "",                       // Google Analytics 4 · ID de medición "G-XXXXXXXXXX"
+    ga4: "G-EYDSGW9FKL",           // Google Analytics 4 (propiedad «Aurora Femme», cuenta aurorafemmecol) · ID de medición "G-XXXXXXXXXX"
     googleAds: "AW-18428516057",   // Google Ads · etiqueta de la cuenta 393-753-6064
-    metaPixel: "",                 // Meta (Facebook / Instagram) · ID del conjunto de datos (solo números)
+    metaPixel: "1469741775063902", // Meta: conjunto de datos «Aurora Femme - Sitio web» (Facebook / Instagram) · ID del conjunto de datos (solo números)
   };
   // Conversiones de Google Ads: "AW-.../etiqueta". Vacías = no se envían a Ads (GA4 y Meta sí reciben el evento).
   var CONVERSIONES_ADS = {
