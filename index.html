@@ -20,8 +20,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=16">
-  <script src="assets/js/medicion.js?v=16" defer></script>
+  <!-- Foto principal del inicio (HG008 Uva, la primera del cajón de colores): se pide antes para que cargue rápido -->
+  <link rel="preload" as="image" href="/assets/img/catalogo/tanga-de-encaje-de-pestana-uva-con-argollas-plateadas.webp" imagesrcset="/assets/img/catalogo/tanga-de-encaje-de-pestana-uva-con-argollas-plateadas-480.webp 480w, /assets/img/catalogo/tanga-de-encaje-de-pestana-uva-con-argollas-plateadas.webp 1000w" imagesizes="(max-width: 860px) 100vw, 45vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/styles.css?v=17">
+  <script src="assets/js/medicion.js?v=17" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "OnlineStore", "@id": "https://aurorafemme.co/#tienda", "name": "Aurora Femme", "alternateName": "Aurora Femme Colombia", "url": "https://aurorafemme.co/", "logo": "https://aurorafemme.co/assets/img/icono-512.png", "image": "https://aurorafemme.co/assets/img/nosotras/equipo-aurora-femme-1366.jpg", "description": "Lencería y ropa interior femenina con envíos a toda Colombia.", "slogan": "Abraza todas tus versiones", "email": "aurorafemmecol@gmail.com", "telephone": "+57 312 752 7565", "areaServed": {"@type": "Country", "name": "Colombia"}, "address": {"@type": "PostalAddress", "addressLocality": "Ibagué", "addressRegion": "Tolima", "addressCountry": "CO"}, "sameAs": ["https://www.instagram.com/aurorafemme.co", "https://www.tiktok.com/@aurorafemme.co"], "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+57 312 752 7565", "availableLanguage": "es"}}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://aurorafemme.co/#sitio", "name": "Aurora Femme", "url": "https://aurorafemme.co/", "inLanguage": "es-CO", "publisher": {"@id": "https://aurorafemme.co/#tienda"}}</script>
 </head>
@@ -83,7 +85,7 @@
       </div>
       <!-- Destacados de la plataforma (Configuración → Catálogo → Tienda web → «Solo los destacados»). Cambia limite=4 para mostrar más o menos -->
       <div class="catalogo">
-        <iframe id="aurora-destacados" src="https://pedidos.laempanadaguerrera.com/t/AURORA?embed=1&vista=destacados&limite=4" title="Productos destacados" loading="lazy"
+        <iframe id="aurora-destacados" data-src="https://pedidos.laempanadaguerrera.com/t/AURORA?embed=1&vista=destacados&limite=4" src="about:blank" title="Productos destacados" loading="lazy"
           style="width:100%;height:700px;border:0;display:block"
           sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"></iframe>
       </div>
@@ -222,16 +224,22 @@
 
   <div id="pie"><nav class="pie-estatico wrap" aria-label="Mapa del sitio"><ul><li><a href="/">Inicio</a></li><li><a href="/tienda.html">Catálogo</a></li><li><a href="/tangas-de-encaje/">Tangas e hilos de encaje</a></li><li><a href="/panties-invisibles/">Panties invisibles</a></li><li><a href="/panties-de-encaje/">Panties de algodón y encaje</a></li><li><a href="/conjuntos-de-lenceria/">Conjuntos de lencería</a></li><li><a href="/regalos-de-lenceria/">Regalos de Navidad</a></li><li><a href="/diario/">Diario Aurora</a></li><li><a href="/nosotras.html">Nosotras</a></li><li><a href="/index.html#tallas">Guía de tallas</a></li><li><a href="/politicas.html">Envíos y cambios</a></li></ul></nav></div>
 
-  <script src="assets/js/data.js?v=16"></script>
-  <script src="assets/js/instagram.js?v=16"></script>
-  <script src="assets/js/catalogo.js?v=16"></script>
-  <script src="assets/js/app.js?v=16"></script>
+  <script src="assets/js/data.js?v=17"></script>
+  <script src="assets/js/instagram.js?v=17"></script>
+  <script src="assets/js/catalogo.js?v=17"></script>
+  <script src="assets/js/app.js?v=17"></script>
   <script>
   /* Franja de destacados: alto automático, bolsa a pantalla completa y contador de la cabecera */
   (function () {
     var f = document.getElementById('aurora-destacados');
     if (!f) return;
-    var ORIGEN = new URL(f.src, location.href).origin;
+    var ORIGEN = new URL(f.dataset.src).origin;
+    // Se carga cuando falta poco para verla: el inicio abre más rápido
+    function cargar() { if (f.dataset.src) { f.src = f.dataset.src; f.removeAttribute('data-src'); } }
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { cargar(); obs.disconnect(); } }, { rootMargin: '400px 0px' });
+      obs.observe(f);
+    } else { cargar(); }
     var P = 'aurora:', KEY = 'aurora-tienda-estado', BASE = f.getAttribute('style'), alto = null;
     function enviar(m) { f.contentWindow.postMessage(m, ORIGEN); }
     function subir(on) { for (var e = f.parentElement; e && e !== document.body; e = e.parentElement) { if (on) { if (getComputedStyle(e).zIndex !== 'auto') { e.setAttribute('data-z', e.style.zIndex); e.style.zIndex = '2147483000'; } } else if (e.hasAttribute('data-z')) { e.style.zIndex = e.getAttribute('data-z'); e.removeAttribute('data-z'); } } }

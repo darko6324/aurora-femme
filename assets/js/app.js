@@ -193,7 +193,10 @@
         ficha.querySelector("span").textContent = `${p.detalle} · Ver en el catálogo`;
         const vieja = foto.querySelector("img");
         const nueva = document.createElement("img");
-        nueva.alt = p.nombre; nueva.src = p.imgGrande || p.img;
+        nueva.alt = p.nombre;
+        if (p.imgGrande) { nueva.srcset = `${p.img} 480w, ${p.imgGrande} 1000w`; nueva.sizes = "(max-width: 860px) 100vw, 45vw"; }
+        nueva.src = p.imgGrande || p.img;
+        if (i === 0) { nueva.fetchPriority = "high"; nueva.loading = "eager"; }
         nueva.classList.add("saliendo");
         foto.appendChild(nueva);
         const entrar = () => requestAnimationFrame(() => {
