@@ -47,3 +47,22 @@ El sitio no carga nada de Instagram al visitarlo: sin cookies de terceros ni scr
 - Token: secreto `IG_TOKEN` del repositorio. Es del usuario del sistema «SitioWebInstagram» del portafolio aurora_lenceria_ (Meta Business Suite → Configuración → Usuarios del sistema), app «Aurora Femme Web», permiso instagram_basic, caducidad: nunca. Para cambiarlo: «Generar token» en ese usuario y reemplazar el secreto.
 - Sin token o si la API falla, la sección muestra solo los botones «Seguir en Instagram» y «Ver en TikTok».
 - GitHub Pages debe publicar desde **GitHub Actions** (Settings → Pages → Source).
+
+## Catálogo para Google (SEO y Merchant Center)
+
+`scripts/catalogo.mjs` corre en cada deploy y a diario. Lee el catálogo público de la plataforma
+(JSON-LD de `/t/AURORA` + `/api/tienda/AURORA/disponibilidad`) y genera:
+
+- Una ficha indexable por producto: `/<categoría>/<producto>/` con precio, tallas, schema Product y
+  botón «Agregar a la bolsa» → `tienda.html?producto=CÓDIGO` (abre esa pieza en la tienda embebida).
+- Cuatro páginas de categoría pensadas para búsquedas reales: `/hilos-de-encaje/`,
+  `/panties-invisibles/`, `/panties-de-encaje/`, `/conjuntos-de-lenceria/`.
+- `sitemap.xml`, `robots.txt` y `merchant.xml` (feed para Google Merchant Center, una fila por talla).
+- `data/catalogo.json`: copia de respaldo que el workflow guarda en el repo; si la plataforma no
+  responde, se publica con esa copia.
+
+Todo lo generado está en `.gitignore`: no se edita a mano. Los nombres y descripciones salen de la
+plataforma (las tildes faltantes se corrigen en el script, en `TILDES`).
+
+Google Search Console: propiedad `https://aurorafemme.co/`, verificada con
+`googleb5f2bbafad6520b9.html` (no borrar). Sitemap enviado: `sitemap.xml`.
