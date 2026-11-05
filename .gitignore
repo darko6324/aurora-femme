@@ -1,4 +1,16 @@
-.DS_Store
+# Generado en cada deploy por scripts/catalogo.mjs (a partir de data/catalogo.json)
+/hilos-de-encaje/
+/panties-invisibles/
+/panties-de-encaje/
+/conjuntos-de-lenceria/
+/assets/img/catalogo/*
+!/assets/img/catalogo/.gitkeep
+/assets/js/catalogo.js
+/sitemap.xml
+/merchant.xml
+/robots.txt
 node_modules/
+_sitio/
+.DS_Store
 *.log
 .env

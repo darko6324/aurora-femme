@@ -538,3 +538,37 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* ---------------- Catálogo indexable: categorías y fichas de producto ---------------- */
+.tarjeta-foto picture { display: block; width: 100%; height: 100%; }
+.cat-resumen { font-size: .9rem; color: var(--topo) !important; letter-spacing: .02em; }
+.cat-chips { margin-top: 22px; }
+.cat-chips .chip { display: inline-flex; align-items: center; text-decoration: none; }
+.cat-chips .chip:hover { background: var(--negro); color: var(--blanco); border-color: var(--negro); }
+.cat-ayuda { max-width: 720px; }
+.cat-ayuda p { color: var(--gris-seda); margin: 14px 0 0; }
+
+.ficha-wrap { padding-top: clamp(24px, 4vw, 44px); }
+.ficha { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 72px); align-items: start; }
+.ficha-foto { margin: 0; position: sticky; top: 96px; border-radius: var(--r-l); overflow: hidden; background: var(--nube); aspect-ratio: 4 / 5; }
+.ficha-foto picture, .ficha-foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ficha-cat { font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 10px; }
+.ficha-cat a { color: var(--terracota-p); text-decoration: none; }
+.ficha-info h1 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.12; }
+.ficha-precio { font-size: 1.45rem; font-weight: 500; margin: 16px 0 20px; }
+.ficha-precio small { font-size: .8rem; color: var(--gris-seda); font-weight: 400; }
+.ficha-dato { margin: 0 0 8px; }
+.ficha-dato span { display: inline-block; min-width: 64px; color: var(--gris-seda); font-size: .9rem; }
+.ficha-dato s { color: var(--topo); }
+.ficha-cta { display: grid; gap: 10px; margin: 26px 0 28px; max-width: 420px; }
+.ficha-agotado { padding: 14px 18px; border-radius: var(--r-s); background: var(--nube); margin: 0; }
+.ficha-texto { color: var(--ciruela); max-width: 58ch; }
+.ficha-garantias { list-style: none; padding: 20px 0 0; margin: 24px 0 0; border-top: 1px solid var(--linea); display: grid; gap: 10px; font-size: .95rem; color: var(--gris-seda); }
+.ficha-garantias b { color: var(--negro); font-weight: 500; }
+.ficha-enlaces { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 22px; }
+.pie-categorias { display: grid; gap: 10px; }
+@media (max-width: 860px) {
+  .ficha { grid-template-columns: 1fr; }
+  .ficha-foto { position: static; }
+  .ficha-cta { max-width: none; }
+}

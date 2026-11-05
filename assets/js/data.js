@@ -23,6 +23,7 @@ const CDN = "https://cdn.shopify.com/s/files/1/0710/6838/5514/files/";
 const COLECCIONES = [
   {
     id: "hilos-graduables",
+    url: "hilos-de-encaje/",
     nombre: "Hilos graduables",
     texto: "Encaje floral y de pestaña con tirantes que ajustas a tu cadera.",
     img: "assets/img/colecciones/hilos-graduables.jpg",
@@ -30,6 +31,7 @@ const COLECCIONES = [
   },
   {
     id: "panties-invisibles",
+    url: "panties-invisibles/",
     nombre: "Panties invisibles",
     texto: "Sin costuras y con corte láser: no se marcan ni bajo el vestido más ajustado.",
     img: "assets/img/colecciones/panties-invisibles.jpg",

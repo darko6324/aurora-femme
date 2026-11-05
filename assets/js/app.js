@@ -12,6 +12,9 @@
 
   const pesos = (n) => "$" + Math.round(n).toLocaleString("es-CO");
   const porHandle = (h) => PRODUCTOS.find((p) => p.handle === h);
+  // Enlaces a las fichas indexables (los genera scripts/catalogo.mjs en assets/js/catalogo.js)
+  const CAT = window.CATALOGO || { productos: {}, categorias: {} };
+  const urlProducto = (p) => CAT.productos[p.sku] || "tienda.html";
 
   // Imagen local con respaldo en el CDN mientras no se descarguen las fotos
   const img = (o, alt, extra = "") =>
@@ -117,6 +120,10 @@
               <h4>Tienda</h4>
               <ul>
                 <li><a href="tienda.html">Catálogo</a></li>
+                <li><a href="hilos-de-encaje/">Hilos de encaje</a></li>
+                <li><a href="panties-invisibles/">Panties invisibles</a></li>
+                <li><a href="panties-de-encaje/">Panties de encaje</a></li>
+                <li><a href="conjuntos-de-lenceria/">Conjuntos de lencería</a></li>
                 <li><a href="index.html#tallas">Guía de tallas</a></li>
               </ul>
             </div>
@@ -155,10 +162,10 @@
     return `
       <article class="tarjeta">
         <div class="tarjeta-media">
-          <a class="tarjeta-foto" href="tienda.html" tabindex="-1" aria-hidden="true">${img(p, "")}</a>
+          <a class="tarjeta-foto" href="${urlProducto(p)}" tabindex="-1" aria-hidden="true">${img(p, "")}</a>
         </div>
         <div class="tarjeta-info">
-          <h3><a href="tienda.html">${p.nombre}</a></h3>
+          <h3><a href="${urlProducto(p)}">${p.nombre}</a></h3>
           <span class="tarjeta-color"><i class="punto" style="--c:${c.hex}"></i>${p.detalle}</span>
         </div>
       </article>`;
@@ -179,7 +186,7 @@
         $$(".tela", lista).forEach((b) => b.setAttribute("aria-pressed", b.dataset.i == i));
         $(".hero").style.setProperty("--color-activo", c.hex);
         nombreColor.textContent = c.nombre;
-        ficha.href = "tienda.html";
+        ficha.href = urlProducto(p);
         ficha.querySelector("strong").textContent = p.nombre;
         ficha.querySelector("span").textContent = `${p.detalle} · Ver en el catálogo`;
         const vieja = foto.querySelector("img");
@@ -201,7 +208,7 @@
     // Colecciones
     const col = $("#colecciones");
     if (col) col.innerHTML = COLECCIONES.map((c) => `
-      <a class="coleccion" href="tienda.html">
+      <a class="coleccion" href="${c.url || "tienda.html"}">
         ${img(c, "")}
         <div class="coleccion-texto">
           <div><h3>${c.nombre}</h3><p>${c.texto}</p></div>
