@@ -23,7 +23,7 @@ const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '14'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '15'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
 const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
@@ -266,7 +266,9 @@ function pagina({ titulo, descripcion, canonica, ogImagen, ogTipo = 'website', j
   <meta property="og:url" content="${canonica}">
   ${ogImagen ? `<meta property="og:image" content="${absoluta(ogImagen)}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400;500&family=Prata&display=swap" rel="stylesheet">
