@@ -62,7 +62,7 @@
             ${navLinks.slice(0, 2).map(([h, t, k]) => `<a href="${h}" ${activo(k) ? 'aria-current="page"' : ""}>${t}</a>`).join("")}
           </nav>
           <button class="icono-btn menu-btn" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false">${ICONOS.menu}</button>
-          <a class="logo" href="index.html" aria-label="Aurora Femme, inicio">${img(LOGO, "Aurora Femme", 'loading="eager"')}</a>
+          <a class="logo" href="index.html" aria-label="Aurora Femme, inicio">${img(LOGO, "Aurora Femme", 'loading="eager" width="560" height="203"')}</a>
           <div class="acciones">
             <a class="nav-extra" href="nosotras.html" ${activo("nosotras") ? 'aria-current="page"' : ""}>Nosotras</a>
             <a class="icono-btn" id="iconoBolsa" href="tienda.html?bolsa=1" aria-label="Abrir tu bolsa">${ICONOS.bolsa}<span class="contador" data-n="0">0</span></a>
@@ -109,7 +109,7 @@
         <div class="wrap">
           <div class="pie-grid">
             <div class="pie-marca">
-              ${img(LOGO, "Aurora Femme")}
+              ${img(LOGO, "Aurora Femme", 'width="560" height="203"')}
               <p>Lencería y ropa interior femenina, escogida pieza por pieza en Colombia y enviada a donde estés.</p>
               <div class="redes">
                 <a href="https://instagram.com/${TIENDA.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICONOS.ig}</a>
