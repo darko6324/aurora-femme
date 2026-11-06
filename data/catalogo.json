@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05T20:39:38.472Z",
+  "actualizado": "2026-11-06T19:02:21.153Z",
   "productos": [
     {
       "sku": "HG001ARENA",
@@ -30,7 +30,7 @@
     },
     {
       "sku": "HG004OCEANOPROFUNDO",
-      "nombre": "Tanga de Encaje Floral Oceano Profundo con Tirantes Graduables",
+      "nombre": "Tanga de Encaje Floral Océano Profundo con Tirantes Graduables",
       "descripcion": "Tanga de encaje floral color océano profundo, un azul petróleo oscuro y elegante, con moño al frente y tirantes graduables con hebilla. El encaje transparente deja ver la piel con delicadeza y los laterales lisos acompañan la cadera sin apretar. Talla única. Una opción distinta al negro clásico para quienes buscan lencería con carácter.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG004OCEANOPROFUNDO%2Fcatalogo-HG004OCEANOPROFUNDO-01_grande.jpg?alt=media&token=72958515-b55e-4ac4-92d3-1b5e1ba2b74c",
       "precio": 12000,
@@ -57,7 +57,7 @@
     },
     {
       "sku": "HG007PALODEROSA",
-      "nombre": "Tanga de Encaje de Pestana Palo de Rosa con Argollas Doradas",
+      "nombre": "Tanga de Encaje de Pestaña Palo de Rosa con Argollas Doradas",
       "descripcion": "Tanga de encaje de pestaña color palo de rosa, con argollas doradas en la unión de los tirantes graduables. El borde de pestañas le da un acabado delicado y los laterales lisos acompañan la cadera con comodidad. Talla única en un rosa suave y femenino. Una pieza para el uso diario o para regalarte algo bonito sin tener que justificarlo.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG007PALODEROSA%2Fcatalogo-HG007PALODEROSA-01_grande.jpg?alt=media&token=f7b77155-46d4-4529-b756-f45d4ba90306",
       "precio": 12000,
@@ -66,7 +66,7 @@
     },
     {
       "sku": "HG008UVA",
-      "nombre": "Tanga de Encaje de Pestana Uva con Argollas Plateadas",
+      "nombre": "Tanga de Encaje de Pestaña Uva con Argollas Plateadas",
       "descripcion": "Tanga de encaje de pestaña color uva, un vino profundo y elegante, con argollas plateadas en la unión de los tirantes graduables. El borde de pestañas añade un detalle delicado y los laterales lisos se adaptan con comodidad a la cadera. Talla única. Una prenda de carácter para quienes prefieren los tonos oscuros en su lencería.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FHG008UVA%2Fcatalogo-HG008UVA-01_grande.jpg?alt=media&token=44c4a272-8bbd-45c5-b0ab-3fd9af5df444",
       "precio": 12000,
@@ -75,7 +75,7 @@
     },
     {
       "sku": "PI001CHAMPAGNE",
-      "nombre": "Panty Invisible Sin Costuras Champagne - Corte Laser",
+      "nombre": "Panty Invisible Sin Costuras Champagne - Corte Láser",
       "descripcion": "Panty invisible sin costuras color champagne, un beige claro cercano al tono de la piel, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa ajustada, y la tela suave se siente cómoda desde la mañana hasta la noche. Talla única. Un básico esencial para usar bajo pantalones, vestidos y faldas.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI001CHAMPAGNE%2Fcatalogo-PI001CHAMPAGNE-01_grande.jpg?alt=media&token=010e6a55-5160-46e5-b13c-033fb5371882",
       "precio": 12000,
@@ -84,7 +84,7 @@
     },
     {
       "sku": "PI002DUNA",
-      "nombre": "Panty Invisible Sin Costuras Duna - Corte Laser",
+      "nombre": "Panty Invisible Sin Costuras Duna - Corte Láser",
       "descripcion": "Panty invisible sin costuras color duna, un beige arena cálido, con bordes en corte láser sin costuras visibles. Su diseño liso y plano se adapta a la cadera sin marcar bajo la ropa, con una sensación suave sobre la piel. Talla única. Una prenda básica y cómoda para el uso diario, pensada para llevar bajo prendas ajustadas.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI002DUNA%2Fcatalogo-PI002DUNA-01_grande.jpg?alt=media&token=e46d66d8-edbd-4b91-a626-e6feb587ec97",
       "precio": 12000,
@@ -93,7 +93,7 @@
     },
     {
       "sku": "PI003AVELLANA",
-      "nombre": "Panty Invisible Sin Costuras Avellana - Corte Laser",
+      "nombre": "Panty Invisible Sin Costuras Avellana - Corte Láser",
       "descripcion": "Panty invisible sin costuras color avellana, un caramelo suave de tono medio, con corte láser y bordes planos. No se marca bajo la ropa y se siente ligero y cómodo durante todo el día. Talla única. Una opción pensada para quienes buscan un tono que se acerque más a su piel y quieren comodidad en cada jornada.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI003AVELLANA%2Fcatalogo-PI003AVELLANA-01_grande.jpg?alt=media&token=e90b0b36-0269-4352-ad90-bbb37337c380",
       "precio": 12000,
@@ -102,7 +102,7 @@
     },
     {
       "sku": "PI004CHOCOLATE",
-      "nombre": "Panty Invisible Sin Costuras Chocolate - Corte Laser",
+      "nombre": "Panty Invisible Sin Costuras Chocolate - Corte Láser",
       "descripcion": "Panty invisible sin costuras color chocolate, un café profundo y uniforme, con acabado en corte láser. Sus bordes lisos y planos no se marcan bajo la ropa y la tela suave se siente cómoda a diario. Talla única. Un tono pensado para quienes buscan una ropa interior que se acerque a su tono de piel y pase desapercibida bajo prendas ajustadas.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI004CHOCOLATE%2Fcatalogo-PI004CHOCOLATE-01_grande.jpg?alt=media&token=06b2461a-39e4-46bc-8cc1-ba74695c6b6b",
       "precio": 12000,
@@ -111,7 +111,7 @@
     },
     {
       "sku": "PI005NEGRO",
-      "nombre": "Panty Invisible Sin Costuras Negro - Corte Laser",
+      "nombre": "Panty Invisible Sin Costuras Negro - Corte Láser",
       "descripcion": "Panty invisible sin costuras color negro, con acabado en corte láser y bordes planos que no se marcan bajo la ropa. La tela suave y ligera acompaña tu día con comodidad. Talla única. Un básico negro, ideal para usar bajo pantalones y vestidos oscuros, en el trabajo o en cualquier plan.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPI005NEGRO%2Fcatalogo-PI005NEGRO-01_grande.jpg?alt=media&token=9276438e-cf07-457f-9d92-e2754189d2be",
       "precio": 12000,
@@ -120,7 +120,7 @@
     },
     {
       "sku": "PF001PALODEROSA",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty corte tanga color palo de rosa con franja de encaje floral en la cintura y moño pequeño al centro. Los laterales en encaje transparente y el refuerzo interior en algodón combinan delicadeza con comodidad para el uso de todos los días. Talla única. Un rosa suave y femenino para quienes disfrutan de la lencería con detalles románticos.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF001PALODEROSA%2Fcatalogo-PF001PALODEROSA-01_grande.jpg?alt=media&token=72877a98-b7aa-4fd8-833a-a83a7a8746c1",
       "precio": 15000,
@@ -129,7 +129,7 @@
     },
     {
       "sku": "PF002BLANCO",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty blanco corte tanga con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. El refuerzo en algodón en la zona interior aporta comodidad y frescura durante todo el día. Talla única. Un blanco limpio y delicado, fácil de combinar y perfecto como básico de tu cajón de lencería.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF002BLANCO%2Fcatalogo-PF002BLANCO-01_grande.jpg?alt=media&token=5483f1c8-4103-4924-9166-0baf02ea474e",
       "precio": 15000,
@@ -138,7 +138,7 @@
     },
     {
       "sku": "PF003UVA",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty corte tanga color uva, un vino profundo y elegante, con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. Cuenta con refuerzo en algodón en la parte interior para mayor comodidad. Talla única. Una opción de carácter para quienes prefieren los tonos oscuros sin renunciar al encaje.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF003UVA%2Fcatalogo-PF003UVA-01_grande.jpg?alt=media&token=8f5a955a-3c46-49c7-afcc-189b7b143182",
       "precio": 15000,
@@ -147,7 +147,7 @@
     },
     {
       "sku": "PF004ROJO",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty rojo corte tanga con franja de encaje floral en la cintura, moño al centro y laterales de encaje transparente. El refuerzo en algodón en la zona interior lo hace cómodo para usar durante el día. Talla única. Un rojo intenso para quienes quieren darle color a su lencería, ya sea a diario o en una ocasión especial.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF004ROJO%2Fcatalogo-PF004ROJO-01_grande.jpg?alt=media&token=ee1f5820-e5a5-419d-88cb-1371d8c16c37",
       "precio": 15000,
@@ -156,7 +156,7 @@
     },
     {
       "sku": "PF005AZULOSCURO",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty corte tanga color azul oscuro, un azul noche sobrio y elegante, con franja de encaje floral en la cintura, moño al centro y laterales en encaje transparente. Incluye refuerzo en algodón en la parte interior para mayor comodidad. Talla única. Una alternativa distinta al negro, ideal para el uso diario.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF005AZULOSCURO%2Fcatalogo-PF005AZULOSCURO-01_grande.jpg?alt=media&token=7b4b9069-d748-4698-9e13-2dd5bc24e849",
       "precio": 15000,
@@ -165,7 +165,7 @@
     },
     {
       "sku": "PF006NEGRO",
-      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodon y Detalle de Moño",
+      "nombre": "Panty Corte Tanga con Franja en Encaje Floral Refuerzo en Algodón y Detalle de Moño",
       "descripcion": "Panty negro corte tanga con franja de encaje floral en la cintura, moño discreto al centro y laterales en encaje transparente. El refuerzo en algodón en la zona interior aporta comodidad en el uso de todos los días. Talla única. El negro clásico en una versión con detalles delicados, fácil de combinar con cualquier prenda.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FPF006NEGRO%2Fcatalogo-PF006NEGRO-01_grande.jpg?alt=media&token=0ca45cbd-6efa-4845-83f9-c23bc33f8882",
       "precio": 15000,
@@ -291,7 +291,7 @@
     },
     {
       "sku": "SETELOISA-LILA",
-      "nombre": "Set Eloisa Lila",
+      "nombre": "Set Eloísa Lila",
       "descripcion": "Conjunto de lencería de encaje lila de dos piezas. El brasier con aro combina encaje de pestañas con tiras de satín en el escote y doble banda en los costados; la tanga a juego tiene encaje festoneado y tirantes ajustables en la cadera. Un set en un lila suave y alegre, ideal para quienes quieren salir del negro de siempre. Aurora Femme, lencería colombiana con envío a todo el país.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-LILA%2Fcatalogo-SETELOISA-LILA-01_grande.jpg?alt=media&token=e56cff70-04b2-4f73-971e-193205c8139a",
       "precio": 75000,
@@ -300,7 +300,7 @@
     },
     {
       "sku": "SETELOISA-NEGRO",
-      "nombre": "Set Eloisa Negro",
+      "nombre": "Set Eloísa Negro",
       "descripcion": "Conjunto de lencería de encaje negro de dos piezas. El brasier con aro lleva encaje de pestañas, tiras de satín en el escote y doble banda en los costados; la tanga de encaje festoneado hace juego y tiene tirantes ajustables en la cadera. Un set clásico con detalles que lo hacen distinto, para el uso diario o para una ocasión especial. Aurora Femme: eleva tu feminidad.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-NEGRO%2Fcatalogo-SETELOISA-NEGRO-01_grande.jpg?alt=media&token=05a39193-dfda-4452-b656-069c50901b11",
       "precio": 75000,
@@ -309,7 +309,7 @@
     },
     {
       "sku": "SETELOISA-VINOTINTO",
-      "nombre": "Set Eloisa Vinotinto",
+      "nombre": "Set Eloísa Vinotinto",
       "descripcion": "Conjunto de lencería de encaje vinotinto de dos piezas. El brasier con aro combina encaje de pestañas con tiras de satín en el escote y doble banda en los costados; la tanga a juego tiene encaje festoneado y tirantes ajustables en la cadera. Un set en un tono vino intenso, con un acabado elegante y cuidado en cada detalle. Lencería colombiana de Aurora Femme.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETELOISA-VINOTINTO%2Fcatalogo-SETELOISA-VINOTINTO-01_grande.jpg?alt=media&token=17a089ab-22f1-4bb9-bd3d-5c4c20fa56e8",
       "precio": 75000,
@@ -327,7 +327,7 @@
     },
     {
       "sku": "SETEMILIA",
-      "nombre": "Set Emilia Cafe",
+      "nombre": "Set Emilia Café",
       "descripcion": "Conjunto de lencería de dos piezas en tul color piel con bordado floral en tono café chocolate. El brasier con aro tiene borde festoneado, tirantes de satín graduables y laterales en malla; la tanga hace juego con el mismo bordado y lleva tirantes ajustables. Un set de tonos tierra, sobrio y delicado, que combina con todo lo que ya tienes. Aurora Femme: eleva tu feminidad.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETEMILIA%2Fcatalogo-SETEMILIA-01_grande.jpg?alt=media&token=47c8f2ff-7107-4905-b359-8261586656c8",
       "precio": 75000,
@@ -624,7 +624,7 @@
     },
     {
       "sku": "SETSOFIA-MAGENTA",
-      "nombre": "Set Sofia Magenta",
+      "nombre": "Set Sofía Magenta",
       "descripcion": "Conjunto de lencería magenta de dos piezas con bordado de lirios sobre tul y base en tela satinada. El brasier con aro lleva moños pequeños y tirantes graduables; la tanga hace juego con el bordado, tirantes ajustables y parte trasera satinada. Un set de color intenso, entre fucsia y vino, para quienes quieren una lencería con presencia y un acabado delicado. Aurora Femme, lencería colombiana.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSOFIA-MAGENTA%2Fcatalogo-SETSOFIA-MAGENTA-01_grande.jpg?alt=media&token=04a55ad3-27d8-42d9-994a-50b5a42b73e8",
       "precio": 75000,
@@ -633,7 +633,7 @@
     },
     {
       "sku": "SETSOFIA-ROJO",
-      "nombre": "Set Sofia Rojo",
+      "nombre": "Set Sofía Rojo",
       "descripcion": "Conjunto de lencería rojo de dos piezas con bordado de lirios sobre tul y base en tela satinada. El brasier con aro tiene moños pequeños y tirantes graduables; la tanga hace juego con el bordado, tirantes ajustables y parte trasera satinada. Un set rojo de acabado brillante y detalles bordados, para estrenar en una fecha especial. Aurora Femme: eleva tu feminidad.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETSOFIA-ROJO%2Fcatalogo-SETSOFIA-ROJO-01_grande.jpg?alt=media&token=c13fedae-340e-414f-8f66-2c501ba251bd",
       "precio": 75000,
@@ -660,7 +660,7 @@
     },
     {
       "sku": "SETVERONICA-NEGRO",
-      "nombre": "Set Veronica Negro",
+      "nombre": "Set Verónica Negro",
       "descripcion": "Conjunto de lencería de encaje de pestañas negro de dos piezas. El brasier con aro tiene un pequeño moño al centro, tirantes graduables y doble banda en los costados; la tanga de encaje a juego lleva tirantes ajustables con argollas. Un set negro con detalles que lo hacen distinto, para el uso diario o para una ocasión especial. Aurora Femme, lencería colombiana.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-NEGRO%2Fcatalogo-SETVERONICA-NEGRO-01_grande.jpg?alt=media&token=1e18634f-97b0-4631-bea1-6062441562ca",
       "precio": 75000,
@@ -669,7 +669,7 @@
     },
     {
       "sku": "SETVERONICA-PALODEROSA",
-      "nombre": "Set Veronica Palo de rosa",
+      "nombre": "Set Verónica Palo de rosa",
       "descripcion": "Conjunto de lencería de encaje de pestañas color palo de rosa, de dos piezas. El brasier con aro tiene un pequeño moño al centro, tirantes graduables y doble banda satinada en los costados; la tanga de encaje a juego lleva tirantes ajustables. Un set en un rosa cálido y suave, delicado y femenino. Aurora Femme: eleva tu feminidad.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-PALODEROSA%2Fcatalogo-SETVERONICA-PALODEROSA-01_grande.jpg?alt=media&token=5ff7d80d-db71-4206-b0c2-d6d97f307c00",
       "precio": 75000,
@@ -678,7 +678,7 @@
     },
     {
       "sku": "SETVERONICA-ROJO",
-      "nombre": "Set Veronica Rojo",
+      "nombre": "Set Verónica Rojo",
       "descripcion": "Conjunto de lencería de encaje de pestañas rojo, de dos piezas. El brasier con aro tiene doble banda satinada en los costados y tirantes graduables; la tanga de encaje a juego lleva tirantes ajustables con argollas. Un set rojo intenso y con detalles cuidados, para el uso diario o una fecha especial. Aurora Femme, lencería colombiana con envío a todo el país.",
       "imagen": "https://firebasestorage.googleapis.com/v0/b/guerrera-ops-dev.firebasestorage.app/o/empresas%2FAURORA%2Fproductos%2FSETVERONICA-ROJO%2Fcatalogo-SETVERONICA-ROJO-01_grande.jpg?alt=media&token=31c3c711-4b43-4909-8624-57c6f5e1cf12",
       "precio": 75000,
