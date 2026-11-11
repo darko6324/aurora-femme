@@ -347,6 +347,13 @@ function paginaProducto(p, lista) {
       deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' }, transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 8, unitCode: 'DAY' } },
       shippingRate: { '@type': 'MonetaryAmount', value: p.precio >= ENVIO_GRATIS ? 0 : COSTO_ENVIO, currency: 'COP' },
     },
+    // Ropa interior: sin cambios ni devoluciones por talla o gusto (igual que en Merchant Center y politicas.html).
+    // Un defecto de fábrica se repone dentro de 5 días; eso es garantía, no devolución.
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy', applicableCountry: 'CO',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+      url: SITIO + '/politicas.html#cambios',
+    },
   });
   const base = {
     name: p.nombre, description: p.descripcion, image: [absoluta(p.foto.jpg)], brand: { '@type': 'Brand', name: 'Aurora Femme' },
