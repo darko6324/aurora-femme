@@ -591,3 +591,7 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .catalogo-texto { max-width: 760px; padding-top: 32px; }
 .catalogo-texto h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
 .catalogo-texto p { color: var(--gris-seda); margin-top: 12px; }
+/* Datos de contacto en el pie sin JavaScript (Google y Merchant los leen) */
+.pie-contacto{font-size:.82rem;line-height:1.6;opacity:.8;padding:8px 0 24px}
+.pie-contacto a{text-decoration:underline}
+.pie .pie-contacto{display:none}

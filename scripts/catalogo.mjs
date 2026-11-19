@@ -23,7 +23,7 @@ const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '17'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '18'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
 const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
@@ -516,7 +516,7 @@ const ENLACES_SITIO = [
   ...CATEGORIAS.map((c) => [`/${c.id}/`, c.nombre]),
   ['/regalos-de-lenceria/', 'Regalos de Navidad'], ['/diario/', 'Diario Aurora'], ['/nosotras.html', 'Nosotras'], ['/index.html#tallas', 'Guía de tallas'], ['/politicas.html', 'Envíos y cambios'],
 ];
-const PIE_ESTATICO = `<nav class="pie-estatico wrap" aria-label="Mapa del sitio"><ul>${ENLACES_SITIO.map(([u, t]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></nav>`;
+const PIE_ESTATICO = `<nav class="pie-estatico wrap" aria-label="Mapa del sitio"><ul>${ENLACES_SITIO.map(([u, t]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></nav><p class="pie-contacto wrap">Aurora Femme · Responsables: Laura Valentina Riaño Pacheco y María Paula Riaño Pacheco · Calle 11A # 79A-60, Interior 9, Apto. 104, Bogotá D.C., Colombia · WhatsApp <a href="https://wa.me/573127527565">+57 312 752 7565</a> · <a href="mailto:aurorafemmecol@gmail.com">aurorafemmecol@gmail.com</a> · <a href="/politicas.html#quien-vende">Quién vende</a></p>`;
 
 const fechaLarga = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' });
 const fotoNota = (a, lista) => lista.find((p) => p.sku.toLowerCase().startsWith(a.imagen) && !p.foto.remota) ?? lista.find((p) => !p.foto.remota) ?? lista[0];

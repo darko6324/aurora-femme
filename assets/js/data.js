@@ -17,6 +17,8 @@ const TIENDA = {
   costoEnvio: 13000,                 // envío en pedidos por debajo del envío gratis
   horario: ["Lun – Vie: 8:00 a.m. – 6:00 p.m.", "Sáb: 9:00 a.m. – 2:00 p.m."],
   entrega: "2 a 8 días hábiles según destino",
+  responsables: "Laura Valentina Riaño Pacheco y María Paula Riaño Pacheco",
+  direccion: "Calle 11A # 79A-60, Interior 9, Apto. 104, Bogotá D.C., Colombia",
 };
 
 

@@ -146,11 +146,12 @@
                 <li><a href="https://wa.me/${TIENDA.whatsapp}" target="_blank" rel="noopener">WhatsApp ${TIENDA.whatsappVisible}</a></li>
                 <li><a href="mailto:${TIENDA.correo}">${TIENDA.correo}</a></li>
                 ${TIENDA.horario.map((h) => `<li>${h}</li>`).join("")}
+                <li>${TIENDA.direccion}</li>
               </ul>
             </div>
           </div>
           <div class="pie-base">
-            <span>© ${new Date().getFullYear()} Aurora Femme. Hecho en Colombia.</span>
+            <span>© ${new Date().getFullYear()} Aurora Femme. Responsables: ${TIENDA.responsables}. <a href="politicas.html#quien-vende">Quién vende</a></span>
             <div class="medios" aria-label="Medios de pago"><span>Nequi</span><span>Llave Bre-B</span><span>Transferencia</span></div>
           </div>
         </div>
