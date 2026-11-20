@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-06T19:02:21.153Z",
+  "actualizado": "2026-11-20T19:05:50.017Z",
   "productos": [
     {
       "sku": "HG001ARENA",
@@ -718,7 +718,7 @@
     },
     {
       "codigo": "HG006NEGRO-UNICA",
-      "disponible": true
+      "disponible": false
     },
     {
       "codigo": "HG007PALODEROSA-UNICA",
@@ -862,7 +862,7 @@
     },
     {
       "codigo": "SETFIORELLA-M",
-      "disponible": true
+      "disponible": false
     },
     {
       "codigo": "SETHAILEY-S",
