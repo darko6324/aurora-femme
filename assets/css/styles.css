@@ -595,3 +595,44 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .pie-contacto{font-size:.82rem;line-height:1.6;opacity:.8;padding:8px 0 24px}
 .pie-contacto a{text-decoration:underline}
 .pie .pie-contacto{display:none}
+
+/* ---------- Pink Friday ---------- */
+.promo {
+  position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 6px 14px; padding: 11px var(--gutter); text-decoration: none; color: #fff; text-align: center;
+  background: linear-gradient(100deg, #AD1457 0%, #D81B60 35%, #E8457E 55%, #D81B60 75%, #AD1457 100%);
+  background-size: 220% 100%; animation: promo-ola 9s ease-in-out infinite alternate;
+  font-size: .92rem; letter-spacing: .01em;
+}
+.promo-texto { position: relative; }
+.promo-texto strong {
+  font-family: var(--f-titular); font-weight: 400; font-size: 1.12rem; letter-spacing: .04em; text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+}
+.promo-sep { margin: 0 10px; font-size: .7rem; opacity: .85; vertical-align: middle; }
+.promo-reloj {
+  position: relative; font-variant-numeric: tabular-nums; font-size: .82rem; font-weight: 500;
+  background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 3px 11px;
+}
+.promo-reloj:empty { display: none; }
+.promo-cta {
+  position: relative; background: #fff; color: #AD1457; font-weight: 500; font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .08em; border-radius: 999px; padding: 5px 14px; transition: transform .2s var(--ease);
+}
+.promo:hover .promo-cta { transform: translateY(-1px); }
+.promo-brillo {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.28) 50%, transparent 65%);
+  transform: translateX(-100%); animation: promo-brillo 4.5s ease-in-out infinite;
+}
+@keyframes promo-ola { to { background-position: 100% 0; } }
+@keyframes promo-brillo { 0%, 55% { transform: translateX(-100%); } 85%, 100% { transform: translateX(100%); } }
+@media (max-width: 640px) {
+  .promo { font-size: .8rem; padding: 9px 14px; }
+  .promo-texto strong { font-size: .98rem; display: block; }
+  .promo-texto .promo-sep:first-of-type { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .promo, .promo-brillo { animation: none; } }
+/* Franja del inicio en rosa durante la promo */
+.franja--promo { background: linear-gradient(90deg, #D81B60, #E8457E, #D81B60); color: #fff; border-color: transparent; }
+.franja--promo .franja-pista span::after { color: #FFD3E2; }

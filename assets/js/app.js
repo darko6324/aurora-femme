@@ -47,6 +47,25 @@
     ["nosotras.html", "Nosotras", "nosotras"],
   ];
 
+  /* ---------------- Pink Friday (se apaga sola al terminar) ---------------- */
+  const PROMO_FIN = new Date("2026-11-29T23:59:59-05:00");
+  const promoActiva = () => Date.now() < PROMO_FIN.getTime();
+  function relojPromo() {
+    const r = PROMO_FIN.getTime() - Date.now();
+    if (r <= 0) return "";
+    const d = Math.floor(r / 864e5), h = Math.floor(r / 36e5) % 24, m = Math.floor(r / 6e4) % 60;
+    return d > 0 ? `Termina en ${d}d ${h}h ${m}m` : `Últimas ${h}h ${m}m`;
+  }
+  function iniciarPromo() {
+    const pintar = () => document.querySelectorAll("[data-reloj]").forEach((el) => { el.textContent = relojPromo(); });
+    pintar(); setInterval(pintar, 30000);
+    // En la franja del inicio: después del cierre, el texto de la promo vuelve a uno normal
+    if (!promoActiva()) {
+      document.querySelectorAll(".franja--promo").forEach((f) => f.classList.remove("franja--promo"));
+      document.querySelectorAll("[data-promo-texto]").forEach((el) => { el.textContent = "Envío gratis desde $200.000"; });
+    }
+  }
+
   function montarCabecera() {
     const destino = $("#cabecera");
     if (!destino) return;
@@ -55,7 +74,13 @@
       (clave === "nosotras" && pagina === "nosotras") ||
       (clave === "diario" && (pagina === "diario" || pagina === "nota"));
     destino.outerHTML = `
-      <div class="aviso">Envío gratis desde <strong>${pesos(TIENDA.envioGratisDesde)}</strong> a toda Colombia</div>
+      ${promoActiva() ? `
+      <a class="promo" href="tienda.html" aria-label="Pink Friday: descuentos en todas las referencias hasta el domingo 29 de noviembre a las 11:59 p. m. Ver el catálogo">
+        <span class="promo-brillo" aria-hidden="true"></span>
+        <span class="promo-texto"><strong>Pink Friday</strong><span class="promo-sep" aria-hidden="true">✦</span>Descuentos en todas las referencias<span class="promo-sep" aria-hidden="true">✦</span>Hasta el domingo 29 de noviembre, 11:59 p. m.</span>
+        <span class="promo-reloj" data-reloj aria-hidden="true"></span>
+        <span class="promo-cta">Comprar</span>
+      </a>` : `<div class="aviso">Envío gratis desde <strong>${pesos(TIENDA.envioGratisDesde)}</strong> a toda Colombia</div>`}
       <header class="cabecera">
         <div class="wrap">
           <nav class="nav" aria-label="Principal">
@@ -344,6 +369,7 @@
   /* ---------------- Arranque ---------------- */
   montarCabecera();
   montarPie();
+  iniciarPromo();
   if (pagina === "inicio") initInicio();
   if (pagina === "diario") initDiario();
 })();
