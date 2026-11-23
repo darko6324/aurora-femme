@@ -203,29 +203,47 @@
 
   /* ---------------- Inicio ---------------- */
   function initInicio() {
-    // Hero: el cajón de colores cambia la foto principal
-    // Solo los colores que siguen en el catálogo (los agotados o retirados no tienen foto propia)
+    // Hero: rota sola por las piezas disponibles del catálogo; el cajón de colores muestra una tanga a elección
     const hilos = PRODUCTOS.filter((p) => p.coleccion === "hilos-graduables" && (CAT.fotos || {})[p.sku]);
     const foto = $("#heroFoto"), ficha = $("#heroFicha"), lista = $("#cajon"), nombreColor = $("#cajonColor");
     if (foto && lista) {
+      const deTanga = (p) => ({ n: p.nombre, d: `${p.detalle} · Ver en el catálogo`, u: urlProducto(p), m: p.img, l: p.imgGrande, hex: COLORES[p.color].hex, color: COLORES[p.color].nombre, i: hilos.indexOf(p) });
+      // Mezcla por categoría para que se vean tangas, panties y conjuntos (máximo 16 por visita)
+      const porCat = {};
+      (CAT.vitrina || []).forEach((v) => (porCat[v.k] = porCat[v.k] || []).push(v));
+      Object.values(porCat).forEach((g) => g.sort(() => Math.random() - 0.5));
+      const ronda = [];
+      for (let quedan = true; quedan && ronda.length < 16;) {
+        quedan = false;
+        for (const g of Object.values(porCat)) if (g.length && ronda.length < 16) { ronda.push(g.shift()); quedan = true; }
+      }
+      const vitrina = ronda.map((v) => ({ n: v.n, d: `${pesos(v.$)} · Ver en el catálogo`, u: v.u, m: v.m, l: v.l, hex: "", color: "", i: -1 }));
+      // Empieza con la primera tanga (es la foto que el HTML precarga) y sigue con la vitrina
+      const inicio = hilos[0] ? [deTanga(hilos[0])] : [];
+      const items = vitrina.length ? [...inicio, ...vitrina.filter((v) => !inicio.length || v.u !== inicio[0].u)] : hilos.map(deTanga);
+
       lista.innerHTML = hilos.map((p, i) => {
         const c = COLORES[p.color];
-        return `<li><button class="tela" style="--c:${c.hex}" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ver color ${c.nombre}"></button></li>`;
+        return `<li><button class="tela" style="--c:${c.hex}" data-i="${i}" aria-pressed="false" aria-label="Ver color ${c.nombre}"></button></li>`;
       }).join("");
-      const mostrar = (i) => {
-        const p = hilos[i], c = COLORES[p.color];
-        $$(".tela", lista).forEach((b) => b.setAttribute("aria-pressed", b.dataset.i == i));
-        $(".hero").style.setProperty("--color-activo", c.hex);
-        nombreColor.textContent = c.nombre;
-        ficha.href = urlProducto(p);
-        ficha.querySelector("strong").textContent = p.nombre;
-        ficha.querySelector("span").textContent = `${p.detalle} · Ver en el catálogo`;
+      const titulo = $(".cajon-titulo");
+
+      let primera = true;
+      const mostrar = (it) => {
+        $$(".tela", lista).forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.i === it.i)));
+        if (it.hex) $(".hero").style.setProperty("--color-activo", it.hex); else $(".hero").style.removeProperty("--color-activo");
+        if (titulo) titulo.innerHTML = it.color
+          ? `Tangas de encaje en ${hilos.length} colores. Estás viendo <b id="cajonColor">${it.color}</b>.`
+          : `Tangas de encaje en ${hilos.length} colores. Toca uno para verlo.`;
+        ficha.href = it.u;
+        ficha.querySelector("strong").textContent = it.n;
+        ficha.querySelector("span").textContent = it.d;
         const vieja = foto.querySelector("img");
         const nueva = document.createElement("img");
-        nueva.alt = p.nombre;
-        if (p.imgGrande) { nueva.srcset = `${p.img} 480w, ${p.imgGrande} 1000w`; nueva.sizes = "(max-width: 860px) 100vw, 45vw"; }
-        nueva.src = p.imgGrande || p.img;
-        if (i === 0) { nueva.fetchPriority = "high"; nueva.loading = "eager"; }
+        nueva.alt = it.n;
+        if (it.l) { nueva.srcset = `${it.m} 480w, ${it.l} 1000w`; nueva.sizes = "(max-width: 860px) 100vw, 45vw"; }
+        nueva.src = it.l || it.m;
+        if (primera) { nueva.fetchPriority = "high"; nueva.loading = "eager"; primera = false; }
         nueva.classList.add("saliendo");
         foto.appendChild(nueva);
         const entrar = () => requestAnimationFrame(() => {
@@ -234,8 +252,25 @@
         });
         nueva.complete ? entrar() : (nueva.onload = entrar);
       };
-      lista.addEventListener("click", (e) => { const b = e.target.closest(".tela"); if (b) mostrar(+b.dataset.i); });
-      mostrar(0);
+
+      // Rotación: cada 5 s; se detiene un rato si la clienta toca un color o pasa el mouse por la foto
+      let n = 0, pausaHasta = 0;
+      const quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const siguiente = () => {
+        if (document.hidden || Date.now() < pausaHasta) return;
+        n = (n + 1) % items.length;
+        // Precarga la que sigue para que el cambio sea limpio
+        const pre = items[(n + 1) % items.length]; if (pre) { const im = new Image(); im.src = pre.l || pre.m; }
+        mostrar(items[n]);
+      };
+      lista.addEventListener("click", (e) => {
+        const b = e.target.closest(".tela"); if (!b) return;
+        pausaHasta = Date.now() + 20000;
+        mostrar(deTanga(hilos[+b.dataset.i]));
+      });
+      foto.addEventListener("mouseenter", () => { pausaHasta = Date.now() + 8000; });
+      mostrar(items[0]);
+      if (items.length > 1 && !quieto) setInterval(siguiente, 5000);
     }
 
     // Colecciones

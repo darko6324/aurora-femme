@@ -23,7 +23,7 @@ const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '20'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '21'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
 const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
@@ -772,13 +772,16 @@ for (const p of lista) {
     if (f && !fotosSku[k]) fotosSku[k] = f;
   }
 }
+// Vitrina del inicio: todo lo que hoy está disponible y tiene foto propia (rota en la portada)
+const vitrina = lista.filter((p) => p.disponible && !p.foto.remota)
+  .map((p) => ({ n: p.corto, k: p.cat.id, u: p.url, m: p.foto.webp480, l: p.foto.webp, $: p.precio }));
 const cats = Object.fromEntries(CATEGORIAS.map((c) => [c.id, `/${c.id}/`]));
 const fotoCat = Object.fromEntries(CATEGORIAS.map((c) => {
   const p = lista.find((x) => x.cat === c && x.disponible && !x.foto.remota);
   return [c.id, p ? p.foto.webp : null];
 }));
 await writeFile(RAIZ + 'assets/js/catalogo.js', '/* Generado por scripts/catalogo.mjs. No editar a mano. */\n' +
-  `window.CATALOGO = ${JSON.stringify({ productos: enlaces, fotos: fotosSku, categorias: cats, fotoCategoria: fotoCat, nombres: Object.fromEntries(CATEGORIAS.map((c) => [c.id, c.nombre])) })};\n`);
+  `window.CATALOGO = ${JSON.stringify({ productos: enlaces, fotos: fotosSku, categorias: cats, fotoCategoria: fotoCat, nombres: Object.fromEntries(CATEGORIAS.map((c) => [c.id, c.nombre])), vitrina })};\n`);
 
 const hoy = new Date().toISOString().slice(0, 10);
 await writeFile(RAIZ + 'sitemap.xml', sitemap(lista, hoy));
