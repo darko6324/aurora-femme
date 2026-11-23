@@ -17,6 +17,8 @@
   const urlProducto = (p) => CAT.productos[p.sku] || "tienda.html";
   // Fotos propias del catálogo (webp optimizadas en assets/img/catalogo)
   PRODUCTOS.forEach((p) => { const f = (CAT.fotos || {})[p.sku]; if (f) { p.img = f.m; p.imgGrande = f.l; } });
+  // Si una pieza salió de la plataforma (agotada o retirada) no tiene foto: se deja de mostrar en el sitio
+  if (Object.keys(CAT.fotos || {}).length) for (let i = PRODUCTOS.length - 1; i >= 0; i--) if (!CAT.fotos[PRODUCTOS[i].sku]) PRODUCTOS.splice(i, 1);
   COLECCIONES.forEach((c) => { const f = (CAT.fotoCategoria || {})[(c.url || "").replace(/\/$/, "")]; if (f) c.img = f; });
 
   const img = (o, alt, extra = "") =>
@@ -202,7 +204,8 @@
   /* ---------------- Inicio ---------------- */
   function initInicio() {
     // Hero: el cajón de colores cambia la foto principal
-    const hilos = PRODUCTOS.filter((p) => p.coleccion === "hilos-graduables");
+    // Solo los colores que siguen en el catálogo (los agotados o retirados no tienen foto propia)
+    const hilos = PRODUCTOS.filter((p) => p.coleccion === "hilos-graduables" && (CAT.fotos || {})[p.sku]);
     const foto = $("#heroFoto"), ficha = $("#heroFicha"), lista = $("#cajon"), nombreColor = $("#cajonColor");
     if (foto && lista) {
       lista.innerHTML = hilos.map((p, i) => {
