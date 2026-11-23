@@ -596,7 +596,7 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .pie-contacto a{text-decoration:underline}
 .pie .pie-contacto{display:none}
 
-/* ---------- Pink Friday ---------- */
+/* ---------- Pink Days ---------- */
 .promo {
   position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
   gap: 6px 14px; padding: 11px var(--gutter); text-decoration: none; color: #fff; text-align: center;
@@ -636,3 +636,7 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 /* Franja del inicio en rosa durante la promo */
 .franja--promo { background: linear-gradient(90deg, #D81B60, #E8457E, #D81B60); color: #fff; border-color: transparent; }
 .franja--promo .franja-pista span::after { color: #FFD3E2; }
+.promo-reloj b { font-weight: 600; display: inline-block; min-width: 1.15em; text-align: center; }
+.promo-reloj .promo-seg { animation: promo-tic 1s ease-in-out infinite; }
+@keyframes promo-tic { 0% { transform: translateY(-2px); opacity: .55; } 25%, 100% { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .promo-reloj .promo-seg { animation: none; } }
