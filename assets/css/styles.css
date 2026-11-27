@@ -640,3 +640,9 @@ details.acordeon > div { padding-bottom: 20px; color: var(--gris-seda); font-siz
 .promo-reloj .promo-seg { animation: promo-tic 1s ease-in-out infinite; }
 @keyframes promo-tic { 0% { transform: translateY(-2px); opacity: .55; } 25%, 100% { transform: none; opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .promo-reloj .promo-seg { animation: none; } }
+/* Tablas dentro de las notas del diario */
+.tabla-nota { width: 100%; max-width: 420px; border-collapse: collapse; margin: 14px 0 22px; font-size: .95rem; }
+.tabla-nota caption { text-align: left; font-size: .85rem; opacity: .75; padding-bottom: 6px; }
+.tabla-nota th, .tabla-nota td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--linea, rgba(0,0,0,.12)); }
+.tabla-nota th { font-weight: 500; }
+.tabla-nota tbody tr:nth-child(odd) { background: rgba(232,196,189,.18); }

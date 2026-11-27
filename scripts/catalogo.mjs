@@ -23,7 +23,7 @@ const RAIZ = fileURLToPath(new URL('../', import.meta.url));
 const SITIO = 'https://aurorafemme.co';
 const PLATAFORMA = 'https://pedidos.laempanadaguerrera.com';
 const TIENDA = 'AURORA';
-const V = '22'; // versión de assets (cache-busting), igual que en el resto del sitio
+const V = '23'; // versión de assets (cache-busting), igual que en el resto del sitio
 const WHATSAPP = '573127527565';
 const ENVIO_GRATIS = 200000;
 const COSTO_ENVIO = 13000; // pedidos por debajo del envío gratis
@@ -80,6 +80,12 @@ const CATEGORIAS = [
     intro: [
       'Sets de lencería de dos piezas: brasier y panty que combinan, en encaje y en colores para cada versión tuya, del negro y el rojo al lila, el menta o el blanco.',
       'Revisa las tallas disponibles en cada set; si dudas, escríbenos y te asesoramos con tus medidas.',
+      'También tenemos babydolls de dos piezas: una bata corta y transparente con su panty a juego, para dormir o para una noche especial.',
+    ],
+    faq: [
+      ['¿Cómo sé mi talla de conjunto?', 'Mide tu contorno de busto y de cadera y usa nuestra guía: los conjuntos van de XS a L. Si quieres saber tu talla de brasier con número y copa, sigue nuestra guía paso a paso.'],
+      ['¿Qué diferencia hay entre un conjunto y un babydoll?', 'El conjunto es brasier y panty que combinan. El babydoll es una bata corta, ligera y transparente que viene con su panty: más para dormir o para una ocasión especial.'],
+      ['¿Los conjuntos tienen cambio?', 'Por higiene, la ropa interior no tiene cambio por talla ni por gusto. Si dudas, escríbenos antes de comprar y te asesoramos con tus medidas.'],
     ],
     google: 'Apparel & Accessories > Clothing > Underwear & Socks > Lingerie',
   },
@@ -384,7 +390,7 @@ function paginaProducto(p, lista) {
           </div>
           <div class="ficha-texto"><p>${esc(p.descripcion)}</p></div>
           ${garantias}
-          <p class="ficha-enlaces"><a class="enlace" href="/index.html#tallas">Guía de tallas</a> <a class="enlace" href="/politicas.html#envios">Envíos y cambios</a></p>        </div>
+          <p class="ficha-enlaces">${p.cat.id === 'conjuntos-de-lenceria' ? '<a class="enlace" href="/diario/como-saber-tu-talla-de-brasier/">¿Cuál es mi talla de brasier?</a> ' : ''}<a class="enlace" href="/index.html#tallas">Guía de tallas</a> <a class="enlace" href="/politicas.html#envios">Envíos y cambios</a></p>        </div>
       </div>
     </div>
     ${relacionados.length ? `
@@ -424,11 +430,14 @@ function paginaCategoria(cat, lista) {
         <h2>¿Cómo compro?</h2>
         <p>Abre la pieza que te guste, elige tu talla y agrégala a la bolsa. Envías el pedido por WhatsApp y confirmas el pago con nosotras por Nequi, Llave Bre-B o transferencia. Llega en 2 a 8 días hábiles a cualquier ciudad de Colombia, en nuestro empaque especial.</p>
         <p><a class="btn btn--claro" href="/index.html#tallas">Calcular mi talla</a></p>
+        ${cat.faq ? `<h2>Preguntas frecuentes</h2>
+        ${cat.faq.map(([q, r]) => `<h3>${esc(q)}</h3><p>${esc(r)}${q.startsWith('¿Cómo sé mi talla') ? ' <a class="enlace" href="/diario/como-saber-tu-talla-de-brasier/">Ver la guía de tallas de brasier</a>.' : ''}</p>`).join('\n        ')}` : ''}
       </div>
     </section>`;
+  const faqLd = cat.faq ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: cat.faq.map(([q, r]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: r } })) } : null;
   return pagina({
     titulo: `${cat.title} | Aurora Femme`, descripcion: cat.description, canonica: `${SITIO}/${cat.id}/`,
-    ogImagen: prods[0]?.foto.jpg, jsonld: [ld, migasLd(ruta)], cuerpo, paginaId: 'categoria',
+    ogImagen: prods[0]?.foto.jpg, jsonld: [ld, migasLd(ruta), ...(faqLd ? [faqLd] : [])], cuerpo, paginaId: 'categoria',
   });
 }
 

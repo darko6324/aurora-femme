@@ -143,25 +143,65 @@ const RESENAS = [];
 const DIARIO = [
   {
     slug: "como-saber-tu-talla-de-brasier",
-    titulo: "Cómo saber tu talla de brasier sin adivinar",
-    resumen: "Dos medidas, una cinta métrica y cinco minutos. Así entiendes el número y la letra de tu talla.",
-    fecha: "2026-11-05",
-    lectura: "4 min",
+    titulo: "Cómo saber tu talla de brasier: tabla de medidas y paso a paso",
+    resumen: "Cómo saber tu medida de brasier con una cinta métrica: el número sale del contorno bajo el busto y la copa de la diferencia. Con tabla y ejemplo.",
+    fecha: "2026-11-27",
+    lectura: "5 min",
     imagen: "setmatilda-blanco",
     cuerpo: `
-      <p>Casi todas compramos brasier por costumbre: pedimos la misma talla de hace años y aguantamos tirantes que se caen o aros que pellizcan. La talla de un brasier tiene dos partes y se calcula con dos medidas.</p>
+      <p>Casi todas compramos brasier por costumbre: pedimos la misma talla de hace años y aguantamos tirantes que se caen o aros que pellizcan. La talla de un brasier tiene dos partes, un número y una letra, y se calcula con dos medidas que tomas en cinco minutos.</p>
+      <h2>Qué necesitas</h2>
+      <ul>
+        <li>Una cinta métrica de costura (la flexible).</li>
+        <li>Un brasier sin relleno o ninguno, frente a un espejo.</li>
+        <li>Medir de pie, derecha y respirando normal.</li>
+      </ul>
       <h2>1. El número: tu contorno bajo el busto</h2>
       <p>Pasa la cinta justo debajo del busto, donde va la banda del brasier. Que quede firme y paralela al piso. Esa medida define el número (32, 34, 36…), que es el ancho de la banda. La banda es la que sostiene: si se sube por la espalda, está grande.</p>
+      <table class="tabla-nota">
+        <caption>Contorno bajo el busto y número del brasier (aproximado)</caption>
+        <thead><tr><th>Bajo el busto</th><th>Número</th></tr></thead>
+        <tbody>
+          <tr><td>63 – 67 cm</td><td>30</td></tr>
+          <tr><td>68 – 72 cm</td><td>32</td></tr>
+          <tr><td>73 – 77 cm</td><td>34</td></tr>
+          <tr><td>78 – 82 cm</td><td>36</td></tr>
+          <tr><td>83 – 87 cm</td><td>38</td></tr>
+          <tr><td>88 – 92 cm</td><td>40</td></tr>
+        </tbody>
+      </table>
       <h2>2. La letra: la diferencia con tu busto</h2>
-      <p>Ahora mide el contorno de busto por la parte más llena, sin apretar. Resta las dos medidas. Entre más grande la diferencia, más grande la copa (A, B, C, D…). Por eso dos mujeres con el mismo número pueden usar copas distintas.</p>
+      <p>Ahora mide el contorno de busto por la parte más llena, sin apretar. Réstale la medida bajo el busto. Entre más grande la diferencia, más grande la copa. Por eso dos mujeres con el mismo número pueden usar copas distintas.</p>
+      <table class="tabla-nota">
+        <caption>Diferencia entre busto y bajo busto, y copa (aproximado)</caption>
+        <thead><tr><th>Diferencia</th><th>Copa</th></tr></thead>
+        <tbody>
+          <tr><td>10 – 12 cm</td><td>AA</td></tr>
+          <tr><td>12 – 14 cm</td><td>A</td></tr>
+          <tr><td>14 – 16 cm</td><td>B</td></tr>
+          <tr><td>16 – 18 cm</td><td>C</td></tr>
+          <tr><td>18 – 20 cm</td><td>D</td></tr>
+          <tr><td>20 – 22 cm</td><td>DD / E</td></tr>
+        </tbody>
+      </table>
+      <h2>Un ejemplo</h2>
+      <p>Si bajo el busto mides 74 cm, tu número es 34. Si en la parte más llena mides 89 cm, la diferencia es 15 cm: copa B. Tu talla aproximada es 34B. Si estás justo en el límite entre dos filas, prueba las dos; la banda manda: debe quedar firme en el primer broche.</p>
       <h2>Señales de que tu talla no es la correcta</h2>
       <ul>
         <li>La banda se sube por la espalda: prueba un número menos.</li>
         <li>El aro se clava o la copa se arruga: prueba otra copa.</li>
         <li>Los tirantes dejan marca: estás cargando el peso en los hombros y no en la banda.</li>
+        <li>El busto se sale por arriba o por los lados: necesitas una copa más.</li>
       </ul>
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Cada cuánto debo volver a medirme?</h3>
+      <p>Una vez al año, o después de un cambio de peso, un embarazo o la lactancia. La talla cambia más de lo que creemos.</p>
+      <h3>¿La talla es igual en todas las marcas?</h3>
+      <p>No. Las tablas cambian entre marcas y países, por eso es mejor medirte que quedarte con el número de otra tienda.</p>
+      <h3>¿Y si estoy entre dos tallas?</h3>
+      <p>Para brasier, elige la banda que quede firme y ajusta la copa. Para nuestros conjuntos en XS, S, M y L, elige la más grande: vas a estar más cómoda.</p>
       <h2>Tu talla en Aurora Femme</h2>
-      <p>Las tablas cambian entre marcas, así que no te quedes con un número de otra tienda. Nuestros <a class="enlace" href="/conjuntos-de-lenceria/">conjuntos de lencería</a> van de XS a L: mide busto y cadera y usa la <a class="enlace" href="/index.html#tallas">calculadora de tallas</a>. Si quedas entre dos tallas, elige la más grande. Y si tienes dudas, escríbenos por WhatsApp con tus medidas: te decimos cuál te queda.</p>`,
+      <p>Nuestros <a class="enlace" href="/conjuntos-de-lenceria/">conjuntos de lencería</a> van de XS a L: con tu medida de busto y de cadera usa la <a class="enlace" href="/index.html#tallas">calculadora de tallas</a>. Las <a class="enlace" href="/tangas-de-encaje/">tangas de encaje</a> y los <a class="enlace" href="/panties-invisibles/">panties invisibles</a> son talla única y se adaptan de XS a L. Si tienes dudas, escríbenos por WhatsApp con tus medidas y te decimos cuál te queda.</p>`,
   },
   {
     slug: "tangas-de-algodon-o-de-encaje",
